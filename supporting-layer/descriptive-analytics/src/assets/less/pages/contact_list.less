@@ -1,0 +1,62 @@
+.shuffle--container {
+    position: relative;
+    overflow: hidden;
+}
+
+.contact_list {
+    .reset_ul();
+    .cf();
+    overflow: hidden;
+    li {
+        width: 25%;
+        float: left;
+        display: block;
+        padding: 5px;
+        @media @screen-md-max {
+            width: 33.333333%;
+        }
+        @media @screen-sm-max {
+            width: 50%;
+        }
+        @media @screen-xs-max {
+            width: 100%;
+        }
+        > a {
+            display: block;
+            border: 1px dashed #eee;
+            padding: 10px;
+            > img {
+                float: left;
+                margin-right: 10px;
+            }
+            small {
+                .text_overflow();
+                display: block;
+            }
+            &:hover {
+                background: @brand-primary;
+                color: @white;
+                border: 1px solid @brand-primary;
+                small,
+                .contact_content span {
+                    color: @white;
+                }
+            }
+        }
+        h2 {
+            .custom_font(400, 16px, 20px);
+            margin: 0;
+            .text_overflow();
+        }
+        .contact_content {
+            overflow: hidden;
+            display: block;
+            span {
+                display: block;
+                line-height: 1.3;
+                .text_overflow();
+                margin-bottom: 6px;
+            }
+        }
+    }
+}

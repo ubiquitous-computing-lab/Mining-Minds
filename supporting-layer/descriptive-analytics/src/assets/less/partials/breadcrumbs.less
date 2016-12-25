@@ -1,0 +1,40 @@
+/* -- 6. Breadcrumbs -- */
+
+#breadcrumbs {
+	height: 32px;
+	position: relative;
+	padding: 0 15px;
+	border-width: 0 0 1px 0;
+	border-style: solid;
+	border-color: #eee;
+    background: #fff;
+	ul {
+		.reset_ul();
+        .cf();
+		li {
+			float: left;
+			font-size: 12px;
+			line-height: 32px;
+            position: relative;
+			&,
+			a {
+				color: #555;
+			}
+			& + li {
+				margin-left: 8px;
+                padding-left: 8px;
+                &:before {
+                    content: '\\';
+                    display: inline-block;
+                    position: absolute;
+                    left: -3px;
+                    top: 0;
+                    font-size: 15px;
+                }
+			}
+		}
+	}
+    .hide_breadcrumbs & {
+        display: none;
+    }
+}

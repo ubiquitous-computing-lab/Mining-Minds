@@ -1,0 +1,69 @@
+/* daterangepicker */
+
+.daterangepicker {
+    .ranges {
+        .input-mini {
+            .border-radius(0);
+        }
+        li {
+            color: @text-primary;
+            .border-radius(0);
+            &.active,
+            &:hover {
+                background: @theme-color;
+                border-color: darken(@theme-color, 10%);
+            }
+        }
+    }
+    .calendar-date {
+        border-color: #eee;
+    }
+    table {
+        tr:nth-child(2) th {
+            border-width: 0 1px 1px 0;
+            border-style: solid;
+            border-color: #e8e8e8;
+            font-weight: normal;
+            color: #2574A9;
+            &:last-child {
+                border-right: none;
+            }
+        }
+        th.month {
+            font-size: 12px;
+        }
+        tr td,
+        tr th {
+            font-size: 12px;
+            .border-radius(0);
+        }
+        tr td {
+            border-width: 0 1px 1px 0;
+            border-style: solid;
+            border-color: #e8e8e8;
+            &:last-child {
+                border-right: none;
+            }
+            &.off {
+                color: #bbb;
+            }
+            &.active {
+                &,
+                &:hover {
+                    background: #2574A9;
+                    border: none;
+                    .box-shadow(inset 0 0 0 1px darken(#2574A9, 12%)) !important;
+                }
+            }
+            &.in-range {
+                background: #f2f8fc;
+                &:hover {
+                    background: darken(#f2f8fc,5%);
+                }
+            }
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+    }
+}

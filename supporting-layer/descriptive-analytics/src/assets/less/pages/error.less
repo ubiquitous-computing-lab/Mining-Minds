@@ -1,0 +1,42 @@
+/* error page */
+
+body.error_page {
+    background: #ecf0f1;
+    text-align: center
+}
+
+#error_wrapper {
+    height: 100%;
+    text-align: center;
+    width: 500px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+#error_wrapper_inner {
+    padding: 30px 20px;
+    .error_heading {
+        font: 400 72px/80px "Open Sans", sans-serif;
+        margin: 0 0 20px
+    }
+    .error_subheading {
+        font: 400 24px/30px "Open Sans", sans-serif;
+        margin: 0 0 40px;
+        & span {
+            color: #c0392b
+        }
+    }
+    p {
+        font-size: 14px;
+        margin: 0;
+    }
+    a {
+        background: #8cc152;
+        color: #fff;
+        display: inline-block;
+        padding: 6px 16px;
+        font-size: 12px;
+        font-weight: 700;
+        text-decoration: none;
+    }
+}

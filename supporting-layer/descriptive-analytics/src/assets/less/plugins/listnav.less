@@ -1,0 +1,55 @@
+/* listnav */
+
+.listNav,
+.ln-letters {
+    .cf();
+}
+.listNavHide,
+.listNavShow {
+    .animated();
+}
+.listNavHide {
+    display: none;
+}
+.listNavShow {
+    display: list-item;
+    .fadeInRight();
+}
+.letterCountShow {
+    display: block;
+}
+.listNav {
+    margin-right: 20px;
+    float: left;
+    .ln-letters a {
+        font-size: 12px;
+        line-height: 22px;
+        display: block;
+        padding: 0 8px;
+        background: #eee;
+        margin: 0 2px 2px;
+        position: relative;
+        text-align: center;
+        &:hover,
+        &.ln-selected {
+            background-color: @brand-primary;
+            color: @white;
+        }
+        &.ln-disabled {
+            background: #f8f8f8;
+            color: #ccc;
+            cursor: default;
+        }
+    }
+    .ln-letter-count {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        text-align: center;
+        font-size: 10px;
+        line-height: 13px;
+        color: @text-primary;
+        margin-left: 2px;
+    }
+}

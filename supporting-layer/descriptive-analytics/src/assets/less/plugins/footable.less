@@ -1,0 +1,32 @@
+/* footable */
+
+.table > thead > tr > th.footable_toggler {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.footable {
+    tfoot > tr > td {
+        padding-top: 20px;
+    }
+    &.breakpoint {
+        > tbody > tr{
+            &:hover:not(.footable-row-detail) {
+                cursor: auto;
+            }
+            > td > span.footable-toggle {
+                cursor: pointer;
+            }
+            &.footable-detail-show {
+                > td {
+                    background: #fff;
+                }
+                & + .footable-row-detail > td {
+                    background: #fff;
+                    border-top: none;
+                    padding-top: 0;
+                }
+            }
+        }
+    }
+}

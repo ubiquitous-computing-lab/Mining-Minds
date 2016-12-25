@@ -1,0 +1,79 @@
+/* easy pie chart */
+
+.easy_chart_box {
+    padding: 0 8px;
+    display: inline-block;
+    + .easy_chart_box {
+        margin-left: 10px;
+    }
+    > .easy_chart {
+        display: block;
+    }
+}
+
+.easy_chart {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    > span {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        color: #444;
+    }
+    > .easy_chart_percent {
+        top: 21px;
+        .custom_font(400, 14px, 18px);
+    }
+    > .easy_chart_icon {
+        top: 22px;
+        font-size: 16px;
+    }
+    .easy_chart_percent_text {
+        top: 15px;
+        .custom_font(400, 12px, 16px);
+        small {
+            display: block;
+            font-size: 10px;
+            line-height: 14px;
+        }
+    }
+    & + .easy_chart {
+        margin-left: 30px;
+    }
+}
+
+.easy_chart_wrapper {
+	background: @white;
+	border: 1px solid rgba(0,0,0,0.1);
+	padding: 20px;
+	overflow: hidden;
+	.easy_chart_info {
+		overflow: hidden;
+		.easy_chart_heading {
+			.custom_font(400, 22px, 24px);
+			margin: 0 0 8px;
+		}
+		> p {
+			font-size: 13px;
+			color: #999;
+			margin: 0;
+		}
+	}
+    .easy_chart {
+        width: 90px;
+        height: 90px;
+        float: right;
+        margin-left: 10px;
+        > .easy_chart_percent {
+            top: 32px;
+            .custom_font(400, 20px, 24px);
+        }
+        > .easy_chart_icon {
+            top: 29px;
+            font-size: 32px;
+        }
+    }
+}

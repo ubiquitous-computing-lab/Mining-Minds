@@ -1,0 +1,120 @@
+/* fullcalendar */
+
+.fc-header-title h2 {
+    .custom_font(400, 22px, 28px);
+}
+
+/* buttons edges butting together */
+
+.fc-header {
+    margin-bottom: 20px;
+    .fc-button {
+        margin: 0
+    }
+}
+
+.fc-button {
+    padding: 0 10px;
+    height: 28px;
+    line-height: 28px;
+    font-size: 12px;
+    font-weight: normal;
+    > span:before {
+        line-height: 26px;
+    }
+    & .fc-icon {
+        margin: 0;
+        font-size: 16px;
+        font-family: inherit;
+        vertical-align: middle;
+    }
+}
+
+.fc-state-default {
+    border: none;
+    background: #e6e6e6;
+    .border-radius(0) !important;;
+    background-color: #f5f5f5;
+    color: @text-primary;
+    text-shadow: none;
+    .box-shadow(none);
+}
+
+.fc-state-hover,
+.fc-state-down,
+.fc-state-active,
+.fc-state-disabled {
+    color: @white;
+    background: @brand-primary;
+}
+
+.fc-state-hover {
+    color: @white;
+    background: @brand-primary;
+}
+
+.fc-state-down,
+.fc-state-active {
+    background: @brand-primary;
+    outline: 0;
+    .box-shadow(none);
+}
+
+.fc-state-disabled {
+    cursor: default;
+    background: none;
+    .opacity(1);
+    color: #999;
+}
+
+.fc-border-separate th {
+    border-top: none;
+    .custom_font(400, 14px, 28px);
+    color: #2574A9;
+}
+
+.fc-border-separate th,
+.fc-border-separate td {
+    border-color: #e2e2e2;
+    &.fc-first {
+        border-left: none;
+    }
+    &.fc-last {
+        border-right: none;
+    }
+}
+
+.fc-border-separate tr.fc-last td {
+    border-bottom: none;
+}
+
+.fc-grid .fc-other-month {
+    background: @sub-bg;
+}
+
+.fc-grid .fc-day-number {
+    font-size: 18px;
+    color: #999;
+    float: left;
+}
+
+.fc-event {
+    border: none;
+    font-size: 12px;
+    .border-radius(0) !important;
+    line-height: 16px;
+    padding: 0 3px;
+    background: lighten(@theme-secondary-color,8%);
+    &:hover {
+        color: #fff;
+        background: @theme-secondary-color;
+    }
+}
+
+.fc-state-highlight {
+    background: #fcf8e3;
+}
+
+.fc-cell-overlay {
+    background: lighten(@theme-secondary-color,50%);
+}

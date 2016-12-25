@@ -1,0 +1,25 @@
+/* user list */
+
+#user_list {
+    .reset_ul();
+    overflow: hidden;
+    li {
+        padding: 10px;
+        border-top: 1px solid #eee;
+        .ul_userName {
+            .custom_font(400, 20px, 24px);
+            margin: 0 0 4px;
+        }
+        p {
+            margin: 0;
+            & + p { margin-top: 10px; }
+        }
+    }
+    border-bottom: 1px solid #eee;
+}
+.ul_main_info {
+    font-size: 12px;
+    padding-bottom: 20px;
+    color: #999;
+    overflow: hidden;
+}

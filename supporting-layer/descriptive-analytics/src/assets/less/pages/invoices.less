@@ -1,0 +1,39 @@
+/* invoices */
+
+.inv_list {
+    a {
+        display: block;
+        color: @link-color;
+        .inv_list_company {
+            .text_overflow();
+            display: block;
+            .custom_font(400, 14px, 18px);
+        }
+        .inv_list_nb,
+        .inv_list_date {
+            color: #999;
+            font-size: 12px;
+        }
+    }
+}
+.qrcode {
+    canvas,
+    img {
+        max-width: 100%;
+    }
+}
+.table-invoices {
+    tfoot {
+        border-top: 2px solid #eee;
+        > tr {
+            > td {
+                border-top: none;
+                padding: 6px 8px;
+            }
+            &.grand_total > td {
+                font-size: 16px;
+                padding: 8px;
+            }
+        }
+    }
+}
