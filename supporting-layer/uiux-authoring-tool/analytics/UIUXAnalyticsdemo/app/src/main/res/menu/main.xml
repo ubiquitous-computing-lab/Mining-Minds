@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item android:id="@+id/action_notification"
+        android:icon="@drawable/ic_notifications_none_white_24dp"
+        android:title="Notification" app:showAsAction="ifRoom"/>
+
+    <item android:id="@+id/action_graphs"
+        android:icon="@drawable/ic_assessment_white_24dp"
+        android:title="Activity Graphs" app:showAsAction="ifRoom"/>
+
+    <item android:id="@+id/action_settings" android:title="@string/action_settings"
+        android:orderInCategory="100" app:showAsAction="never" />
+    <item android:id="@+id/action_logout" android:title="@string/action_logout"
+        android:orderInCategory="101" app:showAsAction="never" />
+
+
+
+</menu>

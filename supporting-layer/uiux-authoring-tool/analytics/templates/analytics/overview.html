@@ -1,0 +1,269 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<link href="/static/plugins/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
+<div class="right_col" role="main">
+          <!-- top tiles -->
+          <div class="row tile_count">
+            <div class="col-md-3 col-sm-4 col-xs-6 tile_stats_count">
+              <span class="count_top"><i class="fa fa-user"></i> Total Users</span>
+              <div class="count">{{ user|length }}</div>
+
+            </div>
+
+            <div class="col-md-3 col-sm-4 col-xs-6 tile_stats_count">
+              <span class="count_top"><i class="fa fa-user"></i> Total Males</span>
+              <div class="count green">{{ male|length }}</div>
+
+            </div>
+            <div class="col-md-3 col-sm-4 col-xs-6 tile_stats_count">
+              <span class="count_top"><i class="fa fa-user"></i> Total Females</span>
+              <div class="count">{{ female|length }}</div>
+
+            </div>
+
+            <div class="col-md-3 col-sm-4 col-xs-6 tile_stats_count">
+              <span class="count_top"><i class="fa fa-clock-o"></i> Total Visit</span>
+              <div class="count">{{total_visit}} </div>
+            </div>
+
+          </div>
+          <!-- /top tiles -->
+          <div class="row">
+               <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Visits Over Time</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content2">
+
+                    <div id="graph_line" style="width:100%; height:300px;"></div>
+                  </div>
+                </div>
+              </div>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                  <div class="x_panel">
+                    <div class="x_title">
+                      <h2>Visitors Map <small>geo-presentation</small></h2>
+                      <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                      <div class="dashboard-widget-content">
+
+                        <div id="world-map-gdp" class="col-md-12 col-sm-12 col-xs-12" style="height:230px;"></div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            </div>
+             <div class="row">
+                 <div class="col-md-6 col-sm-6 col-xs-12">
+
+                   <div class="x_panel tile  ">
+                <div class="x_title">
+                  <h2>Device Usage</h2>
+                  <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                  </ul>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                  <table class="" style="width:100%">
+                    <tr>
+                      <th style="width:37%;">
+                        <p>Top 5</p>
+                      </th>
+                      <th>
+                        <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                          <p class="">Device</p>
+                        </div>
+                      </th>
+                    </tr>
+                    <tr>
+                      <td>
+                        <canvas id="canvas1" height="140" width="140" style="margin: 15px 10px 10px 0"></canvas>
+                      </td>
+                      <td>
+                        <table class="tile_info">
+                          <tr>
+                            <td>
+                              <p><i class="fa fa-square purple"></i>Android </p>
+                            </td>
+                          </tr>
+
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+
+                    <h2>Device model</h2>
+
+                  <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>Model</th>
+
+                        </tr>
+                      </thead>
+                      <tbody>
+                       {% for device_model in device_model %}
+                        <tr>
+                          <th scope="row">{{forloop.counter}}</th>
+                          <td>{{device_model.user_agent}}</td>
+
+                        </tr>
+                        {% endfor%}
+                      </tbody>
+                    </table>
+                </div>
+              </div>
+            </div>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+              <div class="x_panel">
+                <div class="x_title">
+                  <h2>Recent Events </h2>
+                  <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+
+                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                  </ul>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                  <div class="dashboard-widget-content">
+                    <ul class="list-unstyled timeline widget">
+                      {% for log in log %}
+                       <li>
+                        <div class="block">
+                          <div class="block_content">
+                            <h2 class="title">{{log.event_category}}</h2>
+                            <div class="byline">
+                              <span>{{log.visit_time}}</span></a>
+                            </div>
+                            <p class="excerpt">{{log.event_name}}</p>
+                          </div>
+                        </div>
+                      </li>
+                      {% endfor%}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+             </div>
+
+        </div>
+
+
+
+
+{% endblock content %}
+
+
+{% block pagescript %}
+
+
+
+
+
+
+
+  <script>
+      $(document).ready(function(){
+
+
+
+
+     var gdpData = {{% for country in gb_total %} {% if  country.country %}
+                       "{{country.country|lower}}":{{country.country__count}},
+                    {% endif%}{% endfor%}};
+
+        $('#world-map-gdp').vectorMap({
+            map: 'world_en',
+            backgroundColor: null,
+            color: '#ffffff',
+            hoverOpacity: 0.7,
+            selectedColor: '#666666',
+            enableZoom: true,
+            showTooltip: true,
+            values: gdpData,
+            scaleColors: ['#E6F2F0', '#149B7E'],
+            normalizeFunction: 'polynomial'
+        });
+
+      var day_data = [
+          {% for visits in visits %}
+            {"period": "{{visits.vists_date}}", "visits": {{visits.count}}},
+          {% endfor%}
+      ];
+      Morris.Line({
+        element: 'graph_line',
+        data: day_data,
+        xkey: 'period',
+        ykeys: ['visits'],
+        labels: ['Visits']
+      });
+
+
+
+
+
+        var options = {
+          legend: false,
+          responsive: false
+        };
+
+      new Chart(document.getElementById("canvas1"), {
+          type: 'doughnut',
+          tooltipFillColor: "rgba(51, 51, 51, 0.55)",
+          data: {
+            labels: [
+              "Android",
+              "Other"
+            ],
+            datasets: [{
+              data: [{{andorid}}, {{other}}],
+              backgroundColor: [
+                "#9B59B6",
+                "#E74C3C",
+                "#26B99A",
+                "#3498DB"
+              ],
+              hoverBackgroundColor: [
+
+                "#B370CF",
+                "#E95E4F",
+                "#36CAAB",
+                "#49A9EA"
+              ]
+            }]
+          },
+          options: options
+        });
+
+
+
+      });
+    </script>
+
+
+{% endblock pagescript%}
