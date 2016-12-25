@@ -4,6 +4,8 @@
 
 Mining Minds is a collection of services, tools and techniques working collaboratively to investigate on human’s daily routines to provide a personalized well-being and health-care support
 
+visit: [miningminds.re.kr](http://www.miningminds.re.kr/)
+
 # Features
 ##  Big Data Analysis and Modeling
 Data acquisition from diverse sources of data in online and offline manner, unified representation and an interoperable and sharable model.
