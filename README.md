@@ -21,3 +21,6 @@ High quality knowledge creation and feedback-based knowledge maintenance.
 
 ##  Adaptive UI/UX
 UI/UX Authoring tool » Provide UX based adaptive UI
+
+# License
+The code is licensed under the [Apache License Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)
