@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <title>Audio/Image upload.</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>	
+<script>
+  $(document).ready(function() {
+
+     $('#uploadForm').submit(function() {
+		var revUserId = $("<input type='hidden' name='revUserId'>").val(4567);		
+		var tstamp=Date.now();
+		var timestamp = $("<input type='hidden' name='timestamp'>").val(tstamp);
+		$('#uploadForm').append($(revUserId));
+		$('#uploadForm').append($(timestamp));
+        $("#status").empty().text("File is uploading...");
+        $(this).ajaxSubmit({
+
+            error: function(xhr) {
+        status('Error: ' + xhr.status);
+		$(revUserId).remove();
+		$(timestamp).remove();		
+            },
+
+            success: function(response) {
+        $("#status").empty().text(response);
+		$(revUserId).remove();
+		$(timestamp).remove();
+                console.log(response);
+            }
+    });	
+        //Very important line, it disable the page refresh.
+    return false;
+    });    
+});
+</script>
+  </head>
+  <body>
+      <form id="uploadForm"
+         enctype="multipart/form-data"
+         action="http://127.0.0.1:8081/newFile"
+         method="post">
+      <input type="file" name="userFile" />	  
+      <input type="submit" value="Upload Audio/Image" name="submit">
+      <span id = "status"></span>
+    </form>
+  </body>  
+</html>

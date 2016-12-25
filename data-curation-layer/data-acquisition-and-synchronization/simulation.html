@@ -1,0 +1,105 @@
+<html>
+<head>
+<script src="./jquery.js"></script>
+<script>
+var uniqueNumberx = 0;
+$(document).ready(function(){	
+	$.ajaxSetup({
+		scriptCharset: "utf-8", 
+		contentType: "application/x-www-form-urlencoded; charset=utf-8"
+		});	
+});
+function sendData(numberOfData, dC)
+{
+	for(var i=0;i<numberOfData;i++)
+	{
+		var data_type=uniqueNumber();
+		var uid="1987";
+		var delay=(data_type/1000000000)*Math.random()*3;
+		var tstamp=Date.now();
+		var dt = {};
+			dt.id = data_type;
+			dt.revUserId = uid;
+			dt.timestamp = tstamp;
+			dt.data = dC;
+		//loadFile();
+		ajaxCall(dt,100);
+	}	
+}
+function ajaxCall(dt, dl)
+{
+	//var temp=setTimeout(function(){			
+			$.ajax({
+			  //dataType: 'jsonp',
+			  url: 'http://127.0.0.1:8081/newData',
+			  type: 'POST',
+			  contentType: 'application/json',
+			  data: JSON.stringify(dt),
+			  beforeSend:function(json){
+				 // do stuff with json (in this case an array)
+				 console.log("--------------------------");
+				 console.log("Data to send:"+JSON.stringify(dt));
+				 var time2Sent=Date.now();
+				 var timeObj=new Date(time2Sent)
+				 console.log("Time to send:"+ timeObj.toUTCString()+"---delay: "+dl+"ms");
+				 
+			 },
+			 error:function(){
+				 console.log("Error");
+			 }      
+			});
+		//},dl);			
+}
+
+function loadFile() {
+	var input, file, fr;
+	if (typeof window.FileReader !== 'function') {
+		bodyAppend("p", "The file API isn't supported on this browser yet.");
+		return;
+	}
+	input = document.getElementById('fileinput');
+    file = input.files[0];
+	console.log(file.name);
+	fr = new FileReader();
+	fr.onload = receivedText;
+	fr.readAsBinaryString(file);
+	function receivedText()
+	{
+		var markup, result, n, aByte, byteStr;
+		result = fr.result;
+		console.log(result.length);
+		markup = [];
+		for (n = 0; n < result.length; ++n) {
+			aByte = result.charCodeAt(n);
+			byteStr = aByte.toString(16);
+			if (byteStr.length < 2) {
+				byteStr = "0" + byteStr;
+			}
+			markup.push(byteStr);
+		}
+		sendData(10, markup.join(" "));
+	}	
+}
+
+function receivedText()
+{
+}
+
+function uniqueNumber() {
+    var date = Date.now();    
+    if (date <= uniqueNumberx) {
+        date = ++uniqueNumberx;
+    } else {
+        uniqueNumberx = date;
+    }	
+    return date;
+}
+</script>
+</head>
+<body>
+<form action='#' onsubmit="return false;">
+<input type='file' id='fileinput'>
+<input type='button' id='btnLoad' value='Load' onclick='loadFile();'>
+</form>
+</body>
+</html>
