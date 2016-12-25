@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:complexType name="physiologicalFactors">
+    <xs:sequence>
+      <xs:element name="date" type="xs:string" minOccurs="0"/>
+      <xs:element name="height" type="xs:float"/>
+      <xs:element name="id" type="xs:long" minOccurs="0"/>
+      <xs:element name="idealWeight" type="xs:float"/>
+      <xs:element name="physiologicalFactorId" type="xs:long" minOccurs="0"/>
+      <xs:element name="targetWeight" type="xs:float"/>
+      <xs:element name="userId" type="xs:long" minOccurs="0"/>
+      <xs:element name="weight" type="xs:float"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+
