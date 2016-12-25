@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+    <!-- 콘솔 로그 -->
+    <appender name="stdout" class="org.apache.log4j.ConsoleAppender">
+    	<!-- 패턴 레이아웃 설정.. -->
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%t> [%d{yyyy-MM-dd HH:mm:ss}] [%c{1}] [%L] [%p] %m %n"/>
+        </layout>
+    </appender>
+   
+    <!--  날짜별 로그 -->
+    <appender name="dailyout" class="org.apache.log4j.DailyRollingFileAppender">
+    	<!-- 이것은 날짜별로  로그를 남김. 파일명.확장자.DatePattern으로 정의 함-->
+        <param name="file" value="dailyout.log"/>
+        <param name="Append" value="true"/>
+        <param name="DatePattern" value="'.'yyMMdd"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%t> [%d{yyyy-MM-dd HH:mm:ss}] [%c{1}] [%L] [%p] %m %n"/>
+        </layout>
+    </appender>
+    
+    <!-- 특정 크기마다 백업하며 로그-->
+    <appender name="rolling" class="org.apache.log4j.RollingFileAppender">
+        <param name="file" value="rolling.log"/>
+        <param name="Append" value="true"/>
+        <param name="MaxFileSize" value="1kb"/>
+       <param name="MaxBackupIndex" value="1"/>  
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%t> [%d{yyyy-MM-dd HH:mm:ss}] [%c{1}] [%L] [%p] %m %n"/>
+        </layout>
+    </appender>
+   
+    <!-- xml 로그-->
+    <!-- xml형식으로 로그를 남김 -->
+    <appender name="xmlout" class="org.apache.log4j.FileAppender">
+        <param name="file" value="log4jxml.xml"/>
+        <param name="Append" value="true"/>
+        <layout class="org.apache.log4j.xml.XMLLayout"/>
+    </appender>
+    
+    <root>
+        <level value="WARN"/>
+        <appender-ref ref="dailyout"/>
+    </root>
+</log4j:configuration>

@@ -1,0 +1,46 @@
+@relation sm_acc_gyro
+@attribute accX_average REAL
+@attribute accY_average REAL
+@attribute accZ_average REAL
+@attribute accX_max REAL
+@attribute accY_max REAL
+@attribute accZ_max REAL
+@attribute accX_min REAL
+@attribute accY_min REAL
+@attribute accZ_min REAL
+@attribute accX_deviation REAL
+@attribute accY_deviation REAL
+@attribute accZ_deviation REAL
+@attribute accX_crossing REAL
+@attribute accY_crossing REAL
+@attribute accZ_crossing REAL
+@attribute accX_quartile REAL
+@attribute accY_quartile REAL
+@attribute accZ_quartile REAL
+@attribute accX_meanabs REAL
+@attribute accY_meanabs REAL
+@attribute accZ_meanabs REAL
+@attribute gyroX_average REAL
+@attribute gyroY_average REAL
+@attribute gyroZ_average REAL
+@attribute gyroX_max REAL
+@attribute gyroY_max REAL
+@attribute gyroZ_max REAL
+@attribute gyroX_min REAL
+@attribute gyroY_min REAL
+@attribute gyroZ_min REAL
+@attribute gyroX_deviation REAL
+@attribute gyroY_deviation REAL
+@attribute gyroZ_deviation REAL
+@attribute gyroX_crossing REAL
+@attribute gyroY_crossing REAL
+@attribute gyroZ_crossing REAL
+@attribute gyroX_quartile REAL
+@attribute gyroY_quartile REAL
+@attribute gyroZ_quartile REAL
+@attribute gyroX_meanabs REAL
+@attribute gyroY_meanabs REAL
+@attribute gyroZ_meanabs REAL
+@attribute action {Eating,Running,Sitting,Standing,Walking,Stretching,Sweeping,LyingDown}
+@data
+-0.832284369468689,-0.03430492003603528,10.119245090484618,-0.7930793166160583,-0.0035913025494664907,10.17296314239502,-0.8655039072036743,-0.06643909960985184,10.075998306274414,0.01244520584014403,0.012081260025880352,0.018383609923360095,0.4866666666666667,0.47333333333333333,0.54,0.006584048271179199,0.0,0.012569427490234375,0.009975851313273113,0.009639641311040356,0.015201368713378826,-0.0022796659357845785,-0.009040544349700213,-0.0025495329312980176,0.0,-0.006391586735844612,0.0,-0.004261057823896408,-0.011717909015715122,-0.00532632227987051,8.78697900836509E-4,0.0011323025690864333,9.11380625936367E-4,0.43333333333333335,0.4866666666666667,0.42,0.0,0.0,0.001065264455974102,7.022223293781276E-4,9.652716323733327E-4,7.705886349081994E-4,Sweeping
