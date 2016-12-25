@@ -1,0 +1,6 @@
+Walking,0
+Running,1
+Stretching,2
+Cycling,3
+Sitting,4
+D,0
