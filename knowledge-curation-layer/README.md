@@ -140,7 +140,7 @@ Example:
 	*	Download src and pom file into the appropriate project folder
 	*	Start Command Prompt
 	*	Change the directory to your project directory and folder
-	*	Run “mvn clear install” command
+	*	Run “mvn clean install” command
 	*	After succesful project build  
 	*	Go to Project folder and access the target folder to copy AuthoringEnvironment.war file
 	*	Go to apache-tomcat\webapps folder and paste war file there.
