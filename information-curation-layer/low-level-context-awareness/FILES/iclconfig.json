@@ -1,0 +1,1 @@
+{"WindowConfig":{"Activity":6,"Emotion":9,"Location":12},"HLCAddress":"http://localhost:8080/icl_whole/icl/llc/","DCLAddress":"http://163.180.116.194:8080/MMDataCurationRestfulService/webresources/InformationCuration/","HLCDelay":20,"LLCAddress":"http://localhost:8080/icl_whole/icl/llc/","ActiveRecognizers":{"SER":true,"VAR":true,"LR":true,"IAR":true,"ER":true}}

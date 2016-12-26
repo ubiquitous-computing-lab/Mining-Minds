@@ -1,0 +1,51 @@
+enums
+1. DataType
+- Data 클래스 상속한 각 클래스가 DataType이 됨.
+각자 setData함수를 구현해야 함.
+2. ContextType
+각 ContextType에는 윈도우 간격 저장
+3. RecognizerType
+각 RecognizerType는 DataType을 받아 ContextType 아웃풋을 만듬
+각 Recognizer에 어떤 DataType을 받는지, 어떤 ContextType 아웃풋을 만드는지
+
+
+3. FoodRecognizer (PDR을 변환하기)
+
+4. 키넥트 통합
+
+
+
+
+
+7. 메이븐으로 완전이적? 아시프한테 보내달라 하기
+ -  메이븐으로 버젼 컨트롤????알아보자. 
+8. 자바독 에러 고치기 - 아시프꺼 오면 하자. 존나귀찮네..
+9. 컨텍스트 타임스탬프 - 지금은 서버 껄 쓰고 있군...
+10. recognize(final InputDataType input, String timeStamp);에서, inputDataType은 빼도 되는 것 아닌지? (각 recognizer에 저장되어 있으므로..)
+11. GetRunnable은 LLCRecognizer에서 구현할 수 있지 않을까? abstract 말고..이건 해야 할 듯..
+
+
+ContextType - 완료
+External Configuration file - 완료
+유니파이어 어찌할 것인지. - 완료{
+	User 프로세스에 유니파이어 객체가 있는 것이 좋은데, 그럼 각 클래스에 버퍼를 두면 안될듯.
+	User 프로세스에 아웃풋타입만큼의 버퍼를 두고, 여기서 처리하면 될듯
+}
+Recognizer 키고 끄기 테스트 - 완료
+중간 Recognizer 다 없애자 - 완료
+
+언젠가 fillBuffer의 input type을 Data로 바꾸고 싶다. 지금은 kienct 때문에 안됨. - 완료
+War file 제대로 테스트(진혁이 컴에서 테스트 완료)
+
+데이터 압축 시도해보기 - 존나잘됨 ㅎㅎ 사킵 미안해
+Label 통합 작업 - 완료
+- label은 recognizer가 각자 가지면 안됨. label은 contextType에 위치해야 함. 
+-1. 일단 각 recognizer의 label 다 지움
+RecognizedLLC 하위클래스는 다 없애도 되지 않나.. - 완료
+
+
+5. 데모 하네스 - 완료
+-1. DataType - 완료
+-2. RecognizerType - 완료
+-3. ContextType - 완료
+-4. External Configuration File - 완료
