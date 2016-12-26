@@ -25,7 +25,7 @@ Recommendation Builder, generates recommendations through reasoning on the user 
  ### Pattern Matcher
 Enables developers to provide rule selection strategy for a particular situation or condition. PatternMatcher uses forward chaining strategy to select all applicable rules for the particular situation.
 
-###  Conflict Resolver
+### Conflict Resolver
 Enables developers to provide conflict resolution strategy when org.uclab.scl.framework.recbuilder.AbstractPatternMatcher matches or fires more than one rule for a particular situation or condition. AbstractConflictResolver provides a way through which the user can provide the implementation for  conflict resolution strategy strategy. Default implementation uses maximum specificity strategy to resolve conflict among multiple rules
      
 # 3. Setup
