@@ -1,0 +1,4 @@
+36,carbonateddrink,ramen,pizza,ham,pork,lowfatcheese,x,cucumber
+35,carbonateddrink,ramen,pizza,ham,pork,lowfatcheese,x,cucumber,salmon
+39,carbonateddrink,ramen,pizza,ham,pork,lowfatcheese,x,cucumber
+default,x

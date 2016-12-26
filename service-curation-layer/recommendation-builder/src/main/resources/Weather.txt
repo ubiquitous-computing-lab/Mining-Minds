@@ -1,0 +1,5 @@
+Rainy,1,0,1,0,1
+Sunny,1,1,1,1,1
+Windy,1,0,1,1,1
+Cloudy,1,1,1,1,1
+UnidentifiedWeather,1,1,1,1,1

@@ -1,0 +1,9 @@
+org.uclab.scl.Utilities
+org.uclab.scl.communication
+org.uclab.scl.datamodel
+org.uclab.scl.framework
+org.uclab.scl.framework.recbuilder
+org.uclab.scl.outputModel
+org.uclab.scl.outputModel.Achievement
+org.uclab.scl.outputModel.RecModel
+org.uclab.scl.rs
