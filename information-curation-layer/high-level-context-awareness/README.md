@@ -135,11 +135,11 @@ Finally reasoning was performed used pellet reasoner i.e. pellet-core-2.3.2 reas
 # 5. Authors
 <!--  Name : Claudia Villalonga and Muhammad Asif Razzaq-->
 <!---  email : cvillalonga@oslab.khu.ac.kr, asif.razzaq@oslab.khu.ac.kr-->
-:large_blue_diamond: Claudia Villalonga*: :e-mail: cvillalonga@oslab.khu.ac.kr
+:large_blue_diamond: Claudia Villalonga: :e-mail: cvillalonga@oslab.khu.ac.kr
 
-:large_blue_diamond: Muhammad Asif Razzaq*: :e-mail: asif.razzaq@oslab.khu.ac.kr
+:large_blue_diamond: Muhammad Asif Razzaq: :e-mail: asif.razzaq@oslab.khu.ac.kr
 
-:large_blue_diamond: Wajahat Ali Khan*: :e-mail: wajahat.alikhan@oslab.khu.ac.kr
+:large_blue_diamond: Wajahat Ali Khan: :e-mail: wajahat.alikhan@oslab.khu.ac.kr
 
 
 # 6. License
