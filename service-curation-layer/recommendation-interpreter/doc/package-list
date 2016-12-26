@@ -1,0 +1,10 @@
+org.uclab.scl.communication
+org.uclab.scl.datamodel.contextMapper
+org.uclab.scl.framework
+org.uclab.scl.framework.RecInterpreter
+org.uclab.scl.framework.RecInterpreter.Explanation
+org.uclab.scl.framework.RecInterpreter.FoodItemRecommender
+org.uclab.scl.framework.RecInterpreter.PARecommender
+org.uclab.scl.framework.recinterpreter
+org.uclab.scl.interpreterdatamodel
+org.uclab.scl.outputModel.InterpretationModel
