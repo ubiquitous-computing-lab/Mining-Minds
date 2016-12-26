@@ -19,15 +19,15 @@ The contribution of DCL is aligned with the definition of lifelog, meaning it is
 
 ![RB](https://github.com/ubiquitous-computing-lab/mining-minds/blob/gh-pages/figures/dcl/Data-curation-framework.jpg)
 
--(i) The ability to continuously sense for raw sensory data from multimodal data sources in real time; 
+<b>(i)</b> The ability to continuously sense for raw sensory data from multimodal data sources in real time; 
 
--(ii) The device-independent acquisition of raw sensory data. This concept contributes to the compatibility of DCL for IoT-based environments. This property increases the ability of DCL to integrate a larger set of sensory devices; 
+<b>(ii)</b> The device-independent acquisition of raw sensory data. This concept contributes to the compatibility of DCL for IoT-based environments. This property increases the ability of DCL to integrate a larger set of sensory devices; 
 
--(iii) The induction of a larger set of sensory devices results in a richer context. DCL provides comprehensive curation of this context over a user lifelog. This context-rich lifelog can be used in multidimensional ways, e.g., data accumulated from a smartphone, a smartwatch, and a depth camera can accurately identify the context of a user posture in an environment. Therefore, a health and wellness platform using DCL can make recommendations not only pertaining to his activity but also the later on effect of that activity on his muscular health;
+<b>(iii)</b> The induction of a larger set of sensory devices results in a richer context. DCL provides comprehensive curation of this context over a user lifelog. This context-rich lifelog can be used in multidimensional ways, e.g., data accumulated from a smartphone, a smartwatch, and a depth camera can accurately identify the context of a user posture in an environment. Therefore, a health and wellness platform using DCL can make recommendations not only pertaining to his activity but also the later on effect of that activity on his muscular health;
 
--(iv) DCL is equipped with a lifelog monitoring tool called LLM. In comparison with device-based activity recognition, lifelog monitoring looks for anomalies over richer context occurring over time. For reliability, expert-driven rules provide intelligence to this monitoring; 
+<b>(iv)</b> DCL is equipped with a lifelog monitoring tool called LLM. In comparison with device-based activity recognition, lifelog monitoring looks for anomalies over richer context occurring over time. For reliability, expert-driven rules provide intelligence to this monitoring; 
 
--(v) DCL provides persistence to support the large volume of heterogeneous and multimodal raw sensory data associated with the lifelog. This property enables DCL to support the forthcoming concepts of data-driven knowledge generation, descriptive and predictive analytics, and visualization. 
+<b>(v)</b> DCL provides persistence to support the large volume of heterogeneous and multimodal raw sensory data associated with the lifelog. This property enables DCL to support the forthcoming concepts of data-driven knowledge generation, descriptive and predictive analytics, and visualization. 
 
 # 2. Main Architecture
 
