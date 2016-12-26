@@ -7,6 +7,6 @@
         <wb-resource deploy-path="/" source-path="/FILES"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/WebContent/WEB-INF/classes"/>
         <property name="java-output-path" value="/ICL_LLC/build/classes"/>
-        <property name="context-root" value="icl_whole"/>
+        <property name="context-root" value="icl_llca"/>
     </wb-module>
 </project-modules>
