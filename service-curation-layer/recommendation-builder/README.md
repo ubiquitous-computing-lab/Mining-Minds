@@ -67,9 +67,9 @@ e.g. `localhost:8080/scl-miningmind-2.5/rest/`
 
 # 4. Authors
 
-- Muhamamd Afzal  `muhammad.afzal@oslab.khu.ac.kr`
 - Muhammad Sadiq  `sadiq@oslab.khu.ac.kr`
-- Rahman Ali `rahman.ali@oslab.khu.ac.kr`
+- Muhamamd Afzal  `muhammad.afzal@oslab.khu.ac.kr`
+- Rahman Ali `rahmanali@oslab.khu.ac.kr`
 
 # 5. License
 The code is licensed under the [Apache License Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)
