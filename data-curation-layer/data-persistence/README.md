@@ -3,7 +3,7 @@
 <!-- make your own badges from here: http://shields.io/ -->
 [![Version](https://img.shields.io/badge/mining%20minds-version%202.5-green.svg)](http://www.miningminds.re.kr/english/)
 [![License](https://img.shields.io/badge/Apache%20License%20-Version%202.0-yellowgreen.svg)
-
+[![JavaDoc-Version](https://img.shields.io/badge/JavaDoc-Version%202.5-green.svg)](https://ubiquitous-computing-lab.github.io/mining-minds/doc/dcl-doc/data-persistence/javadoc/index.html)
 
 --------------------------
 
@@ -82,19 +82,19 @@ you can start the File writer using by below command.
  	
 node DPServer
 
-If you see the message °∞server is running°±, server is enable to use. Server is received data and stored data in local until file size is bigger than 3000kb. If file size is over 3000kb, this local file is sending the HDFS server, and local file is initialized. 
+If you see the message ‚Äúserver is running‚Äù, server is enable to use. Server is received data and stored data in local until file size is bigger than 3000kb. If file size is over 3000kb, this local file is sending the HDFS server, and local file is initialized. 
 
-Also, You can modify the configuration of Data Persistence such as unit of stored data(in HDFS), server port and read/write file path. File writer`s configuration is declared in °Æconfig.json°Ø. 
+Also, You can modify the configuration of Data Persistence such as unit of stored data(in HDFS), server port and read/write file path. File writer`s configuration is declared in ‚Äòconfig.json‚Äô. 
 Config.JSON is consist of below data.
 
 {fileSizeUnit":3000, "port":8083, "filePath_hdfs":"/kjh", "filePath_local":"./"}
 
-°ØfileSizeUnit°Ø means limitation of file size of local file. If local file size is going to over the value of °ÆfileSizeUnit°Ø, then local file is sent to the HDFS Server.
-°Æport°Ø means the port number of Data persistence server.
-°ÆfilePath_hdfs°Ø means the file path which data is stored in HDFS server. 
-°ÆfilePath_local°Ø means the file path which data is stored in local(Defult local file name is °Ætemp.txt°Ø).
+‚ÄôfileSizeUnit‚Äô means limitation of file size of local file. If local file size is going to over the value of ‚ÄòfileSizeUnit‚Äô, then local file is sent to the HDFS Server.
+‚Äòport‚Äô means the port number of Data persistence server.
+‚ÄòfilePath_hdfs‚Äô means the file path which data is stored in HDFS server. 
+‚ÄòfilePath_local‚Äô means the file path which data is stored in local(Defult local file name is ‚Äòtemp.txt‚Äô).
 
-Also, you can modify the configuration of connection of HDFS server. °∞webhdfs-client.js°± file has the configuration data for HDFS server. Configuration data is consist of below 3 type of data.
+Also, you can modify the configuration of connection of HDFS server. ‚Äúwebhdfs-client.js‚Äù file has the configuration data for HDFS server. Configuration data is consist of below 3 type of data.
 
 user: 'hadoop', //Hadoop user
 host: 'hadoop-VirtualBox', //Namenode host
