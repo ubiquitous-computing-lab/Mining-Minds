@@ -81,8 +81,11 @@ Service Orchestrator is a wrapper for recommendation builder and recommendation 
 # 4. Authors
 
 - Muhamamd Afzal  `muhammad.afzal@oslab.khu.ac.kr`
+- Maqbool Hussain `maqbool.hussain@oslab.khu.ac.kr`
 - Muhammad Sadiq  `sadiq@oslab.khu.ac.kr`
 - Syed Imran Ali  `imran.ali@oslab.khu.ac.kr`
+- Rahman Ali `rahmanali@oslab.khu.ac.kr`
+
 
 # 5. License
 The code is licensed under the [Apache License Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)
