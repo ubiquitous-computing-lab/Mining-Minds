@@ -1,7 +1,7 @@
 # Recommendation Builder (RB)
 [![Version](https://img.shields.io/badge/mining%20minds-version%202.5-green.svg)](http://www.miningminds.re.kr/english/)
 [![License](https://img.shields.io/badge/Apache%20License%20-Version%202.0-yellowgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
-[![JavaDoc-Version](https://img.shields.io/badge/JavaDoc-Version%202.5-green.svg)](https://ubiquitous-computing-lab.github.io/mining-minds/doc/sl-doc/uiux-authoring-tool/JavaDoc/index.html)
+[![JavaDoc-Version](https://img.shields.io/badge/JavaDoc-Version%202.5-green.svg)](https://ubiquitous-computing-lab.github.io/mining-minds/doc/scl-doc/rb/doc/index.html)
 
 --------------------------
 
@@ -22,10 +22,11 @@
 Recommendation Builder, generates recommendations through reasoning on the user proﬁle and life-log data and the knowledge rules developed in a specific format. RB provided recommendations are considered as initial recommendation because of the fact that the recommendations are yet to be interpreted from the user’s contextual perspective. The initial recommendation may be forwarded as-is or transforming it to a more applicable form.
 
 # 2. Core Implementation
- - Pattern Matcher
+
+### Pattern Matcher
 Enables developers to provide rule selection strategy for a particular situation or condition. PatternMatcher uses forward chaining strategy to select all applicable rules for the particular situation.
 
-- Conflict Resolver
+### Conflict Resolver
 Enables developers to provide conflict resolution strategy when org.uclab.scl.framework.recbuilder.AbstractPatternMatcher matches or fires more than one rule for a particular situation or condition. AbstractConflictResolver provides a way through which the user can provide the implementation for  conflict resolution strategy strategy. Default implementation uses maximum specificity strategy to resolve conflict among multiple rules
      
 # 3. Setup
@@ -67,8 +68,9 @@ e.g. `localhost:8080/scl-miningmind-2.5/rest/`
 
 # 4. Authors
 
-- Muhamamd Afzal  `muhammad.afzal@oslab.khu.ac.kr`
 - Muhammad Sadiq  `sadiq@oslab.khu.ac.kr`
+- Muhamamd Afzal  `muhammad.afzal@oslab.khu.ac.kr`
+- Rahman Ali `rahmanali@oslab.khu.ac.kr`
 
 # 5. License
 The code is licensed under the [Apache License Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)
