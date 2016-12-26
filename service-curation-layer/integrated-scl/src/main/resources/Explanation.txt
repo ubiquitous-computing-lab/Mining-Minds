@@ -1,0 +1,6 @@
+Walking,You are recommended,Today is a good day for,We recommend you
+Stretching,You are recommended,Today is a good day for,We recommend you
+Cycling,You are recommended,Today is a good day for,We recommend you
+Running,You are recommended,Today is a good day for,We recommend you
+Sitting,You are recommended,Today is a good day for,We recommend you
+Default, no recommendation found
