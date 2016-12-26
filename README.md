@@ -6,9 +6,7 @@
 
 “Mining Minds” is a novel framework aimed at comprehensively mining human’s daily life data generated from heterogeneous resources for producing personalized health and wellness support. Mining Minds philosophy revolves around the concepts of data, information, knowledge and service curation, which refer to the discovery, processing, adaptation and evolution of both contents and mechanisms for the provision of high quality support services. Motivated by these concepts, a multilayer architecture is particularly devised for Mining Minds, illustrated in the following figure:
 
-<br>
-![alt tag](https://github.com/ubiquitous-computing-lab/mining-minds/blob/gh-pages/figures/landing-page/MMv2.5-Architecture-Diagram.jpg)
-<br>
+[<img src="https://github.com/ubiquitous-computing-lab/mining-minds/blob/gh-pages/figures/landing-page/MMv2.5-Architecture-Diagram.jpg">](http://uclab.khu.ac.kr/)
 
 In a nutshell, the data curation layer (DCL) is in charge of processing and persisting the data obtained from the multimodal data sources (MDS), which abstractly defines the possible sources of user health and wellness data.  is includes, but is not limited to, data from social networks, questionnaires, wearable biomedical devices or ambient intelligence systems. 
 
