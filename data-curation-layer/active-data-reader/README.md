@@ -2,7 +2,8 @@
 <!-- make your own badges from here: http://shields.io/ -->
 [![Version](https://img.shields.io/badge/mining%20minds-version%202.5-green.svg)](http://www.miningminds.re.kr/english/)
 [![License](https://img.shields.io/badge/Apache%20License%20-Version%202.0-yellowgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
-[![Spring MVC](https://img.shields.io/badge/Spring%20-MVC-green%20.svg)](https://spring.io/guides/gs/serving-web-content/)
+[![Spring MVC]https://img.shields.io/badge/Spring%20MVC%20-version%204.0-yellowgreen.svg
+
 [![Apache Hive](https://img.shields.io/badge/Apache%20Hive-Query-lightgrey.svg)](https://hive.apache.org/)
 [![JavaDoc-Version](https://img.shields.io/badge/JavaDoc-Version%202.5-green.svg)](https://ubiquitous-computing-lab.github.io/mining-minds/doc/dcl-doc/ative-data-reader/doc/index.html)
 
