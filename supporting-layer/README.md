@@ -1,6 +1,5 @@
 # Supporting Layer 
 
-## Note: follow this template and commit for changes.. 
 <!-- make your own badges from here: http://shields.io/ -->
 [![Version](https://img.shields.io/badge/ICL-2.5-ff69b4.svg)](http://www.miningminds.re.kr/english/)
 ![License](https://img.shields.io/badge/Apache%20License%20-Version%202.0-yellowgreen.svg)
@@ -8,8 +7,6 @@
 --------------------------
 
 <!-- Update the list and the main body. -->
-
-
 
 
 - [1. Introduction](#1-introduction)
@@ -25,14 +22,8 @@
 
 # 1. Introduction
 
-
 The supporting layer is in charge of user interface, visualization, analytics and security. The supporting layer create a unique interface which has the adaptive and personalized approach towards building and managing the user interfaces. The analytics gives user and experts different insights into the habits, activities and different classification of the application. 
 
-
-
-<br><br>
-![alt tag](https://nailbrainz.github.io/ICLLIB_reop/ICL.jpg)
-<br>
 # 2. Descriptive Analytics
 
 Big data is creating many opportunities for different and diverse fields to achieve deeper and faster insights that can enhance the decision making. 
@@ -43,8 +34,7 @@ Query Creation Interface takes query from Visualization Enabler and the output i
 
 Visualization Enabler takes the request from UI/UX and trends and graph data from trend analyzer. It outputs a query for query interface.  and summaries and graphs for UI/UX curation . The visualization enabler has a request manager which forwards the query from UI/UX module. This query is then passed to query creation interface. b) The graph evaluation modules takes graph data from the trend analyzer and maps it on a graph template. The visualization context takes into account the data and profile of the user
 
-
-<br><br>
+<br>
 ![alt tag](https://github.com/ubiquitous-computing-lab/mining-minds/blob/gh-pages/figures/sl/analytics.png)
 <br>
 # 3. UX/ UI Authoring Tool	
@@ -57,8 +47,7 @@ User Satisfaction Model takes feedback and outputs ersonalized Information Categ
 Personalized Information Evolution takes personalized Information Categories and outputs evolution of Personalized Repositories 
 This modules takes as input the categories form the user satisfaction model and forwards the information to the Adaptive User Interface for evolution of the personalized repositories.
 
-
-<br><br>
+<br>
 ![alt tag](https://github.com/ubiquitous-computing-lab/mining-minds/blob/gh-pages/figures/sl/uiux.png)
 <br>
 # 4. License
