@@ -34,7 +34,7 @@
 In Mining Minds the sensory data is modelled ontologically in the form of RDF Triples which are fed to HLCA for reasoning purpose.  The underlying Mining Minds Context Ontology (MMCO) models context for human behavior identification in order to enable the provision of personalized health and wellness services in Mining Minds. In Mining Minds, human context is understood as any information characterizing the physical, mental and social situation of a person which enables the identification of human behavior.  Furthermore, human context is here categorized into two different levels of abstraction: low-level context (LLC) and high-level context (HLC).  HLC has further two main classes, Physical Activity high level context (PA-HLC) and nutrition high level context (N-HLC).  PA-HLC comprises of activities, locations and emotions include daily contexts like office work, commuting, house work, gardening, amusement, exercising, sleeping, and inactivity whereas N-HLC consists of carbohydrates, protein and fats determined as per rules from activity eating, location home or restaurant, with several emotions and having any of the food items from the list of 57 identified food under 10 broader categories.   
 	-	**Mining Mind Context Ontology v2.5** (MMCOv2.5):  You can have a look at [:link:MMCO V2.5](http://www.miningminds.re.kr/lifelog/context/context-v2.5.owl) how it is designed in [:link:Protégé ](http://protege.stanford.edu/) .  
 	-	Also It can be visualized in the Screenshot as under 
-		![](./MMCO2-5.PNG)
+		![](https://github.com/masifrazzaq/test/blob/master/MMCO2-5.PNG)
 
 This  MMCO  ontologies with [owlapi](http://owlapi.sourceforge.net/) and ingests ontology formats available to owlapi (OWL, RDF, etc).  MMCO addresses following goals.
 
@@ -110,7 +110,7 @@ The requirements for executing HLCA are as under:
 	
 ## 2.3 Usage
 Once environment has been setup, MMCO v2.5 placed in the folder, the user can use HLCA.  **HLCAMapperTest** can be executed for adding new LLC of any form w.r.t. MMCO v2.5.  This will add User context to *Jena TDB* and for instance if **Sitting** LLC is added which will look like 
-![](./SittingLLC.PNG)
+![](https://github.com/masifrazzaq/test/blob/master/SittingLLC.PNG)
 
 After creating enough LLC, User can test **TestHLCA** in order to infer PA-HLC and N-HLC based on LLC like Activity, Location, Emotin and Food.  These inferred PA-HLC and N-HLC would be according to the Constraint based Rules defined in MMCO v2.5.
 
