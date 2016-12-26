@@ -76,6 +76,7 @@ e.g. `localhost:8080/recommendation-interpreter/rest/`
 
 # 3. Authors
 - Syed Imran Ali  `imran.ali@oslab.khu.ac.kr`
+- Muhammad Afzal `muhammad.afzal@oslab.khu.ac.kr`
 
 # 5. License
 The code is licensed under the [Apache License Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)
