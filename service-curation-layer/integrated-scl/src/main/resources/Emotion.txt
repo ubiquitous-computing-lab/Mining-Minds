@@ -1,5 +1,0 @@
-Anger,1,0,1,1,1
-Happiness,1,1,1,1,1
-Neutral,1,1,1,1,1
-Sadness,1,0,1,1,1
-UnidentifiedEmotion,1,1,1,1,1
