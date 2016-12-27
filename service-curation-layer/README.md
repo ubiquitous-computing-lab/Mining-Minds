@@ -33,7 +33,7 @@ Recommendation Interpreter (RI) is envisioned as a contextual information proces
 ![RI](https://github.com/ubiquitous-computing-lab/mining-minds/blob/gh-pages/figures/scl/ri_arch.png)
 
 # 5. Execution Guidlines
-There are three sub-projects in SCL (i) Integrated SCL, (ii) Recommendation Builder (RB), and (iii) Recommendation Interpreter (RI). Integrated SCL holds the capabilities of both RB and Ri and by running it, the user get overall functionally of SCL. However, RB and RI can work independently as well thus they are release as separate projects. Depends on user need and requirement, these projects can be utilized accordingly.
+There are two sub-projects in SCL (i) Recommendation Builder (RB), and (ii) Recommendation Interpreter (RI). RB and RI can work independently as well thus they are release as separate projects. Depends on user need and requirement, these projects can be utilized accordingly.
 
 # 5. License
 The code is licensed under the [Apache License Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)
