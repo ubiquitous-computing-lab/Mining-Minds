@@ -1,8 +1,7 @@
-# Expert-Driven Knowledge Acquisition: Intelligent Knowledge Authoring Tool (I-KAT)
+# Knowledge Curation Layer (KCL)
 <!-- make your own badges from here: http://shields.io/ -->
 [![Version](https://img.shields.io/badge/mining%20minds-version%202.5-green.svg)](http://www.miningminds.re.kr/english/)
 [![License](https://img.shields.io/badge/Apache%20License%20-Version%202.0-yellowgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
-[![JavaDoc-Version](https://img.shields.io/badge/JavaDoc-Version%202.5-green.svg)](https://ubiquitous-computing-lab.github.io/mining-minds/doc/kcl-doc/i-kat/doc/index.html)
 
 
 --------------------------
@@ -14,7 +13,8 @@
 
 - [1. Introduction](#1-introduction)
     - [1.1 Core Implementation](#11-core-implementation)
-   
+    	- [1.1.1 I-KAT Core Compnents](#111-I-KAT Core Compnents)
+		- [1.1.2 Situation Reasoner](#112-Situation Reasoner)
 - [2. Getting started](#2-getting-Started)
     - [2.1 Requirements](#21-requirements)
     - [2.2 Installation](#22-installation)
@@ -33,21 +33,29 @@
 
 # 1. Introduction
 
-Effective and smart recommendation systems depend on the up-to-date and validated knowledge base. As we know that in every field of life, 
-knowledge plays a vital role and all intelligent decisions are made based on knowledge. So knowledge should be accurate and updated. 
-For producing and maintaining accurate knowledge, various machine learning and evolutionary techniques are used to update and maintain the 
-knowledge base. The experts’ interaction with knowledge base is mandatory to evolve the knowledge base with validated knowledge.
+Effective and smart recommendation systems depend on the up-to-date and validated knowledge base. As we know that in every field of life, knowledge plays a vital role 
+and all intelligent decisions are made based on knowledge. So knowledge should be accurate and updated. For producing and maintaining accurate knowledge, various machine
+learning and evolutionary techniques are used to update and maintain the knowledge base. The experts’ interaction with knowledge base is mandatory to evolve the 
+knowledge base with validated knowledge.
+The Expert Driven- knowledge acquisition tool creates and maintains the knowledge using Wellness Concepts Model and Intelli-sense functionalities to facilitate the 
+service curation layer for better quality of service. In Expert-driven approach, domain expert creates and maintains the knowledge through authoring environment with minimum 
+intervention of knowledge engineers. For rule authoring, Knowledge Acquisition Tool is built that acquires knowledge from domain expert. The proposed system provides situation 
+based indexing in rules of knowledge base. The situations in rules allow the Life-log monitor to observe the defined situations for users, whenever the alarming situations 
+occurred then the system provides the right recommendation at right time.
 
-The Expert Driven- knowledge acquisition tool creates and maintains the knowledge using Wellness Concepts Model and 
-Intelli-sense functionalities to facilitate the service curation layer for better quality of service. In Expert-driven approach, domain expert 
-creates and maintains the knowledge through authoring environment with minimum intervention of knowledge engineers. For rule authoring, Knowledge 
-Acquisition Tool is built that acquires knowledge from domain expert. The proposed system provides situation based indexing in rules of knowledge 
-base. The situations in rules allow the Life-log monitor to observe the defined situations for users, whenever the alarming situations occurred 
-then the system provides the right recommendation at right time.
+![alt tag](https://github.com/ubiquitous-computing-lab/mining-minds/blob/gh-pages/figures/kcl/IKATArchitecture.png)
  
 ## 1.1 Core Implementation
 
-There is main project developed according to Spring MVC pattern as a maven project.
+The expert driven knowledge acquisition is mainly include Two core components; The authoring environment, called Intelligent Knowlege Authoring Tool (I-KAT) and the sitution reasoner. 
+The I-KAT is developed according to Spring MVC pattern as a maven project. The situation reasoner is implemented built-in to the knowledge-base as T-SQL stored-procedure.
+
+### 1.1.1 I-KAT Core-Compnents 
+The expert driven knowlege acquisition support knowledge from experts and provides reasoning based on situations occured in life-log. 
+The authroing environment is developed to make ease in acquisition of knowledge from experts and support situation-based indexing to the
+newly created rules. Furthermore, the enviornment is accompanied with situation-based reasoning to enable rules selection based on situations. 
+Following are detailes of implementation component.
+
 - Controllers:<br>
 	The controllers provide bridge between the data models and views of the project. Currently we are handling following three controllers to handle 
 	knowledge base (Rules), users of the knowledge base, and wellness concepts model. It contains under the package of "org.uclab.mm.kcl.edkat.controller".
@@ -89,6 +97,19 @@ There is main project developed according to Spring MVC pattern as a maven proje
 		The rule editor view is the main editor for creating new rule and updating the existing rules. This editor provides saparate slot for meta information of the rule, saparate
 		slot for adding multiple conditions of a particular rule, saparate slot for multiple conclusions of the rule. The rule editor also facilitates the domain experts to select
 		required conditional facts as situations. The selected situations are using by life-log monitor to find the abnormal situations of the user.
+		
+### 1.1.2 Situation Reasoner
+Situation Reasoner is T-SQL based stored procedure [usp_SituationBasedReasoner] which match the candidate rules based on the situation provided as an input. 
+It expects the situation and produce set of candidate rules which match to the intended situations. In order to capture the complex situation it explictly 
+consumes the total number of attributes in the situation.
+ The situaion reasoner expect the situation in the following format; 
+@situationEventData Format: ( c.ConditionKey = 'Current Activity' AND c.ConditionValueOperator = '=' AND c.ConditionValue = 'Sitting' ) OR 
+( c.ConditionKey = 'Activity Duration' AND c.ConditionValueOperator = '=' AND c.ConditionValue = '2h' )
+ @siuationEventCount = 2 }
+ 
+ In this example: the reasoner expects situation which represent the sitting activity of user with duration of two hours. In order to represent this situation, First attribute is 
+ used to identify the "Sitting" activity and Second attibutes captures the "Duration" of the intended activities. After all, this situation is composed of TWO attributes which are 
+ represented as logical "OR". The number of attributes are consumed in @siuationEventCount parameter.
 			
 # 2. Getting Started
 
@@ -140,7 +161,7 @@ Example:
 	*	Download src and pom file into the appropriate project folder
 	*	Start Command Prompt
 	*	Change the directory to your project directory and folder
-	*	Run “mvn clean install” command
+	*	Run “mvn clear install” command
 	*	After succesful project build  
 	*	Go to Project folder and access the target folder to copy AuthoringEnvironment.war file
 	*	Go to apache-tomcat\webapps folder and paste war file there.
@@ -191,9 +212,11 @@ Write the main features
 
 # 5. Author
 
--  Name : Taqdir Ali
--  email : taqdir.ali@oslab.khu.ac.kr.
+-  Name : Maqbool Hussaing
+-  email : maqbool.hussain@oslab.khu.ac.kr.
 
+-  Name : Taqdir Ali 
+-  email : taqdir.ali@oslab.khu.ac.kr.
 
 # 6. License
 
