@@ -19,27 +19,53 @@ limitations under the License.
 
 ?><?php
 include_once("functions.php");
-$emotiondata=array();$week=6;
-for($i=0;$i<7;$i++){
 
-	$starttimeobject = new DateTime('-'.$week.' days');
-	//print $starttimeobject->format('Y m d');
-	$hlcdata[$i]["date"]=$starttimeobject->format('Y-m-d');
-	$hlcdata[$i]["Amusement"]=0;
-	$hlcdata[$i]["Commuting"]=0;
-	$hlcdata[$i]["Exercising"]=0;
-	$hlcdata[$i]["Gardening"]=0;
-	$hlcdata[$i]["HavingMeal"]=0;
-	$hlcdata[$i]["HouseWork"]=0;
-	$hlcdata[$i]["Inactivity"]=0;
-	$hlcdata[$i]["OfficeWork"]=0;
-	$hlcdata[$i]["Sleeping"]=0;
-	$week--;
-}
+class weeklyhlc{
 
 
 
 
+		var $name;
+		public function __construct($name) {		
+			$this->name = $name;		
+		}		
+ 
+		public function set_name($new_name) {
+		 	 $this->name = $new_name;
+		}	
+ 
+		public function get_name() {		
+		 	 return $this->name;		
+		 }		
+
+
+	public function weeklyhlcJS() {	
+	
+	
+	
+					
+				$uid=$_GET['userid'];
+				$emotiondata=array();$week=6;
+				for($i=0;$i<7;$i++){
+				
+					$starttimeobject = new DateTime('-'.$week.' days');
+					//print $starttimeobject->format('Y m d');
+					$hlcdata[$i]["date"]=$starttimeobject->format('Y-m-d');
+					$hlcdata[$i]["Amusement"]=0;
+					$hlcdata[$i]["Commuting"]=0;
+					$hlcdata[$i]["Exercising"]=0;
+					$hlcdata[$i]["Gardening"]=0;
+					$hlcdata[$i]["HavingMeal"]=0;
+					$hlcdata[$i]["HouseWork"]=0;
+					$hlcdata[$i]["Inactivity"]=0;
+					$hlcdata[$i]["OfficeWork"]=0;
+					$hlcdata[$i]["Sleeping"]=0;
+					$week--;
+				}
+				
+				
+				
+				
 
 						$starttimeobject = new DateTime('-6 days');
 						//$starttimeobject = new DateTime('2015-05-16');
@@ -70,65 +96,65 @@ for($i=0;$i<7;$i++){
 
 						$url="$dclserver/MMDataCurationRestfulService/webresources/InformationCuration/GetUserRecognizedHLCByUserIDDateRange";
 						$json = json_encode($data,true);
-						$result =postJsonRest($url,$json);		
+						$result =$this->postJsonRest($url,$json);		
 						$result=json_decode($result,true);	
 							
 
-		for($i=0;$i<count($result);$i++){
-		
-			
-			$key = array_search(substr($result[$i]['startTime'],0,10), array_column($hlcdata, 'date'));
-			
-			if($result[$i]['hLCLabel']=="Amusement"){
-			
-				
-				$hlcdata[$key]["Amusement"]=$hlcdata[$key]["Amusement"]+$result[$i]['duration'];
-			
-			}	
-			
-			if($result[$i]['hLCLabel']=="Exercising"){
-				$hlcdata[$key]["Exercising"]=$hlcdata[$key]["Exercising"]+$result[$i]['duration'];
-			
-			}	
-			if($result[$i]['hLCLabel']=="Commuting"){
-				$hlcdata[$key]["Commuting"]=$hlcdata[$key]["Commuting"]+$result[$i]['duration'];
-			
-			}	
-			if($result[$i]['hLCLabel']=="Gardening"){
-				$hlcdata[$key]["Gardening"]=$hlcdata[$key]["Gardening"]+$result[$i]['duration'];
-			
-			}	
-			
-			if($result[$i]['hLCLabel']=="HavingMeal"){
-			
-				
-				$hlcdata[$key]["HavingMeal"]=$hlcdata[$key]["HavingMeal"]+$result[$i]['duration'];
-			
-			}	
-			
-			if($result[$i]['hLCLabel']=="HouseWork"){
-				$hlcdata[$key]["HouseWork"]=$hlcdata[$key]["HouseWork"]+$result[$i]['duration'];
-			
-			}	
-			
-			if($result[$i]['hLCLabel']=="Inactivity"){
-				$hlcdata[$key]["Inactivity"]=$hlcdata[$key]["Inactivity"]+$result[$i]['duration'];
-			
-			}	
-			if($result[$i]['hLCLabel']=="OfficeWork"){
-			
-				
-				$hlcdata[$key]["OfficeWork"]=$hlcdata[$key]["OfficeWork"]+$result[$i]['duration'];
-			
-			}	
-			
-			if($result[$i]['hLCLabel']=="Sleeping"){
-				$hlcdata[$key]["Sleeping"]=$hlcdata[$key]["Sleeping"]+$result[$i]['duration'];
-			
-			}	
-			
-			
-			}	
+						for($i=0;$i<count($result);$i++){
+						
+							
+							$key = array_search(substr($result[$i]['startTime'],0,10), array_column($hlcdata, 'date'));
+							
+							if($result[$i]['hLCLabel']=="Amusement"){
+							
+								
+								$hlcdata[$key]["Amusement"]=$hlcdata[$key]["Amusement"]+$result[$i]['duration'];
+							
+							}	
+							
+							if($result[$i]['hLCLabel']=="Exercising"){
+								$hlcdata[$key]["Exercising"]=$hlcdata[$key]["Exercising"]+$result[$i]['duration'];
+							
+							}	
+							if($result[$i]['hLCLabel']=="Commuting"){
+								$hlcdata[$key]["Commuting"]=$hlcdata[$key]["Commuting"]+$result[$i]['duration'];
+							
+							}	
+							if($result[$i]['hLCLabel']=="Gardening"){
+								$hlcdata[$key]["Gardening"]=$hlcdata[$key]["Gardening"]+$result[$i]['duration'];
+							
+							}	
+							
+							if($result[$i]['hLCLabel']=="HavingMeal"){
+							
+								
+								$hlcdata[$key]["HavingMeal"]=$hlcdata[$key]["HavingMeal"]+$result[$i]['duration'];
+							
+							}	
+							
+							if($result[$i]['hLCLabel']=="HouseWork"){
+								$hlcdata[$key]["HouseWork"]=$hlcdata[$key]["HouseWork"]+$result[$i]['duration'];
+							
+							}	
+							
+							if($result[$i]['hLCLabel']=="Inactivity"){
+								$hlcdata[$key]["Inactivity"]=$hlcdata[$key]["Inactivity"]+$result[$i]['duration'];
+							
+							}	
+							if($result[$i]['hLCLabel']=="OfficeWork"){
+							
+								
+								$hlcdata[$key]["OfficeWork"]=$hlcdata[$key]["OfficeWork"]+$result[$i]['duration'];
+							
+							}	
+							
+							if($result[$i]['hLCLabel']=="Sleeping"){
+								$hlcdata[$key]["Sleeping"]=$hlcdata[$key]["Sleeping"]+$result[$i]['duration'];
+							
+							}	
+							
+							
+							}	
 
 ?>
 <script>
@@ -272,3 +298,82 @@ AmCharts.makeChart("hlcchartdiv",
 
 
 </script>
+
+
+<?php
+
+
+}
+
+
+
+
+
+
+
+
+
+ 
+ /*********************************************************************************************
+							
+							function to post json to a rest service
+							
+	**********************************************************************************************/
+							
+							
+							public function postJsonRest($url,$json){
+							
+									$client=curl_init($url);
+									
+									curl_setopt($client, CURLOPT_POSTFIELDS, $json);
+									curl_setopt($client, CURLOPT_RETURNTRANSFER, true);
+									
+									
+									
+									curl_setopt($client, CURLOPT_HTTPHEADER, array(
+									'Content-Type: application/json',
+									'Content-Length: ' . strlen($json))
+								);
+								
+								
+									curl_setopt($client, CURLOPT_TIMEOUT, 5);
+									curl_setopt($client, CURLOPT_CONNECTTIMEOUT, 5);
+								
+									
+									$response=curl_exec($client);
+									//$result=json_decode($response,true);
+							//		print $response;
+									curl_close($client);
+									return $response;
+								
+							}
+							
+							
+							/*********************************************************************************************
+							
+							
+							function to get json from a rest service
+							
+							
+							**********************************************************************************************/
+							
+							public function getJsonRest($url){
+							
+									$client=curl_init($url);
+									
+								
+									//for get
+									curl_setopt($client,CURLOPT_RETURNTRANSFER,1);
+									
+										
+									//response from url
+									$response=curl_exec($client);
+									$result=json_decode($response,true);
+									curl_close($client);
+									return $result;
+							
+							}
+
+}
+
+?>

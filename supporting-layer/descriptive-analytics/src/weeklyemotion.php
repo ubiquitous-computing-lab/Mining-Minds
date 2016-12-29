@@ -19,24 +19,48 @@ limitations under the License.
 
 ?><?php
 include_once("functions.php");
-$emotiondata=array();$week=29;
 
-for($i=0;$i<30;$i++){
-
-	$starttimeobject = new DateTime('-'.$week.' days');
-	//print $starttimeobject->format('Y m d');
-	$emotiondata[$i]["date"]=$starttimeobject->format('Y-m-d');
-	$emotiondata[$i]["Sadness"]=0;
-	$emotiondata[$i]["Happiness"]=0;
-	$emotiondata[$i]["Anger"]=0;
-	$week--;
-}
+class weeklyemotion{
 
 
 
 
+		var $name;
+		public function __construct($name) {		
+			$this->name = $name;		
+		}		
+ 
+		public function set_name($new_name) {
+		 	 $this->name = $new_name;
+		}	
+ 
+		public function get_name() {		
+		 	 return $this->name;		
+		 }		
 
-						$starttimeobject = new DateTime('-29 days');
+
+	public function weeklyemotionJS() {	
+
+
+					$uid=$_GET['userid'];
+
+					$emotiondata=array();$week=6;
+					for($i=0;$i<7;$i++){
+					
+						$starttimeobject = new DateTime('-'.$week.' days');
+						//print $starttimeobject->format('Y m d');
+						$emotiondata[$i]["date"]=$starttimeobject->format('Y-m-d');
+						$emotiondata[$i]["Sadness"]=0;
+						$emotiondata[$i]["Happiness"]=0;
+						$emotiondata[$i]["Anger"]=0;
+						$week--;
+					}
+
+
+
+
+
+						$starttimeobject = new DateTime('-6 days');
 						//$starttimeobject = new DateTime('2015-05-16');
 						$starttimeobject->setTime(00,00,00);
 						
@@ -74,41 +98,41 @@ for($i=0;$i<30;$i++){
 								
 						$json = json_encode($data,true);
 									
-						$result =postJsonRest($url,$json);		
+						$result =$this->postJsonRest($url,$json);		
 						$result=json_decode($result,true);	
 					
-
-for($i=0;$i<count($result);$i++){
-
-	
-	$key = array_search(substr($result[$i]['startTime'],0,10), array_column($emotiondata, 'date'));
-	
-	if($result[$i]['emotionLabel']=="Sadness"){
-	
-		
-		$emotiondata[$key]["Sadness"]=$emotiondata[$key]["Sadness"]+$result[$i]['duration'];
-	
-	}	
-	
-	if($result[$i]['emotionLabel']=="Happiness"){
-		$emotiondata[$key]["Happiness"]=$emotiondata[$key]["Happiness"]+$result[$i]['duration'];
-		
-	
-	}	
-	
-	if($result[$i]['emotionLabel']=="Anger"){
-		$emotiondata[$key]["Anger"]=$emotiondata[$key]["Anger"]+$result[$i]['duration'];
-	
-	}	
-	
-}
-			
-			
+							
+							for($i=0;$i<count($result);$i++){
+							
+								
+								$key = array_search(substr($result[$i]['startTime'],0,10), array_column($emotiondata, 'date'));
+								
+								if($result[$i]['emotionLabel']=="Sadness"){
+								
+									
+									$emotiondata[$key]["Sadness"]=$emotiondata[$key]["Sadness"]+$result[$i]['duration'];
+								
+								}	
+								
+								if($result[$i]['emotionLabel']=="Happiness"){
+									$emotiondata[$key]["Happiness"]=$emotiondata[$key]["Happiness"]+$result[$i]['duration'];
+									
+								
+								}	
+								
+								if($result[$i]['emotionLabel']=="Anger"){
+									$emotiondata[$key]["Anger"]=$emotiondata[$key]["Anger"]+$result[$i]['duration'];
+								
+								}	
+								
+							}
+										
+										
 
 
 ?>
 <script>
-AmCharts.makeChart("monthlyemotionchartdiv",
+AmCharts.makeChart("emotionchartdiv",
 				{
 					"type": "serial",
 					<!--"pathToImages": "http://cdn.amcharts.com/lib/3/images/",-->
@@ -207,6 +231,75 @@ AmCharts.makeChart("monthlyemotionchartdiv",
 
 
  
+ <?php
  
+ }
+ 
+ 
+ 
+ 	/*********************************************************************************************
+							
+							function to post json to a rest service
+							
+	**********************************************************************************************/
+							
+							
+							public function postJsonRest($url,$json){
+							
+									$client=curl_init($url);
+									
+									curl_setopt($client, CURLOPT_POSTFIELDS, $json);
+									curl_setopt($client, CURLOPT_RETURNTRANSFER, true);
+									
+									
+									
+									curl_setopt($client, CURLOPT_HTTPHEADER, array(
+									'Content-Type: application/json',
+									'Content-Length: ' . strlen($json))
+								);
+								
+								
+									curl_setopt($client, CURLOPT_TIMEOUT, 5);
+									curl_setopt($client, CURLOPT_CONNECTTIMEOUT, 5);
+								
+									
+									$response=curl_exec($client);
+									//$result=json_decode($response,true);
+							//		print $response;
+									curl_close($client);
+									return $response;
+								
+							}
+							
+							
+							/*********************************************************************************************
+							
+							
+							function to get json from a rest service
+							
+							
+							**********************************************************************************************/
+							
+							public function getJsonRest($url){
+							
+									$client=curl_init($url);
+									
+								
+									//for get
+									curl_setopt($client,CURLOPT_RETURNTRANSFER,1);
+									
+										
+									//response from url
+									$response=curl_exec($client);
+									$result=json_decode($response,true);
+									curl_close($client);
+									return $result;
+							
+							}
+ 
+ 
+ }
+ 
+ ?>
  
  

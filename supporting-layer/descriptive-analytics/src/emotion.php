@@ -19,9 +19,32 @@ limitations under the License.
 
 ?><?php
 include_once("functions.php");
-$emotiondata=array();$week=29;
 
-for($i=0;$i<30;$i++){
+class emotion{
+
+
+
+
+		var $name;
+		public function __construct($name) {		
+			$this->name = $name;		
+		}		
+ 
+		public function set_name($new_name) {
+		 	 $this->name = $new_name;
+		}	
+ 
+		public function get_name() {		
+		 	 return $this->name;		
+		 }		
+
+
+	public function emotionJS() {	
+
+
+
+$emotiondata=array();$week=6;
+for($i=0;$i<7;$i++){
 
 	$starttimeobject = new DateTime('-'.$week.' days');
 	//print $starttimeobject->format('Y m d');
@@ -36,7 +59,7 @@ for($i=0;$i<30;$i++){
 
 
 
-						$starttimeobject = new DateTime('-29 days');
+						$starttimeobject = new DateTime('-6 days');
 						//$starttimeobject = new DateTime('2015-05-16');
 						$starttimeobject->setTime(00,00,00);
 						
@@ -108,7 +131,7 @@ for($i=0;$i<count($result);$i++){
 
 ?>
 <script>
-AmCharts.makeChart("monthlyemotionchartdiv",
+AmCharts.makeChart("emotionchartdiv",
 				{
 					"type": "serial",
 					<!--"pathToImages": "http://cdn.amcharts.com/lib/3/images/",-->

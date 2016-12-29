@@ -1,4 +1,26 @@
+<?php
+/*
+Copyright [2016] [Shujaat Hussain]
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+*/
+?>
+
+
+
 <?php // include "functions.php";
+
 
 
 include_once("server.php");
@@ -43,63 +65,42 @@ class dashboardActivity {
 			}
     }
 			
+		public function dashboardactivityjs($data){	
 		
-		}
-
-
-$dashboardData = new dashboardActivity;
-$dashboardData->userId = 0;
-$dashboardData->startTime = $start;
-$dashboardData->endTime = $end;
-
-
-$data = array(
+					global $dclserver;
+					$url="$dclserver/MMDataCurationRestfulService/webresources/InformationCuration/GetUserRecognizedActivityAccumulateByUserAndDateRange";
+					$json = json_encode($data,true);
+					$result =postJsonRest($url,$json);
+					//echo "<pre> hello";
+					$result=json_decode($result,true); 
+					//print_r($result);
+					$sittingtime=0;$standingtime=0;$walkingtime=0;$runningtime=0;
+					for($i=0;$i<count($result);$i++){
+						
+						//sitting
+						if($result[$i]['activityId']==3){//sitting
+						
+							$sittingtime=$sittingtime+$result[$i]['duration'];
+						
+						}else if($result[$i]['activityId']==8){//standing
+							$standingtime=$standingtime+$result[$i]['duration'];
+						
+						}else if($result[$i]['activityId']==2){//Walking
+							$walkingtime=$walkingtime+$result[$i]['duration'];
+						
+						}else if($result[$i]['activityId']==1){//running
+							$runningtime=$runningtime+$result[$i]['duration'];
+						
+						} 
+					
+					
+					
+					}
+					
+					//print $sittingtime." ".$standingtime." ".$walkingtime."  ".$runningtime;
+		?>
 		
-				"userId"=>$dashboardData->userId,
-				"startTime"=>$dashboardData->startTime,
-				"endTime"=>$dashboardData->endTime 
-		
-		);
-
-
-
-
-
-
-global $dclserver;
-$url="$dclserver/MMDataCurationRestfulService/webresources/InformationCuration/GetUserRecognizedActivityAccumulateByUserAndDateRange";
-$json = json_encode($data,true);
-$result =postJsonRest($url,$json);
-//echo "<pre> hello";
-$result=json_decode($result,true); 
-//print_r($result);
-$sittingtime=0;$standingtime=0;$walkingtime=0;$runningtime=0;
-for($i=0;$i<count($result);$i++){
-	
-	//sitting
-	if($result[$i]['activityId']==3){//sitting
-	
-		$sittingtime=$sittingtime+$result[$i]['duration'];
-	
-	}else if($result[$i]['activityId']==8){//standing
-		$standingtime=$standingtime+$result[$i]['duration'];
-	
-	}else if($result[$i]['activityId']==2){//Walking
-		$walkingtime=$walkingtime+$result[$i]['duration'];
-	
-	}else if($result[$i]['activityId']==1){//running
-		$runningtime=$runningtime+$result[$i]['duration'];
-	
-	} 
-
-
-
-}
-
-//print $sittingtime." ".$standingtime." ".$walkingtime."  ".$runningtime;
-
-?>
-<script>
+		<script>
 var chart = AmCharts.makeChart( "chartdiv", {
   "type": "pie",
   "theme": "light",
@@ -127,3 +128,32 @@ var chart = AmCharts.makeChart( "chartdiv", {
 } );
 
 </script>
+		
+		
+		<?php
+		
+		}
+}
+
+$dashboardData = new dashboardActivity;
+$dashboardData->userId = 0;
+$dashboardData->startTime = $start;
+$dashboardData->endTime = $end;
+
+
+$data = array(
+		
+				"userId"=>$dashboardData->userId,
+				"startTime"=>$dashboardData->startTime,
+				"endTime"=>$dashboardData->endTime 
+		
+		);
+
+
+
+
+
+$dashboardData->dashboardActivityjs($data);
+
+
+?>
