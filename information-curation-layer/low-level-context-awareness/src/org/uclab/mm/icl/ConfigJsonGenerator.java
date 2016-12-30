@@ -16,6 +16,8 @@ limitations under the License.
 
 package org.uclab.mm.icl;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.PrintWriter;
 import org.json.JSONObject;
 import org.uclab.mm.icl.llc.config.ContextType;
@@ -115,12 +117,12 @@ public class ConfigJsonGenerator {
 		
 		
 		for (int i=0;i<10;i++) {
-			// 각각의 레벨에 맞춰 로그를 남김
-			LLogger.logger.debug("debug 로그");
-			LLogger.logger.info("info 로그");
-			LLogger.logger.warn("warn 로그");
-			LLogger.logger.error("error 로그");
-			LLogger.logger.fatal("fatal 로그");
+			// 媛곴컖�쓽 �젅踰⑥뿉 留욎떠 濡쒓렇瑜� �궓源�
+			LLogger.logger.debug("debug 濡쒓렇");
+			LLogger.logger.info("info 濡쒓렇");
+			LLogger.logger.warn("warn 濡쒓렇");
+			LLogger.logger.error("error 濡쒓렇");
+			LLogger.logger.fatal("fatal 濡쒓렇");
 		}
 		/*
 		Scanner scan = new Scanner(new File("D:/EmoJHLog.txt"));

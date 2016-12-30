@@ -28,6 +28,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.json.JSONObject;
+import org.uclab.mm.icl.ConfigJsonGenerator;
 import org.uclab.mm.icl.utils.FileUtil;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
