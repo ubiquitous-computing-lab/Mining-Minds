@@ -46,7 +46,7 @@ UI/UX Authoring tool » Provide UX based adaptive UI
 
 - Dr. Oresti Banos (oresti@oslab.khu.ac.kr)
 
-#### Project Manager & Team Lead (PM - PL)
+#### Project Manager & Team Lead (PM - TL)
 
 - Dr. Muhammad Bilal Amin (m.b.amin@ieee.org)
 
