@@ -3,7 +3,8 @@
 <!-- make your own badges from here: http://shields.io/ -->
 [![Version](https://img.shields.io/badge/MM__SL__DA-V2.5-ff69b4.svg)](http://www.miningminds.re.kr/english/)
 ![License](https://img.shields.io/badge/Apache%20License%20-Version%202.0-yellowgreen.svg)
-[![APIDoc-Version](https://img.shields.io/badge/apiDoc-2.5-green.svg)](https://ubiquitous-computing-lab.github.io/Mining-Mind/doc/sl-doc/Analytics/documentation.htm)
+[![APIDoc-Version](https://img.shields.io/badge/apiDoc-2.5-green.svg)](https://ubiquitous-computing-lab.github.io/Mining-Minds/doc/sl-doc/Analytics/documentation.html)
+
 
 <!-- Update the list and the main body. -->
 
