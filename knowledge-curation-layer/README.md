@@ -212,7 +212,7 @@ Write the main features
 
 # 5. Author
 
--  Name : Maqbool Hussaing
+-  Name : Maqbool Hussain
 -  email : maqbool.hussain@oslab.khu.ac.kr.
 
 -  Name : Taqdir Ali 
