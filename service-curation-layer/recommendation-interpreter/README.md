@@ -23,20 +23,20 @@
   
 # 1. Introduction
 
-**Recommendation Interpreter (RI) is envisioned as a contextual information processing unit of a larger recommendation generating system. In the current, concept-of-proof implementation, RI deals with two kinds of recommendations i.e. physical activity based recommendation and food-items recommendation. The main purpose of RI is to complement the recommendation generated based on user’s physiological requirements or conditions. RI takes into account contextual information of the user in terms of location of the user, user’s current activity, weather conditions, and emotional state of the user. Physical activity recommendations are based on a novel concept called “Contextual Matrix”. Contextual Matrix processes users’ preference data and in turn produces cross-contextual global patterns. This contextual matrix is populated using users’ surveyed data.
+Recommendation Interpreter (RI) is envisioned as a contextual information processing unit of a larger recommendation generating system. In the current, concept-of-proof implementation, RI deals with two kinds of recommendations i.e. physical activity based recommendation and food-items recommendation. The main purpose of RI is to complement the recommendation generated based on user’s physiological requirements or conditions. RI takes into account contextual information of the user in terms of location of the user, user’s current activity, weather conditions, and emotional state of the user. Physical activity recommendations are based on a novel concept called “Contextual Matrix”. Contextual Matrix processes users’ preference data and in turn produces cross-contextual global patterns. This contextual matrix is populated using users’ surveyed data.
 
 # 2. Core Implementation
 
-**Recommendation Interpreter has three core componenents
+Recommendation Interpreter has three core componenents
 
 ##2.1 Context Interpreter
-#### Content Interpreter evalutes interruptibility of a user. Contextual information consists of current context i.e. current location, activity, weather conditions, and emotional state of the user. Based on this contextual information it is decided whether the use is available to recevie recommendation or not.
+Content Interpreter evalutes interruptibility of a user. Contextual information consists of current context i.e. current location, activity, weather conditions, and emotional state of the user. Based on this contextual information it is decided whether the use is available to recevie recommendation or not.
 
 ##2.2 Content Interpreter
-#### Content Interpreter evalautes the viability of the received recommendation against the current context of the user. In case the received recommendation is not deemed suitable in the current content then alternative recommendation is generated.
+Content Interpreter evalautes the viability of the received recommendation against the current context of the user. In case the received recommendation is not deemed suitable in the current content then alternative recommendation is generated.
 
 ##2.3 Explanation Manager
-#### Explanation manager provides explanatory note and audio/visual aids along with the final generated recommendation.
+Explanation manager provides explanatory note and audio/visual aids along with the final generated recommendation.
 
 # 2. Setup
 ## 2.1 Prerequisites
