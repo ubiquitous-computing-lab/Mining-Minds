@@ -36,5 +36,19 @@ High quality knowledge creation and feedback-based knowledge maintenance.
 ##  Adaptive UI/UX
 UI/UX Authoring tool » Provide UX based adaptive UI
 
+# Authors
+
+#### Principal Investigator (PI)
+
+- Professor Sungyoung Lee (sylee@oslab.khu.ac.kr)
+
+#### Project Manager (PM)
+
+- Dr. Oresti Banos (oresti@oslab.khu.ac.kr)
+
+#### Project Manager & Team Lead (PM - PL)
+
+- Dr. Muhammad Bilal Amin (m.b.amin@ieee.org)
+
 # License
 The code is licensed under the [Apache License Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)
