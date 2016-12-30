@@ -17,7 +17,7 @@
   - [3.3 Build with Maven](#3.3-build-with-maven)
   - [3.4 How to run](#3.4-how-to-run)
     - [3.4.1 Run in Eclipse](#3.4.1-run-in-eclipse)
-    - [3.4.2 Run executable](#3.4.2-run-executable)
+    - [3.4.2 Run Executable](#3.4.2-run-executable)
 - [4. Authors](#4-author)
 - [5. License](#5-license)
   
@@ -45,7 +45,7 @@ Explanation manager provides explanatory note and audio/visual aids along with t
 - Downlaod & Install [Tomcat server](http://tomcat.apache.org/)
 
 ## 2.2 Clone or Download zip
-#### clone scl-miningmind-2.0 OR download its zip file
+#### clone OR download its zip file
 * `git clone  https://github.com/ubiquitous-computing-lab/Mining-Minds.git`
 * [Download zip](https://github.com/ubiquitous-computing-lab/Mining-Minds/archive/master.zip)
 
