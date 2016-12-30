@@ -77,7 +77,7 @@ In this implementation, we are contributing a descriptive Analytics module for w
 
 # 4. License
 
-Copyright [2016] [Jamil Hussain]
+Copyright [2016] [Shujaat Hussain]
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
