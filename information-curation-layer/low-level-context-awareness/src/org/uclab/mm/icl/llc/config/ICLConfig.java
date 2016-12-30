@@ -66,11 +66,21 @@ public class ICLConfig {
 		try {
 			scan = new Scanner(configFile);
 			scan.useDelimiter("\\Z");  
-			 content = scan.next(); 
+			content = scan.next(); 
 			scan.close();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			try {
+				ConfigJsonGenerator.configGenerator(configFile);
+				scan = new Scanner(configFile);
+				scan.useDelimiter("\\Z");  
+				content = scan.next(); 
+				scan.close();
+			} catch (FileNotFoundException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		}  
 		
 		JSONObject configJson = new JSONObject(content);

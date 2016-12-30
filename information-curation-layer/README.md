@@ -19,6 +19,8 @@
 
 - [4. License](#4-license)
 
+- [5. Contributors](#5-contributors)
+
 <!-- Main Body of the Document -->
 
 
@@ -71,5 +73,19 @@ HLCA uses the Mining Minds Context Ontology.
 The code is licensed under the [Apache License Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)
 <br>
  
+# 5. Contributors
+
+#### Team Lead 
+
+- Dr. Wajahat Ali Khan (wajahat.alikhan@oslab.khu.ac.kr)
+
+#### Team members 
+- Claudia Villalonga (cvillalonga@oslab.khu.ac.kr)
+- Muhammad Asif Razzaq (asif.razzaq@oslab.khu.ac.kr)
+- Tae Ho, Hur (hth@oslab.khu.ac.kr)
+- Jae Hun, Bang (jhb@oslab.khu.ac.kr)
+- Huynh The Thien (thienht@oslab.khu.ac.kr)
+- Dong Uk, Kang (dwkang@oslab.khu.ac.kr)
+
 
 
