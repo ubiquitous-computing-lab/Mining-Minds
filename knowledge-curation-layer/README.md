@@ -212,11 +212,13 @@ Write the main features
 
 # 5. Author
 
--  Name : Maqbool Hussain
--  email : maqbool.hussain@oslab.khu.ac.kr.
+#### Team Lead 
 
--  Name : Taqdir Ali 
--  email : taqdir.ali@oslab.khu.ac.kr.
+-  Maqbool Hussain (maqbool.hussain@oslab.khu.ac.kr)
+
+#### Team member 
+
+-  Taqdir Ali (taqdir.ali@oslab.khu.ac.kr)
 
 # 6. License
 
