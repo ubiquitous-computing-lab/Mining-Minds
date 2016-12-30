@@ -36,7 +36,7 @@ Enables developers to provide conflict resolution strategy when org.uclab.scl.fr
 - Downlaod & Install [Tomcat server](http://tomcat.apache.org/)
 
 ## 3.2 Clone or Download zip
-#### clone scl-miningmind-2.0 OR download its zip file
+#### clone OR download its zip file
 * `git clone  https://github.com/ubiquitous-computing-lab/Mining-Minds.git`
 * [Download zip](https://github.com/ubiquitous-computing-lab/Mining-Minds/archive/master.zip)
 
