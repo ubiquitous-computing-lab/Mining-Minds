@@ -17,7 +17,7 @@
   - [3.3 Build with Maven](#3.3-build-with-maven)
   - [3.4 How to run](#3.4-how-to-run)
     - [3.4.1 Run in Eclipse](#3.4.1-run-in-eclipse)
-    - [3.4.2 Deploy inside tomcat](#3.4.2-deploy-inside-tomcat)
+    - [3.4.2 Run executable](#3.4.2-run-executable)
 - [4. Authors](#4-author)
 - [5. License](#5-license)
   
@@ -41,16 +41,18 @@ Explanation manager provides explanatory note and audio/visual aids along with t
 # 2. Setup
 ## 2.1 Prerequisites
 #### Download & install the following prerequisites
-- Download & Install [Maven]([https://www.apache.org/dyn/closer.cgi)
+- Download & Install [Maven](https://www.apache.org/dyn/closer.cgi)
 - Downlaod & Install [Tomcat server](http://tomcat.apache.org/)
 
 ## 2.2 Clone or Download zip
 #### clone scl-miningmind-2.0 OR download its zip file
-* `git clone  https://eccentric-bit@bitbucket.org/bit-whacker/recommendation-interpreter.git`
-* [Download zip](https://eccentric-bit@bitbucket.org/bit-whacker/recommendation-interpreter.git)
+* `git clone  https://github.com/ubiquitous-computing-lab/Mining-Minds.git`
+* [Download zip](https://github.com/ubiquitous-computing-lab/Mining-Minds/archive/master.zip)
 
 ## 2.3 Build with Maven
-#### run the following command from project's root directory
+#### run the following command from project's root directory e.g.
+$ cd `service-curation-layer/recommendation-interpreter/`
+
 $ `mvn clean package`
 
 ## 2.4 How to run
@@ -59,21 +61,14 @@ $ `mvn clean package`
 ##### Import project in Eclipse:
 * File > Import 
 * Expand `Maven` and select `Existing Maven Projects` 
-* Select root directory of the project and click `Finish`
+* Select `service-curation-layer/recommendation-interpreter` and click `Finish`
 
 Once the project is loaded now Right Click on the project, 
-* Run as > Run on Server
-Note: you have to attach runtime with the project before running on server
+* Run as > Java Application
 
-### 2.4.2 Deploy inside tomcat
-#### To deploy inside tomcat do the following steps
-* Copy `target/recommendation-interpreter.war` to Tomcat's webapps directory e.g. 
-* `C:\apache\apache-tomcat-7.0.70\webapps` for example
-* Run tomcat e.g. move to `C:\apache\apache-tomcat-7.0.70\bin` and run one of the following depending on the `OS`
-* window: `startup.bat`, linux: `startup.sh`
-
-Navigate to browser and the service curation framework will be listening on `port: 8080`
-e.g. `localhost:8080/recommendation-interpreter/rest/`
+### 2.4.2 Run Executable
+* $ `cd service-curation-layer/recommendation-interpreter/target/` 
+* Run `recommendation-interpreter.jar`
 
 # 3. Authors
 - Syed Imran Ali  `imran.ali@oslab.khu.ac.kr`
