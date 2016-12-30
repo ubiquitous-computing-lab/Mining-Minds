@@ -32,7 +32,7 @@ Enables developers to provide conflict resolution strategy when org.uclab.scl.fr
 # 3. Setup
 ## 3.1 Prerequisites
 #### Download & install the following prerequisites
-- Download & Install [Maven]([https://www.apache.org/dyn/closer.cgi)
+- Download & Install [Maven](https://maven.apache.org/download.cgi)
 - Downlaod & Install [Tomcat server](http://tomcat.apache.org/)
 
 ## 3.2 Clone or Download zip
