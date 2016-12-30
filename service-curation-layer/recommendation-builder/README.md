@@ -37,11 +37,12 @@ Enables developers to provide conflict resolution strategy when org.uclab.scl.fr
 
 ## 3.2 Clone or Download zip
 #### clone scl-miningmind-2.0 OR download its zip file
-* `git clone  https://eccentric-bit@bitbucket.org/bit-whacker/scl-miningmind-2.5.git`
-* [Download zip](https://eccentric-bit@bitbucket.org/bit-whacker/scl-miningmind-2.5.git)
+* `git clone  https://github.com/ubiquitous-computing-lab/Mining-Minds.git`
+* [Download zip](https://github.com/ubiquitous-computing-lab/Mining-Minds/archive/master.zip)
 
 ## 3.3 Build with Maven
 #### run the following command from project's root directory
+$ `cd service-curation-layer/recommendation-builder`
 $ `mvn clean package`
 
 ## 3.4 How to run
@@ -50,7 +51,7 @@ $ `mvn clean package`
 ##### Import project in Eclipse:
 * File > Import 
 * Expand `Maven` and select `Existing Maven Projects` 
-* Select root directory of the project and click `Finish`
+* Select `service-curation-layer/recommendation-builder` directory and click `Finish`
 
 Once the project is loaded now Right Click on the project, 
 * Run as > Run on Server
@@ -58,7 +59,7 @@ Note: you have to attach runtime with the project before running on server
 
 ### 3.4.2 Deploy inside tomcat
 #### To deploy inside tomcat do the following steps
-* Copy `target/scl-miningmind.war` to Tomcat's webapps directory e.g. 
+* Copy `target/scl-miningmind-2.5.war` to Tomcat's webapps directory e.g. 
 * `C:\apache\apache-tomcat-7.0.70\webapps` for example
 * Run tomcat e.g. move to `C:\apache\apache-tomcat-7.0.70\bin` and run one of the following depending on the `OS`
 * window: `startup.bat`, linux: `startup.sh`
