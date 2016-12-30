@@ -1,8 +1,0 @@
-Home,1,0,1,0,1
-Office,1,0,1,0,1
-Yard,1,1,1,1,1
-Gym,1,1,1,1,1
-Mall,1,0,0,0,1
-Restaurant,0,0,0,0,1
-Outdoors,1,1,1,1,1
-UnidentifiedLocation,1,1,1,1,1
