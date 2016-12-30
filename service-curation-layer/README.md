@@ -22,7 +22,7 @@ Service Curation Layer (SCL) is designed to curating recommendation services for
 
 Recommendation Builder, generates recommendations through reasoning on the user proﬁle and life-log data and the knowledge rules developed in a specific format. RB provided recommendations are considered as initial recommendation because of the fact that the recommendations are yet to be interpreted from the user’s contextual perspective. The initial recommendation may be forwarded as-is or transforming it to a more applicable form.
 Navigate to browser and the service curation framework will be listening on `port: 8080`
-e.g. `localhost:8080/recommendation-interpreter/rest/`
+e.g. `localhost:8080/scl-miningmind-2.5/rest/`
 
 ![RB](https://github.com/ubiquitous-computing-lab/mining-minds/blob/gh-pages/figures/scl/rb_arch.png)
 
