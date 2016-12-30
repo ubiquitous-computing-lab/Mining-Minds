@@ -1,6 +1,6 @@
 # Knowledge Curation Layer (KCL)
 <!-- make your own badges from here: http://shields.io/ -->
-[![Version](https://img.shields.io/badge/KCL-2.5-green.svg)](http://www.miningminds.re.kr/english/)
+[![Version](https://img.shields.io/badge/KCL-2.5-green.svg)](http://www.miningminds.re.kr/approach/)
 [![License](https://img.shields.io/badge/Apache%20License%20-Version%202.0-yellowgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 
