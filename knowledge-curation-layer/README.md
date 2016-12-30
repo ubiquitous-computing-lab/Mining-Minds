@@ -24,7 +24,7 @@
    
 - [4. Contributions](#4-contributions)
    
-- [5. Author](#5-author)
+- [5. Contributors](#5-contributors)
 
 - [6. License](#6-license)
 
@@ -210,7 +210,7 @@ Write the main features
 -	In future, we will provide a uniform guidline template model.
 
 
-# 5. Author
+# 5. Contributors
 
 #### Team Lead 
 
