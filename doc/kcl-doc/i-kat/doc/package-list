@@ -1,0 +1,7 @@
+org.uclab.mm.kcl.edkat.controller
+org.uclab.mm.kcl.edkat.controller.testcases
+org.uclab.mm.kcl.edkat.dao
+org.uclab.mm.kcl.edkat.datamodel
+org.uclab.mm.kcl.edkat.datamodel.dclcommunication
+org.uclab.mm.kcl.edkat.service
+org.uclab.mm.kcl.edkat.service.testcases

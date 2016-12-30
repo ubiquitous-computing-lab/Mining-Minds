@@ -1,0 +1,15 @@
+org.uclab.scl.Utilities
+org.uclab.scl.communication
+org.uclab.scl.datamodel
+org.uclab.scl.datamodel.contextMapper
+org.uclab.scl.framework
+org.uclab.scl.framework.RecInterpreter
+org.uclab.scl.framework.RecInterpreter.Explanation
+org.uclab.scl.framework.RecInterpreter.FoodItemRecommender
+org.uclab.scl.framework.RecInterpreter.PARecommender
+org.uclab.scl.framework.recbuilder
+org.uclab.scl.outputModel
+org.uclab.scl.outputModel.Achievement
+org.uclab.scl.outputModel.InterpretationModel
+org.uclab.scl.outputModel.RecModel
+org.uclab.scl.rs

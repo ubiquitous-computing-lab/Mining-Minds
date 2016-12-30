@@ -1,0 +1,10 @@
+mm.hlca
+mm.icl.hlc.ContextOntologyManager
+mm.icl.hlc.HLC
+mm.icl.hlc.HLCBuilder
+mm.icl.hlc.HLCNotifier
+mm.icl.hlc.HLCReasoner
+mm.icl.hlc.OntologyTools
+mm.icl.rest
+mm.icl.utils
+mm.test
