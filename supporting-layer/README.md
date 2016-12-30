@@ -15,7 +15,9 @@
    
 - [3. UI/UX Authoring Tool](#3-ux-ui-authoring-tool)
 
-- [4. License](#4-license)
+- [4. Contributors](#4-contributors)
+
+- [5. License](#5-license)
 
 <!-- Main Body of the Document -->
 
@@ -50,7 +52,19 @@ This modules takes as input the categories form the user satisfaction model and 
 <br>
 ![alt tag](https://github.com/ubiquitous-computing-lab/mining-minds/blob/gh-pages/figures/sl/uiux.png)
 <br>
-# 4. License
+
+# 4. Contributors
+
+#### Team Lead 
+
+- Shujaat Hussain (shujaat.hussain@oslab.khu.ac.kr)
+
+#### Team members 
+
+- Jamil Hussain (jamil@oslab.khu.ac.kr)
+- Anees ul Hassan (anees@oslab.khu.ac.kr)
+
+# 5. License
 
 The code is licensed under the [Apache License Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)
 <br>
