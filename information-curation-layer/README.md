@@ -17,9 +17,9 @@
    
 - [3. High Level Context Awareness](#3-high-level-context-awareness)
 
-- [4. License](#4-license)
+- [4. Contributors](#4-contributors) 
 
-- [5. Contributors](#5-contributors)
+- [5. License](#5-license)
 
 <!-- Main Body of the Document -->
 
@@ -67,13 +67,9 @@ access to low-level context and high-level context information. For all of the a
 HLCA uses the Mining Minds Context Ontology.
 <br><br>
 ![alt tag](https://nailbrainz.github.io/ICLLIB_reop/HLCA.jpg)
-<br>
-# 4. License
-
-The code is licensed under the [Apache License Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)
-<br>
+<br><br>
  
-# 5. Contributors
+# 4. Contributors
 
 #### Team Lead 
 
@@ -87,5 +83,8 @@ The code is licensed under the [Apache License Version 2.0](http://www.apache.or
 - Huynh The Thien (thienht@oslab.khu.ac.kr)
 - Dong Uk, Kang (dwkang@oslab.khu.ac.kr)
 
+# 5. License
+
+The code is licensed under the [Apache License Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)
 
 
