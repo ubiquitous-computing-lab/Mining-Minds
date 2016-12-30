@@ -22,7 +22,42 @@ import org.uclab.mm.icl.llc.config.ContextType;
 import org.uclab.mm.icl.llc.config.RecognizerType;
 
 public class ConfigJsonGenerator {
-	
+	public static void configGenerator(File f) throws FileNotFoundException{
+
+		JSONObject configJson = new JSONObject();
+		JSONObject recogWindow = new JSONObject();
+		recogWindow.put(ContextType.Activity.name(), 6);
+		recogWindow.put(ContextType.Emotion.name(), 9);
+		recogWindow.put(ContextType.Location.name(), 12);
+		configJson.put("WindowConfig", recogWindow);
+		
+		configJson.put("DCLAddress", "http://163.180.116.194:8080/MMDataCurationRestfulService/webresources/InformationCuration/");
+		//configJson.put("LLCAddress", "http://163.180.116.243:8080/icl_whole/icl/llc/");
+		//configJson.put("HLCAddress", "http://163.180.116.243:8080/icl_whole/icl/llc/");
+		configJson.put("LLCAddress", "http://localhost:8080/icl_whole/icl/llc/");
+		configJson.put("HLCAddress", "http://localhost:8080/icl_whole/icl/llc/");
+		
+		JSONObject activeRecogs = new JSONObject();
+		activeRecogs.put(RecognizerType.IAR.name(), true);
+		activeRecogs.put(RecognizerType.VAR.name(), true);
+		activeRecogs.put(RecognizerType.ER.name(), true);
+		activeRecogs.put(RecognizerType.SER.name(), true);
+		activeRecogs.put(RecognizerType.LR.name(), true);
+		//activeRecogs.put("Food", true);
+		configJson.put("ActiveRecognizers", activeRecogs);
+		
+		configJson.put("HLCDelay", 20);
+		
+		try {
+			f.createNewFile();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		PrintWriter pw = new PrintWriter(f);
+		pw.write(configJson.toString());
+		pw.close();
+	}
 	
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
@@ -80,12 +115,12 @@ public class ConfigJsonGenerator {
 		
 		
 		for (int i=0;i<10;i++) {
-			// °¢°¢ÀÇ ·¹º§¿¡ ¸ÂÃç ·Î±×¸¦ ³²±è
-			LLogger.logger.debug("debug ·Î±×");
-			LLogger.logger.info("info ·Î±×");
-			LLogger.logger.warn("warn ·Î±×");
-			LLogger.logger.error("error ·Î±×");
-			LLogger.logger.fatal("fatal ·Î±×");
+			// ê°ê°ì˜ ë ˆë²¨ì— ë§žì¶° ë¡œê·¸ë¥¼ ë‚¨ê¹€
+			LLogger.logger.debug("debug ë¡œê·¸");
+			LLogger.logger.info("info ë¡œê·¸");
+			LLogger.logger.warn("warn ë¡œê·¸");
+			LLogger.logger.error("error ë¡œê·¸");
+			LLogger.logger.fatal("fatal ë¡œê·¸");
 		}
 		/*
 		Scanner scan = new Scanner(new File("D:/EmoJHLog.txt"));
