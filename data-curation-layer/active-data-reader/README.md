@@ -4,7 +4,7 @@
 [![License](https://img.shields.io/badge/Apache%20License%20-Version%202.0-yellowgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 [![Spring MVC](https://img.shields.io/badge/Spring%20-version%204.0-yellowgreen.svg)](https://docs.spring.io/spring/docs/current/spring-framework-reference/html/new-in-4.0.html/)
 [![Apache Hive](https://img.shields.io/badge/Apache%20Hive-Query-lightgrey.svg)](https://hive.apache.org/)
-[![JavaDoc-Version](https://img.shields.io/badge/JavaDoc-Version%202.5-green.svg)](https://ubiquitous-computing-lab.github.io/mining-minds/doc/dcl-doc/ative-data-reader/doc/index.html)
+[![JavaDoc-Version](https://img.shields.io/badge/JavaDoc-Version%202.5-green.svg)](https://ubiquitous-computing-lab.github.io/Mining-Minds/doc/dcl-doc/ative-data-reader/doc/index.html)
 
 
 
