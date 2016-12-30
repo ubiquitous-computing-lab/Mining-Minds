@@ -9,7 +9,8 @@
 - [2. Main Architecture](#2-main-architecture)
 - [3. Technical Aspects](#3-technical-aspects)
 - [4. Pulication](#4-publication)
-- [5. License](#5-license)
+- [5. Contributors](#5-contributors)
+- [6. License](#6-license)
   
 # 1. DCL Overview
 
@@ -47,7 +48,20 @@ The technical details of DCL's implementation can be found in the following publ
 > -- <cite>[Open Access - MPDI][1]</cite>
 [1]:http://www.mdpi.com/1424-8220/16/7/980
 
+# 5. Contributors
 
+#### Team Lead 
 
-# 5. License
+- Dr. Muhammad Bilal Amin (m.b.amin@ieee.org)
+
+#### Team members 
+
+- Taqdir Ali (taqdir.ali@oslab.khu.ac.kr)
+- Hafiz Syed Muhammad Bilal (bilalrizvi@oslab.khu.ac.kr)
+- Dinh-Mao Bui (mao.bui@khu.ac.kr)
+- Usman Akhtar (usman@oslab.khu.ac.kr)
+- Soungho Cho (chosoungho@oslab.khu.ac.kr)
+- JinHyuk Gong (kjh@oslab.khu.ac.kr)
+
+# 6. License
 The code is licensed under the [Apache License Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)
