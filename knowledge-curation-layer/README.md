@@ -219,6 +219,7 @@ Write the main features
 #### Team member 
 
 -  Taqdir Ali (taqdir.ali@oslab.khu.ac.kr)
+-  Maqbool Ali (maqbool.ali@oslab.khu.ac.kr)
 
 # 6. License
 
