@@ -43,6 +43,7 @@ Enables developers to provide conflict resolution strategy when org.uclab.scl.fr
 ## 3.3 Build with Maven
 #### run the following command from project's root directory
 $ `cd service-curation-layer/recommendation-builder`
+
 $ `mvn clean package`
 
 ## 3.4 How to run
@@ -55,6 +56,7 @@ $ `mvn clean package`
 
 Once the project is loaded now Right Click on the project, 
 * Run as > Run on Server
+
 Note: you have to attach runtime with the project before running on server
 
 ### 3.4.2 Deploy inside tomcat
