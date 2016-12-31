@@ -90,7 +90,7 @@ Now, its time to get started and configure the core requirements.
 Example:
 - Database: Apache Hive 1.2.1
 - Hadoop: version 2.5.2
-- Java version: JDK 1.8 
+- Java version: JDK 1.8 And JRE latest
 - Maven: Apache-maven-3.2.2
 - Tomcat: Apache-tomcat-8.0.{xx}
 
