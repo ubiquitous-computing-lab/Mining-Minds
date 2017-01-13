@@ -127,5 +127,5 @@ For more details, usage and tutorials, please refer to the [ICL Server Demo Harn
 The code is licensed under the [Apache License Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)
 <br>
  
-
-
+ 
+Get to know more about this component in [Open Source Technical Detail](http://www.miningminds.re.kr/wp-content/uploads/2017/01/LLCA_OpenSource_Progress_ver1.1.pdf)
