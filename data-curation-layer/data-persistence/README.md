@@ -125,4 +125,4 @@ The code is licensed under the [Apache License Version 2.0](http://www.apache.or
 <br>
  
 
-
+Get to know more about this component in [Technical Detail](http://www.miningminds.re.kr/wp-content/uploads/2017/01/DataPersistence_modified.pdf)
