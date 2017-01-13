@@ -199,5 +199,6 @@ See the License for the specific language governing permissions and
 limitations under the License.
 <br>
  
+ Get to know more about this component in [Open Source Technical Detail](http://www.miningminds.re.kr/wp-content/uploads/2017/01/LLMP-Taqdir-Ali-11-01-2017-Open-Source-v2.0-ToWebsite-.pdf)
 
 
