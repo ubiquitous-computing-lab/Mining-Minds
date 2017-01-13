@@ -107,3 +107,4 @@ The code is licensed under the [Apache License Version 2.0](http://www.apache.or
 <br>
  
 
+Get to know more about this component in [Open Source Technical Detail](http://www.miningminds.re.kr/wp-content/uploads/2017/01/DAS_Open-Source_Website_mao.pdf)
