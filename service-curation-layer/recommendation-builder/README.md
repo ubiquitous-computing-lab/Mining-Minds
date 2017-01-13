@@ -77,3 +77,5 @@ e.g. `localhost:8080/scl-miningmind-2.5/rest/`
 
 # 5. License
 The code is licensed under the [Apache License Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)
+
+[Open Source Techinical Details](http://www.miningminds.re.kr/wp-content/uploads/2017/01/RecBuilder-OpenSource-201611242.pdf)
