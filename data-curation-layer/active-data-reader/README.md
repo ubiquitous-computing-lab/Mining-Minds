@@ -184,5 +184,6 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
-<br>
-[Open Source Technical Detail](http://www.miningminds.re.kr/wp-content/uploads/2017/01/OpenSource-Active-Data-Reader.pdf)
+<br> <br>
+
+Get to know more about this component in [Open Source Technical Detail](http://www.miningminds.re.kr/wp-content/uploads/2017/01/OpenSource-Active-Data-Reader.pdf)
