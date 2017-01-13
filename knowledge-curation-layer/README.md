@@ -234,3 +234,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 <br>
+
+Get to know more about this component in [Open Source Technical Detail](http://www.miningminds.re.kr/wp-content/uploads/2017/01/MM_KCL_Taqdir_Open-Source-Progress_11012017-1.pdf)
+
