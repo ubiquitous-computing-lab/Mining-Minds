@@ -70,12 +70,17 @@ public class InferredContextOntology extends ContextOntology {
 			}
 			if (ctxModel.getOntClass(HLCA.pacClassName) == null) { 
 				StandardValidityReport report = new StandardValidityReport();
-				report.add(true, "Context Ontology does not contain the class", HLCA.pacClassName); 
+				report.add(true, "Context Ontology does not contain the PAC class", HLCA.pacClassName); 
+				return report;
+			}
+			if (ctxModel.getOntClass(HLCA.clinicalClassName) == null) { 
+				StandardValidityReport report = new StandardValidityReport();
+				report.add(true, "Context Ontology does not contain the Clinical class", HLCA.clinicalClassName); 
 				return report;
 			}
 			if (ctxModel.getOntClass(HLCA.nutrClassName) == null) { 
 				StandardValidityReport report = new StandardValidityReport();
-				report.add(true, "Context Ontology does not contain the class", HLCA.nutrClassName); 
+				report.add(true, "Context Ontology does not contain the Nut class", HLCA.nutrClassName); 
 				return report;
 			}
 		}

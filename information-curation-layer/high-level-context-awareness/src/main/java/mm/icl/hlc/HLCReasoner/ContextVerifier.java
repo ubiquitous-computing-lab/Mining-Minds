@@ -26,6 +26,7 @@ import com.hp.hpl.jena.util.iterator.ExtendedIterator;
 import mm.icl.hlc.OntologyTools.HLCA;
 import mm.icl.hlc.OntologyTools.InferredContextOntology;
 import mm.icl.hlc.OntologyTools.NutritionContext;
+import mm.icl.hlc.OntologyTools.ClinicalContext;
 import mm.icl.hlc.OntologyTools.PhysicalActivityContext;
 /**
  * Context Verifier: Subcomponent of the HLC Reasoner which performs a
@@ -75,6 +76,18 @@ public class ContextVerifier {
 	 */
 	public boolean isValid(NutritionContext unclassifiedNutHlc) {
 		return (validate(unclassifiedNutHlc).isValid());
+	}
+	/**
+	 * Method to validate and verify an unclassified Nutrition context instance
+	 * versus the Context Ontology Model.
+	 * 
+	 * @param unclassifiedHlc
+	 *            Unclassified Nutrition Context instance.
+	 * @return true if the unclassified Nutrition Context Instance passed the
+	 *         consistency check, and false otherwise.
+	 */
+	public boolean isValid(ClinicalContext unclassifiedCliHlc) {
+		return (validate(unclassifiedCliHlc).isValid());
 	}
 	/**
 	 * Method to validate and verify an unclassified PhysicalActivity context instance
@@ -171,6 +184,58 @@ public class ContextVerifier {
 				((PelletInfGraph) hlcInst.getGraph()).close(false);
 				StandardValidityReport report = new StandardValidityReport();
 				report.add(true, "NutritionContext contains logical errors", "");
+				Iterator<Report> it = validity.getReports();
+				while (it.hasNext())
+					report.add(it.next());
+				return report;
+			}
+		}
+		((PelletInfGraph) hlcInst.getGraph()).close(false);
+		return validity;
+	}
+	/**
+	 * Method to validate and verify an unclassified Nutrition context instance
+	 * versus the Context Ontology Model.
+	 * 
+	 * @param unclassifiedHlc
+	 *            Unclassified Nutrition Context instance.
+	 * @return Validity Report which contains the description of the errors in
+	 *         the consistency check of unclassifiedHlc.
+	 */
+	public ValidityReport validate(ClinicalContext unclassifiedCliHlc) {
+		OntModel hlcInst = ModelFactory.createOntologyModel(PelletReasonerFactory.THE_SPEC,
+				unclassifiedCliHlc.getCtxModel());
+		hlcInst.addSubModel(ont.getCtxModel());
+		ValidityReport validity = hlcInst.validate();
+		if (validity.isValid()) {
+			if (validity.isClean()) {
+				ExtendedIterator<? extends OntResource> it = hlcInst.getOntClass(HLCA.clinicalClassName)   
+						.listInstances(false);
+				if (it.hasNext()) {
+					OntResource inst = it.next();
+					if (!it.hasNext()) {
+						unclassifiedCliHlc.setHlcInstance(inst);
+						((PelletInfGraph) hlcInst.getGraph()).close(false);
+						return validity;
+					} else {
+						StandardValidityReport report = new StandardValidityReport();
+						report.add(true, "ClinicalContext contains several instances of the class", HLCA.clinicalClassName);
+						report.add(false, "-", inst.getURI());
+						while (it.hasNext())
+							report.add(false, "-", it.next().getURI());
+						((PelletInfGraph) hlcInst.getGraph()).close(false);
+						return report;
+					}
+				} else {
+					((PelletInfGraph) hlcInst.getGraph()).close(false);
+					StandardValidityReport report = new StandardValidityReport();
+					report.add(true, "ClinicalContext does not contain an instance of the class", HLCA.clinicalClassName); 
+					return report;
+				}
+			} else {
+				((PelletInfGraph) hlcInst.getGraph()).close(false);
+				StandardValidityReport report = new StandardValidityReport();
+				report.add(true, "ClinicalContext contains logical errors", "");
 				Iterator<Report> it = validity.getReports();
 				while (it.hasNext())
 					report.add(it.next());

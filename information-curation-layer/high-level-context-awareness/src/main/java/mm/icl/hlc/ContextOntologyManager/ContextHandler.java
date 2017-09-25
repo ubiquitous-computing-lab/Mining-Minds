@@ -22,6 +22,7 @@ import mm.icl.hlc.OntologyTools.HLCA;
 import mm.icl.hlc.OntologyTools.LowLevelContext;
 import mm.icl.hlc.OntologyTools.NutritionContext;
 import mm.icl.hlc.OntologyTools.PhysicalActivityContext;
+import mm.icl.hlc.OntologyTools.ClinicalContext;
 
 import com.hp.hpl.jena.ontology.OntClass;
 import com.hp.hpl.jena.ontology.OntModel;
@@ -89,7 +90,7 @@ public class ContextHandler extends AbstractHandler{
 	try {
 		ContextHandler.dataset = TDBFactory.createDataset(directory);
 		TDB.getContext().set(TDB.symUnionDefaultGraph, true);
-		ContextHandler.ont = ont;}
+		ContextHandler.ont = ont;} 
 	catch (Exception e)
 		{
 			logger.error("Error while Initializing ContextHandler.  Message: " + e.getMessage());
@@ -216,6 +217,66 @@ public class ContextHandler extends AbstractHandler{
 		return previousHlc;
 	}
 	/**
+	 * Method to retrieve the previous instance of PhysicalActivity Context which is
+	 * persisted in the Context Ontology Storage and to save the newly inferred
+	 * PhysicalActivity Context instance.
+	 * 
+	 * @param newHlc
+	 *            Instance of PhysicalActivity Context which has been newly inferred.
+	 * @return PhysicalActivity Context instance which is previous to newHlc.
+	 */
+	public ClinicalContext retrievePreviousHlcAndStoreNew(ClinicalContext newHlc) { 
+			
+		dataset.begin(ReadWrite.WRITE);
+		Query sparqlQuery = contextQueryGenerator.generateQueryForPreviousValidAndUnfinishedHlc(newHlc, ont); 
+		QueryExecution qExec = QueryExecutionFactory.create(sparqlQuery, dataset);
+		ResultSet rs = qExec.execSelect();
+		ClinicalContext previousHlc = null;
+		
+	try {
+		if (rs.hasNext()) {
+			Model inst = dataset.getNamedModel(rs.next().getResource(HLCA.hlcSparqlVar).getURI());
+			OntModel previousHlcModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM, inst);
+			previousHlc = new ClinicalContext(previousHlcModel, ont);
+			previousHlc.setDataPropertyValue(ont.getEndTimeProp(), newHlc.getDataPropertyValue(ont.getStartTimeProp()));
+		}
+		else {
+			sparqlQuery = contextQueryGenerator.generateQueryForPreviousValidAndFinishedHlc(newHlc, ont);
+			qExec = QueryExecutionFactory.create(sparqlQuery, dataset);
+			rs = qExec.execSelect();
+			if (rs.hasNext()) {
+				Model inst = dataset.getNamedModel(rs.next().getResource(HLCA.hlcSparqlVar).getURI());
+				OntModel previousHlcModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM, inst);
+				previousHlc = new ClinicalContext(previousHlcModel, ont);
+				newHlc.setDataPropertyValue(ont.getEndTimeProp(),
+						previousHlc.getDataPropertyValue(ont.getEndTimeProp()));
+				previousHlc.setDataPropertyValue(ont.getEndTimeProp(),
+						newHlc.getDataPropertyValue(ont.getStartTimeProp()));
+			}
+			else {
+				sparqlQuery = contextQueryGenerator.generateQueryForStartTimeOfNextHlc(newHlc, ont); 
+				qExec = QueryExecutionFactory.create(sparqlQuery, dataset);
+				rs = qExec.execSelect();
+				if (rs.hasNext()) {
+					QuerySolution soln = rs.next();
+					Iterator<String> it = soln.varNames();
+					if (it.hasNext())
+						newHlc.setDataPropertyValue(ont.getEndTimeProp(), soln.getLiteral(it.next()));
+				}
+			}
+		}
+		}
+
+		catch (Exception e) {
+								logger.error("Error while Processing ClinicalHLCContext.  Message: " + e.getMessage());
+								e.printStackTrace();
+							}
+		dataset.addNamedModel(newHlc.getCtxInstanceName(), newHlc.getCtxModel());
+		dataset.commit();
+		dataset.end();
+		return previousHlc;
+	}
+	/**
 	 * Method to store the newly mapped Low Level Context instance into the
 	 * Context Ontology Storage.
 	 * 
@@ -230,7 +291,7 @@ public class ContextHandler extends AbstractHandler{
 		ResultSet rs = qExec.execSelect();
 	try{	
 		if (rs.hasNext()) {
-			Model inst = dataset.getNamedModel(rs.next().getResource(HLCA.llcSparqlVar).getURI());
+			Model inst = dataset.getNamedModel(rs.next().getResource(HLCA.llcSparqlVar).getURI()); 
 			OntModel previousLlcModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM, inst);
 			LowLevelContext previousLlc = new LowLevelContext(previousLlcModel, ont);
 			previousLlc.setDataPropertyValue(ont.getEndTimeProp(), newLlc.getDataPropertyValue(ont.getStartTimeProp()));
@@ -267,7 +328,7 @@ public class ContextHandler extends AbstractHandler{
 	}
 		dataset.addNamedModel(newLlc.getCtxInstanceName(), newLlc.getCtxModel());
 		dataset.commit();
-		dataset.end();
+		dataset.end(); 
 	}
 	/**
 	 * Method to finalize, i.e., to set the end time of, the previous Low Level
@@ -550,4 +611,4 @@ public class ContextHandler extends AbstractHandler{
 		}
 		return contextHandler;
 	}
-}
+	}

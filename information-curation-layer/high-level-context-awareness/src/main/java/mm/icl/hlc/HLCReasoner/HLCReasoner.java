@@ -15,6 +15,7 @@ import java.util.Iterator;
 import mm.icl.hlc.OntologyTools.Context;
 import mm.icl.hlc.OntologyTools.InferredContextOntology;
 import mm.icl.hlc.OntologyTools.NutritionContext;
+import mm.icl.hlc.OntologyTools.ClinicalContext;
 import mm.icl.hlc.OntologyTools.PhysicalActivityContext;
 import mm.icl.utils.FileUtil;
 import org.apache.log4j.Logger;
@@ -82,6 +83,20 @@ public class HLCReasoner extends AbstractReasoner{
 		return unclassified;
 	}
 	/**
+	 * Method to infer Nutrition Context, i.e., to perform a consistency check
+	 * on the unclassified Nutrition Context instance and in case it is valid,
+	 * to identify the context type to which the instance belongs.
+	 * 
+	 * @param unclassified
+	 *            Unclassified Nutrition Context instance.
+	 * @return Classified Nutrition Context instance.
+	 */
+	public ClinicalContext inferHlc(ClinicalContext unclassified) {
+		if (cv.isValid(unclassified))
+			return cc.classify(unclassified);
+		return unclassified;
+	}
+	/**
 	 * Test method that applies the same business logic than inferHlc but prints
 	 * messages through the standard output stream.
 	 * 
@@ -95,12 +110,9 @@ public class HLCReasoner extends AbstractReasoner{
 			PhysicalActivityContext classified = cc.classify(unclassified);
 			logger.info("[HLC Reasoner: PhysicalActivityContext: ] " + classified.getCtxInstanceLocalName() + " classified as " 
 					+ classified.getCtxTypeLocalName());
-			logger.info ("[HLC Reasoner: PhysicalActivityContext: ] " + classified.getCtxInstanceLocalName() + " classified as "
-					+ classified.getCtxTypeLocalName()); 
 			return classified;
 		} else {
 			logger.info("[HLC Reasoner: PhysicalActivityContext: ] The HLC is not valid."); 
-			logger.info("[HLC Reasoner: PhysicalActivityContext: ] The HLC is not valid.");   
 			Iterator<Report> i = report.getReports();
 			while (i.hasNext())
 				logger.info(i.next());
@@ -121,12 +133,32 @@ public class HLCReasoner extends AbstractReasoner{
 			NutritionContext classified = cc.classify(unclassified);
 			logger.info("[HLC Reasoner: NutritionContext: ] " + classified.getCtxInstanceLocalName() + " classified as " 
 					+ classified.getCtxTypeLocalName());
-			logger.info("[HLC Reasoner: NutritionContext: ] " + classified.getCtxInstanceLocalName() + " classified as "
-					+ classified.getCtxTypeLocalName());
 			return classified;
 		} else {
 			logger.info("[HLC Reasoner: NutritionContext: ] The NutritionContext HLC is not valid.");  
-			logger.info("[HLC Reasoner: NutritionContext: ] The NutritionContext HLC is not valid.");
+			Iterator<Report> i = report.getReports();
+			while (i.hasNext())
+				logger.info(i.next());
+			return unclassified;
+		}
+	}
+	/**
+	 * Test method that applies the same business logic than inferHlc but prints
+	 * messages through the standard output stream.
+	 * 
+	 * @param unclassified
+	 *            Unclassified Nutrition Context instance.
+	 * @return Classified Nutrition Context instance.
+	 */
+	public ClinicalContext inferTest(ClinicalContext unclassified) {
+		ValidityReport report = cv.validate(unclassified);
+		if (report.isValid()) {
+			ClinicalContext classified = cc.classify(unclassified);
+			logger.info("[HLC Reasoner: ClinicalContext: ] " + classified.getCtxInstanceLocalName() + " classified as " 
+					+ classified.getCtxTypeLocalName());
+			return classified;
+		} else {
+			logger.info("[HLC Reasoner: ClinicalContext: ] The ClinicalContext HLC is not valid.");  
 			Iterator<Report> i = report.getReports();
 			while (i.hasNext())
 				logger.info(i.next());
@@ -223,4 +255,49 @@ public class HLCReasoner extends AbstractReasoner{
 			return unclassified;
 		}
 	}
+	/**
+	 * Test method that applies the same business logic than inferHlc but
+	 * calculates the elapsed time and prints messages through the standard
+	 * output stream.
+	 * 
+	 * @param unclassified
+	 *            Unclassified Nutrition Context instance.
+	 * @return Classified Clinical Context instance.
+	 */
+	public ClinicalContext inferTestElapsedTime(ClinicalContext unclassified) {
+		long s1 = System.currentTimeMillis();
+		ValidityReport report = cv.validate(unclassified);
+		long e1 = System.currentTimeMillis();
+		logger.info("[HLC Reasoner: ClinicalContext: ] " + unclassified.getCtxInstanceLocalName() + " validation lasted "
+				+ (e1 - s1) + " ms.");
+		logger.info("[HLC Reasoner: ClinicalContext: ] " + unclassified.getCtxInstanceLocalName() + " validation lasted "
+				+ (e1 - s1) + " ms.");
+		if (report.isValid()) {
+			long s2 = System.currentTimeMillis();
+			ClinicalContext classified = cc.classify(unclassified);
+			long e2 = System.currentTimeMillis();
+			logger.info("[HLC Reasoner: ClinicalContext: ] " + classified.getCtxInstanceLocalName() + " classification lasted "
+					+ (e2 - s2) + " ms.");
+			logger.info("[HLC Reasoner: ClinicalContext: ] " + classified.getCtxInstanceLocalName() + " classification lasted "
+					+ (e2 - s2) + " ms.");
+			logger.info("[HLC Reasoner: ClinicalContext: ] " + classified.getCtxInstanceLocalName()
+					+ " HLC Reasoner overall process lasted " + (e2 - s1) + " ms.");
+			logger.info("[HLC Reasoner: ClinicalContext: ] " + classified.getCtxInstanceLocalName()
+			+ " HLC Reasoner overall process lasted " + (e2 - s1) + " ms.");
+			logger.info("[HLC Reasoner: ClinicalContext: ] " + classified.getCtxInstanceLocalName() + " classified as "
+					+ classified.getCtxTypeLocalName());
+			logger.info("[HLC Reasoner: ClinicalContext: ] " + classified.getCtxInstanceLocalName() + " classified as "
+					+ classified.getCtxTypeLocalName());
+			return classified;
+		} else {
+			logger.info("[HLC Reasoner: ClinicalContext: ] The ClinicalContext is not valid.");
+			logger.info("[HLC Reasoner: ClinicalContext: ] The ClinicalContext is not valid.");
+			Iterator<Report> i = report.getReports();
+			while (i.hasNext()){
+				logger.info(i.next());
+				logger.info(i.next().toString());
+			}
+			return unclassified;
+		}
+	}	
 }

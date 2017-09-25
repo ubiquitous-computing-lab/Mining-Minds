@@ -27,7 +27,7 @@ public class TestRetrieveContextInstance {
 static final String directory = "E:\\ICL_LOG\\TDB";///"D:\\HLCA" ;  
 	
 static final String ctxName = 
-			"http://www.miningminds.re.kr/icl/context/context-v2-5.owl#llc_0388160157_0000000000000000000"; 
+			"http://www.miningminds.re.kr/icl/context/context-v2-5.owl#hlc_0901959045_0000000000000000013"; 
 		
 		
 	public static void main(String[] args) {
@@ -42,7 +42,7 @@ static final String ctxName =
 			
 			if (!inst.isEmpty()){
 				OntModel ontModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM, inst);
-				ontModel.write(System.out, "Turtle");
+				ontModel.write(System.out, "RDF/XML");            ///Turtle RDF/XML RDF/XML-ABBREV N-TRIPLE
 			}
 	}
 }

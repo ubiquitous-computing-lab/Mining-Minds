@@ -27,10 +27,11 @@ public class TestRetrieveHLC {
 			+ "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> "
 			+ "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> "
 			+ "PREFIX icl2: <http://www.miningminds.re.kr/icl/context/context-v2-5.owl#> "
-			+ "SELECT ?hlc "
+			+ "SELECT ?hlc " //count(?hlc) As ?cnt "//?hlc "
 			+ "WHERE { "
-			+ "?hlc rdf:type icl2:PhysicalActivityContext. "
-			+ "}";
+			+ "?hlc rdf:type icl2:PhysicalActivityContext. " //PhysicalActivityContext NutritionContext
+			+ "} ";
+//			+ "Group by ?hlc";
 		
 		
 	public static void main(String[] args) {
@@ -39,17 +40,19 @@ public class TestRetrieveHLC {
 		ContextOntologyManager mng = new ContextOntologyManager(directory);
 		
 		if(mng.correctInitialization()) {
-		
 			Iterator<Context> it = ContextHandler.retrieveContextInstancesMatchingSparqlQuery(sparqlQueryHlc).iterator();
-	
-			
 			while(it.hasNext()) {
+				//your code that maeks async errors
+				    try{
+				    	System.out.println("------------------------");
 				
-				System.out.println("------------------------");
-				
-				Context inst = it.next();
-//				inst.getCtxModel().write(System.out, "RDF/XML");
-				inst.getCtxModel().write(System.out, "Turtle");
+				    	Context inst = it.next();
+				    	inst.getCtxModel().write(System.out, "RDF/XML");
+//						inst.getCtxModel().write(System.out, "Turtle");
+				    	Thread.sleep(1);      ///////////////////////////// if want to add delay for visibility 5000
+				    
+				}
+			catch(InterruptedException e){}
 			}
 		}
 		else  {

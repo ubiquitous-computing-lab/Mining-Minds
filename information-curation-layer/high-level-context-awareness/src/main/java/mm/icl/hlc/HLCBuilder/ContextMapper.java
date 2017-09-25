@@ -91,6 +91,7 @@ public class ContextMapper {
 		llcModel.setNsPrefix(HLCA.nsPrefix, HLCA.ns);
 		Individual user = llcModel.createIndividual(HLCA.ns + "user_" + userId, ont.getUserClass());
 		Literal time = llcModel.createTypedLiteral(Utils.calendarToXSDDateTimeString(startTime), XSDDatatype.XSDdateTime);
+
 		if (llcLabel.equals(HLCA.noActivity))
 			contextHandler.finalizePreviousLlc(ont.getLlcCategoryClass(HLCA.activityClassName), user, time); 
 		else if (llcLabel.equals(HLCA.noLocation)){
@@ -102,6 +103,16 @@ public class ContextMapper {
 		else if (llcLabel.equals(HLCA.noFood)) 
 		{	contextHandler.finalizePreviousLlc(ont.getLlcCategoryClass(HLCA.foodClassName), user, time);     
 		}
+		
+		else if (llcLabel.equals(HLCA.noBloodGlucose)) 
+		{	contextHandler.finalizePreviousLlc(ont.getLlcCategoryClass(HLCA.BloodGlucoseClassName), user, time);     
+		}else if (llcLabel.equals(HLCA.noBloodPressure)) 
+		{	contextHandler.finalizePreviousLlc(ont.getLlcCategoryClass(HLCA.BloodPressureClassName), user, time);     
+		}else if (llcLabel.equals(HLCA.noWaterIntake)) 
+		{	contextHandler.finalizePreviousLlc(ont.getLlcCategoryClass(HLCA.WaterIntakeClassName), user, time);     
+		}
+
+		
 		else {
 			OntClass llcClass = ont.getLlcTypeClass(HLCA.ns + llcLabel);
 			if (llcClass != null) {

@@ -40,6 +40,7 @@ import mm.icl.hlc.OntologyTools.HLCA;
 import mm.icl.hlc.OntologyTools.LowLevelContext;
 import mm.icl.hlc.OntologyTools.NutritionContext;
 import mm.icl.hlc.OntologyTools.PhysicalActivityContext;
+import mm.icl.hlc.OntologyTools.ClinicalContext;
 /**
  * Context Query Generator: Subcomponent of the Context Ontology Manager which
  * generates the SPARQL queries required by the Context Handler to find the
@@ -95,6 +96,28 @@ public class ContextQueryGenerator {
 		return createHlcQuery(union, filterNeg, filterLessThanOrEqual);
 	}
 	/**
+	 * Method to generate a SPARQL query for the previous valid and unfinished
+	 * High Level Context instance.
+	 * 
+	 * @param hlc
+	 *            ClincialContext instance for which the previous context
+	 *            should be matched.
+	 * @param ont
+	 *            Context Ontology which represents the Mining Minds Context
+	 *            Model.
+	 * @return The SPARQL Query to retrieve the previous valid and unfinished
+	 *         Clincial Context instance.
+	 */
+	public Query generateQueryForPreviousValidAndUnfinishedHlc(ClinicalContext hlc, ContextOntology ont) {
+		ElementUnion union = createTriplesUnionForCliHlcUserStartTime(
+				hlc.getObjectPropertyValue(ont.getContextOfProp()), ont);
+		ElementFilter filterNeg = createFilterNotExistsEndTimeInHlc(ont);
+		ElementFilter filterLessThanOrEqual = createFilterStartTimeLessThanOrEqual(
+				hlc.getDataPropertyValue(ont.getStartTimeProp()));
+		return createHlcQuery(union, filterNeg, filterLessThanOrEqual);
+	}
+
+	/**
 	 * Method to generate a SPARQL query for the previous valid and finished
 	 * High Level Context instance.
 	 * 
@@ -114,7 +137,7 @@ public class ContextQueryGenerator {
 		ElementFilter filterLessThanOrEqual = createFilterStartTimeLessThanOrEqual(time);
 		ElementFilter filterGreaterThan = createFilterEndTimeGreaterThan(time);
 		return createHlcQuery(union, filterLessThanOrEqual, filterGreaterThan);
-	}
+	}	
 	/**
 	 * Method to generate a SPARQL query for the previous valid and finished
 	 * High Level Context instance.
@@ -129,6 +152,27 @@ public class ContextQueryGenerator {
 	 *          Context instance.
 	 */
 	public  Query generateQueryForPreviousValidAndFinishedHlc(NutritionContext hlc, ContextOntology ont) {
+		ElementUnion union = createTriplesUnionForHlcUserStartAndEndTime(
+				hlc.getObjectPropertyValue(ont.getContextOfProp()), ont);
+		Literal time = hlc.getDataPropertyValue(ont.getStartTimeProp());
+		ElementFilter filterLessThanOrEqual = createFilterStartTimeLessThanOrEqual(time);
+		ElementFilter filterGreaterThan = createFilterEndTimeGreaterThan(time);
+		return createHlcQuery(union, filterLessThanOrEqual, filterGreaterThan);
+	}
+	/**
+	 * Method to generate a SPARQL query for the previous valid and finished
+	 * High Level Context instance.
+	 * 
+	 * @param hlc
+	 *            PhysicalActivity Context instance for which the previous context
+	 *            should be matched.
+	 * @param ont
+	 *            Context Ontology which represents the Mining Minds Context
+	 *            Model.
+	 * @return The SPARQL Query to retrieve the previous valid and finished PhysicalActivity
+	 *         Context instance.
+	 */
+	public  Query generateQueryForPreviousValidAndFinishedHlc(ClinicalContext hlc, ContextOntology ont) {
 		ElementUnion union = createTriplesUnionForHlcUserStartAndEndTime(
 				hlc.getObjectPropertyValue(ont.getContextOfProp()), ont);
 		Literal time = hlc.getDataPropertyValue(ont.getStartTimeProp());
@@ -169,6 +213,25 @@ public class ContextQueryGenerator {
 	 *         Context instance.
 	 */
 	public  Query generateQueryForStartTimeOfNextHlc(NutritionContext hlc, ContextOntology ont) {
+		ElementUnion union= createTriplesUnionForHlcUserStartTime(hlc.getObjectPropertyValue(ont.getContextOfProp()), ont);  
+		ElementFilter filterGreaterThan = createFilterStartTimeGreaterThan(
+				hlc.getDataPropertyValue(ont.getStartTimeProp()));
+		return createMinStartTimeQuery(union, filterGreaterThan);
+	}
+	/**
+	 * Method to generate a SPARQL query for the start time of the next High
+	 * Level Context instance.
+	 * 
+	 * @param hlc
+	 *            PhysicalActivity Context instance for which the start time of the
+	 *            next context should be matched.
+	 * @param ont
+	 *            Context Ontology which represents the Mining Minds Context
+	 *            Model.
+	 * @return The SPARQL Query to retrieve the start time of the next PhysicalActivity
+	 *          Context instance.
+	 */
+	public  Query generateQueryForStartTimeOfNextHlc(ClinicalContext hlc, ContextOntology ont) {
 		ElementUnion union= createTriplesUnionForHlcUserStartTime(hlc.getObjectPropertyValue(ont.getContextOfProp()), ont);  
 		ElementFilter filterGreaterThan = createFilterStartTimeGreaterThan(
 				hlc.getDataPropertyValue(ont.getStartTimeProp()));
@@ -496,6 +559,32 @@ public class ContextQueryGenerator {
 			union.addElement(blockb);
 			return union;
 		}
+			/**
+			 * Method to create a block of triples which include the High Level Context,
+			 * the user and the start time.
+			 * 
+			 * @param user
+			 *            Resource representing the instance of the user for which the
+			 *            triple should be created.
+			 * @param ont
+			 *            Context Ontology which represents the Mining Minds Context
+			 *            Model.
+			 * @return Triples block for the High Level Context, the user and the start
+			 *         time.
+			 */
+			private  ElementUnion createTriplesUnionForCliHlcUserStartTime(Resource user, ContextOntology ont) { //Asif
+			Triple pattern1 = Triple.create(Var.alloc(HLCA.hlcSparqlVar), Nodes.type, ont.getClinicalHlcClass().asNode());
+			Triple pattern2 = Triple.create(Var.alloc(HLCA.hlcSparqlVar), ont.getContextOfProp().asNode(), user.asNode());
+			Triple pattern3 = Triple.create(Var.alloc(HLCA.hlcSparqlVar), ont.getStartTimeProp().asNode(),
+					Var.alloc(HLCA.startTimeSparqlVar));
+			ElementTriplesBlock blocka = new ElementTriplesBlock();
+			ElementUnion union= new ElementUnion();
+			blocka.addTriple(pattern1);
+			blocka.addTriple(pattern2);
+			blocka.addTriple(pattern3);
+			union.addElement(blocka);
+			return union;
+			}
 	/**
 	 * Method to create a block of triples which include the High Level Context,
 	 * the user, the start time and the end time.

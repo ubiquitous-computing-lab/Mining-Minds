@@ -22,11 +22,11 @@ public class HLCA {
 	/**
 	 * Namespace of the Context Ontology.
 	 */
-	public static final String ns = "http://www.miningminds.re.kr/icl/context/context-v2-5.owl#";
+	public static final String ns = "http://www.miningminds.re.kr/icl/context/context-v3.owl#";//context-v2-5 context-v3-0
 	/**
 	 * Prefix for the namespace of the Context Ontology.
 	 */
-	public static final String nsPrefix = "icl2";
+	public static final String nsPrefix = "icl3";
 	/**
 	 * Name of the PhysicalActivity and Nutrition Context class in the Context Ontology.
 	 */
@@ -73,7 +73,23 @@ public class HLCA {
 	 * Name of the property in the Context Ontology which links a PhysicalActivity and Nutrition
 	 * Context to the Location which is part of it.
 	 */
-	public static final String hasFoodPropName = ns + "hasFood";    
+	public static final String hasFoodPropName = ns + "hasFood";
+	/**                    Asif
+	 * Name of the property in the Context Ontology which links a PhysicalActivity and Nutrition
+	 * Context to the BloodGlucose which is part of it.
+	 */
+	public static final String hasBloodGlucosePropName = ns + "hasBloodGlucose";    
+	/**                    Asif
+	 * Name of the property in the Context Ontology which links a PhysicalActivity and Nutrition
+	 * Context to the Location which is part of it.
+	 */
+	public static final String hasBloodPressurePropName = ns + "hasBloodPressure";    
+	/**                    Asif
+	 * Name of the property in the Context Ontology which links a PhysicalActivity and Nutrition
+	 * Context to the Location which is part of it.
+	 */
+	public static final String hasWaterIntakePropName = ns + "hasWaterIntake";    
+
 	/**
 	 * Name of the Activity class in the Context Ontology.
 	 */
@@ -90,6 +106,19 @@ public class HLCA {
 	 * Name of the Food class in the Context Ontology.        Asif
 	 */
 	public static final String foodClassName = ns + "Food";
+	/**
+	 * Name of the Food class in the Context Ontology.        Asif
+	 */
+	public static final String BloodGlucoseClassName = ns + "BloodGlucose";
+	/**
+	 * Name of the Food class in the Context Ontology.        Asif
+	 */
+	public static final String BloodPressureClassName = ns + "BloodPressure";
+	/**
+	 * Name of the Food class in the Context Ontology.        Asif
+	 */
+	public static final String WaterIntakeClassName = ns + "WaterIntake";
+	
 	/**
 	 * Name used to represent the Unidentified PhysicalActivity and Nutrition Context. Please note
 	 * that this concept is only used by the HLC Notifier but it is not part of
@@ -121,6 +150,24 @@ public class HLCA {
 	 * Mapper but it is not part of the Context Ontology.
 	 */
 	public static final String noFood= "NoFood";
+	/**  Asif
+	 * Name used to represent the lack of information for the Low Level Context
+	 * type Food. Please note that this concept is only used by the Context
+	 * Mapper but it is not part of the Context Ontology.
+	 */
+	public static final String noBloodGlucose= "NoBloodGlucose";
+	/**  Asif
+	 * Name used to represent the lack of information for the Low Level Context
+	 * type Food. Please note that this concept is only used by the Context
+	 * Mapper but it is not part of the Context Ontology.
+	 */
+	public static final String noBloodPressure= "NoBloodPressure";
+	/**  Asif
+	 * Name used to represent the lack of information for the Low Level Context
+	 * type Food. Please note that this concept is only used by the Context
+	 * Mapper but it is not part of the Context Ontology.
+	 */
+	public static final String noWaterIntake= "NoWaterIntake";
 	/**
 	 * Name of the variable used in the SPARQL queries to refer to a PhysicalActivity and Nutrition
 	 * Context.
@@ -170,10 +217,14 @@ public class HLCA {
 	 * Context category, e.g., activity, location,food or emotion.
 	 */
 	public static final String llcCategorySparqlVar = "category";
-	/**
+	/** Asif
 	 * Name of the Nutrition Context in the Context Ontology.
 	 */
 	public static final String nutrClassName = ns + "NutritionContext";
+	/** Asif
+	 * Name of the Nutrition Context in the Context Ontology.
+	 */
+	public static final String clinicalClassName = ns + "ClinicalContext";
 	/**
 	 * Name of the PhysicalActivity Context class in the Context Ontology.
 	 */

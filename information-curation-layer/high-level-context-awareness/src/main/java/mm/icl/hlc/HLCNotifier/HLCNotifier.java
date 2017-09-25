@@ -22,6 +22,7 @@ import mm.hlca.TestHLCA;
 import mm.icl.hlc.ContextOntologyManager.ContextHandler;
 import mm.icl.hlc.OntologyTools.ContextOntology;
 import mm.icl.hlc.OntologyTools.NutritionContext;
+import mm.icl.hlc.OntologyTools.ClinicalContext;
 import mm.icl.hlc.OntologyTools.PhysicalActivityContext;
 import mm.icl.rest.RestClients;
 import mm.icl.utils.FileUtil;
@@ -95,6 +96,25 @@ public class HLCNotifier {
 		}
 	}
 	/**
+	 * Method that receives the newly classified Nutrition Context instance,
+	 * stores it into the Context Ontology Storage, and if the new instance
+	 * belongs to a different Nutrition Context type than the previous one,
+	 * notifies Data Curation Layer about the detection of a new High Level
+	 * Context.
+	 * 
+	 * @param newHlc
+	 *            Newly classified Nutrition Context instance.
+	 */
+	public void notify(ClinicalContext  newHlc) {
+		if (newHlc.isValidInstanceOfHlc()) {
+			ClinicalContext previousHlc = contextHandler.retrievePreviousHlcAndStoreNew(newHlc);
+			if (previousHlc == null || !newHlc.getCtxTypeName().equals(previousHlc.getCtxTypeName()))
+				notifyDCL(newHlc.getCtxInstanceLocalName(), newHlc.getCtxTypeLocalName(),
+						newHlc.getObjectPropertyValue(ont.getContextOfProp()).getLocalName(),
+						newHlc.getDataPropertyValue(ont.getStartTimeProp()));
+		}
+	}
+	/**
 	 * Test method that applies the same business logic than notify but prints
 	 * messages through the standard output stream.
 	 * 
@@ -110,20 +130,20 @@ public class HLCNotifier {
 							+ newHlc.getCtxTypeLocalName() + ". Previous Instance: "
 							+ previousHlc.getCtxInstanceLocalName() + " - " + previousHlc.getCtxTypeLocalName()
 							+ ". Notify DCL.");
-					FileUtil.WriteHLCLog("[HLC Notifier: PhysicalActivityContext: ] New instance: " + newHlc.getCtxInstanceLocalName() + " - "
+/*					FileUtil.WriteHLCLog("[HLC Notifier: PhysicalActivityContext: ] New instance: " + newHlc.getCtxInstanceLocalName() + " - "
 							+ newHlc.getCtxTypeLocalName() + ". Previous Instance: "
 							+ previousHlc.getCtxInstanceLocalName() + " - " + previousHlc.getCtxTypeLocalName()
 							+ ". Notify DCL.");
 					notifyDCL(newHlc.getCtxInstanceLocalName(), newHlc.getCtxTypeLocalName(),
 							newHlc.getObjectPropertyValue(ont.getContextOfProp()).getLocalName(),
 							newHlc.getDataPropertyValue(ont.getStartTimeProp()));
-				}
+*/				}
 				else{
-					FileUtil.WriteHLCLog("[HLC Notifier: PhysicalActivityContext: ] New instance: " + newHlc.getCtxInstanceLocalName() + " - "
+/*					FileUtil.WriteHLCLog("[HLC Notifier: PhysicalActivityContext: ] New instance: " + newHlc.getCtxInstanceLocalName() + " - "
 							+ newHlc.getCtxTypeLocalName() + ". Previous Instance: "
 							+ previousHlc.getCtxInstanceLocalName() + " - " + previousHlc.getCtxTypeLocalName()
 							+ ". Do not notify DCL.");
-					logger.info("[HLC Notifier: PhysicalActivityContext: ] New instance: " + newHlc.getCtxInstanceLocalName() + " - "
+*/					logger.info("[HLC Notifier: PhysicalActivityContext: ] New instance: " + newHlc.getCtxInstanceLocalName() + " - "
 							+ newHlc.getCtxTypeLocalName() + ". Previous Instance: "
 							+ previousHlc.getCtxInstanceLocalName() + " - " + previousHlc.getCtxTypeLocalName()
 							+ ". Do not notify DCL.");
@@ -132,16 +152,16 @@ public class HLCNotifier {
 			else {
 				logger.info("[HLC Notifier: PhysicalActivityContext: ] New instance: " + newHlc.getCtxInstanceLocalName() + " - "
 						+ newHlc.getCtxTypeLocalName() + ". Previous Instance: none" + ". Notify DCL.");
-				FileUtil.WriteHLCLog("[HLC Notifier: PhysicalActivityContext: ] New instance: " + newHlc.getCtxInstanceLocalName() + " - "
+/*				FileUtil.WriteHLCLog("[HLC Notifier: PhysicalActivityContext: ] New instance: " + newHlc.getCtxInstanceLocalName() + " - "
 						+ newHlc.getCtxTypeLocalName() + ". Previous Instance: none" + ". Notify DCL.");
 				notifyDCL(newHlc.getCtxInstanceLocalName(), newHlc.getCtxTypeLocalName(),
 						newHlc.getObjectPropertyValue(ont.getContextOfProp()).getLocalName(),
 						newHlc.getDataPropertyValue(ont.getStartTimeProp()));
-			}
+*/			}
 		}
 		else{
 			logger.info("[HLC Notifier: PhysicalActivityContext: ] New High Level Context Instance is not valid.");
-			FileUtil.WriteHLCLog("[HLC Notifier: PhysicalActivityContext: ] New High Level Context Instance is not valid.");
+//			FileUtil.WriteHLCLog("[HLC Notifier: PhysicalActivityContext: ] New High Level Context Instance is not valid.");
 		}
 	}
 	/**
@@ -160,20 +180,20 @@ public class HLCNotifier {
 							+ newHlc.getCtxTypeLocalName() + ". Previous Instance: "
 							+ previousHlc.getCtxInstanceLocalName() + " - " + previousHlc.getCtxTypeLocalName()
 							+ ". Notify DCL.");
-					FileUtil.WriteHLCLog("[HLC Notifier: NutritionContext: ] New instance: " + newHlc.getCtxInstanceLocalName() + " - "
+/*					FileUtil.WriteHLCLog("[HLC Notifier: NutritionContext: ] New instance: " + newHlc.getCtxInstanceLocalName() + " - "
 							+ newHlc.getCtxTypeLocalName() + ". Previous Instance: "
 							+ previousHlc.getCtxInstanceLocalName() + " - " + previousHlc.getCtxTypeLocalName()
 							+ ". Notify DCL.");
 					notifyDCL(newHlc.getCtxInstanceLocalName(), newHlc.getCtxTypeLocalName(),
 							newHlc.getObjectPropertyValue(ont.getContextOfProp()).getLocalName(),
 							newHlc.getDataPropertyValue(ont.getStartTimeProp()));
-				}
+*/				}
 				else{
-					FileUtil.WriteHLCLog("[HLC Notifie: NutritionContext: r] New instance: " + newHlc.getCtxInstanceLocalName() + " - "
+/*					FileUtil.WriteHLCLog("[HLC Notifie: NutritionContext: r] New instance: " + newHlc.getCtxInstanceLocalName() + " - "
 							+ newHlc.getCtxTypeLocalName() + ". Previous Instance: "
 							+ previousHlc.getCtxInstanceLocalName() + " - " + previousHlc.getCtxTypeLocalName()
 							+ ". Do not notify DCL.");
-					logger.info("[HLC Notifier: NutritionContext: ] New instance: " + newHlc.getCtxInstanceLocalName() + " - "
+*/					logger.info("[HLC Notifier: NutritionContext: ] New instance: " + newHlc.getCtxInstanceLocalName() + " - "
 							+ newHlc.getCtxTypeLocalName() + ". Previous Instance: "
 							+ previousHlc.getCtxInstanceLocalName() + " - " + previousHlc.getCtxTypeLocalName()
 							+ ". Do not notify DCL.");
@@ -182,18 +202,68 @@ public class HLCNotifier {
 			else {
 				logger.info("[HLC Notifier: NutritionContext: ] New instance: " + newHlc.getCtxInstanceLocalName() + " - "
 						+ newHlc.getCtxTypeLocalName() + ". Previous Instance: none" + ". Notify DCL.");
-				FileUtil.WriteHLCLog("[HLC Notifier: NutritionContext: ] New instance: " + newHlc.getCtxInstanceLocalName() + " - "
+/*				FileUtil.WriteHLCLog("[HLC Notifier: NutritionContext: ] New instance: " + newHlc.getCtxInstanceLocalName() + " - "
 						+ newHlc.getCtxTypeLocalName() + ". Previous Instance: none" + ". Notify DCL.");
 				notifyDCL(newHlc.getCtxInstanceLocalName(), newHlc.getCtxTypeLocalName(),
 						newHlc.getObjectPropertyValue(ont.getContextOfProp()).getLocalName(),
 						newHlc.getDataPropertyValue(ont.getStartTimeProp()));
-			}
+*/			}
 		}
 		else{
 			logger.info("[HLC Notifier: NutritionContext: ] New Nutrition Context Instance is not valid.");
-			FileUtil.WriteHLCLog("[HLC Notifier: NutritionContext: ] New Nutrition Context Instance is not valid.");
+//			FileUtil.WriteHLCLog("[HLC Notifier: NutritionContext: ] New Nutrition Context Instance is not valid.");
 		}
 	}
+	/**
+	 * Test method that applies the same business logic than notify but prints
+	 * messages through the standard output stream.
+	 * 
+	 * @param newHlc
+	 *            Newly Nutrition Context instance.
+	 */
+	public void notifyTest (ClinicalContext newHlc) {
+		if (newHlc.isValidInstanceOfHlc()) {
+			ClinicalContext previousHlc = contextHandler.retrievePreviousHlcAndStoreNew(newHlc);
+			if (previousHlc != null) {
+				if (!newHlc.getCtxTypeName().equals(previousHlc.getCtxTypeName())) {
+					logger.info("[HLC Notifier: ClinicalContext: ] New instance: " + newHlc.getCtxInstanceLocalName() + " - "
+							+ newHlc.getCtxTypeLocalName() + ". Previous Instance: "
+							+ previousHlc.getCtxInstanceLocalName() + " - " + previousHlc.getCtxTypeLocalName()
+							+ ". Notify DCL.");
+/*					FileUtil.WriteHLCLog("[HLC Notifier: NutritionContext: ] New instance: " + newHlc.getCtxInstanceLocalName() + " - "
+							+ newHlc.getCtxTypeLocalName() + ". Previous Instance: "
+							+ previousHlc.getCtxInstanceLocalName() + " - " + previousHlc.getCtxTypeLocalName()
+							+ ". Notify DCL.");
+					notifyDCL(newHlc.getCtxInstanceLocalName(), newHlc.getCtxTypeLocalName(),
+							newHlc.getObjectPropertyValue(ont.getContextOfProp()).getLocalName(),
+							newHlc.getDataPropertyValue(ont.getStartTimeProp()));
+*/				}
+				else{
+/*					FileUtil.WriteHLCLog("[HLC Notifie: NutritionContext: r] New instance: " + newHlc.getCtxInstanceLocalName() + " - "
+							+ newHlc.getCtxTypeLocalName() + ". Previous Instance: "
+							+ previousHlc.getCtxInstanceLocalName() + " - " + previousHlc.getCtxTypeLocalName()
+							+ ". Do not notify DCL.");
+*/					logger.info("[HLC Notifier: ClinicalContext: ] New instance: " + newHlc.getCtxInstanceLocalName() + " - "
+							+ newHlc.getCtxTypeLocalName() + ". Previous Instance: "
+							+ previousHlc.getCtxInstanceLocalName() + " - " + previousHlc.getCtxTypeLocalName()
+							+ ". Do not notify DCL.");
+				}
+			}
+			else {
+				logger.info("[HLC Notifier: ClinicalContext: ] New instance: " + newHlc.getCtxInstanceLocalName() + " - "
+						+ newHlc.getCtxTypeLocalName() + ". Previous Instance: none" + ". Notify DCL.");
+/*				FileUtil.WriteHLCLog("[HLC Notifier: NutritionContext: ] New instance: " + newHlc.getCtxInstanceLocalName() + " - "
+						+ newHlc.getCtxTypeLocalName() + ". Previous Instance: none" + ". Notify DCL.");
+				notifyDCL(newHlc.getCtxInstanceLocalName(), newHlc.getCtxTypeLocalName(),
+						newHlc.getObjectPropertyValue(ont.getContextOfProp()).getLocalName(),
+						newHlc.getDataPropertyValue(ont.getStartTimeProp()));
+*/			}
+		}
+		else{
+			logger.info("[HLC Notifier: ClinicalContext: ] New Clinical Context Instance is not valid.");
+//			FileUtil.WriteHLCLog("[HLC Notifier: ClinicalContext: ] New Clinical Context Instance is not valid.");
+		}
+	}	
 	/**
 	 * Method to notify Data Curation Layer about the detection of a new 
 	 * PhysicalActivity and Nutrition Context.
@@ -217,7 +287,7 @@ public class HLCNotifier {
 		Calendar dateStart = ((XSDDateTime) timestamp.getValue()).asCalendar();
 		String timestampS = tutil.parseCal(dateStart);
 
-		FileUtil.WriteHLCLog("[HLC Notifier] DCL Notification Message: " + id + ", " + userID + ", " + user + ", " + timestampS);
+//		FileUtil.WriteHLCLog("[HLC Notifier] DCL Notification Message: " + id + ", " + userID + ", " + user + ", " + timestampS);
 		logger.info(
 				"[HLC Notifier] DCL Notification Message: " + id + ", " + label + ", " + userID + ", " + timestampS);
 		try {

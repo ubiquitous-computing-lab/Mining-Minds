@@ -35,20 +35,20 @@ public class TestRetrieveLLC {
 			+ "PREFIX owl: <http://www.w3.org/2002/07/owl#> "
 			+ "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> "
 			+ "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> "
-			+ "PREFIX icl2: <http://www.miningminds.re.kr/icl/context/context-v2-5.owl#> "
-			+ "SELECT ?llc "
+			+ "PREFIX icl3: <http://www.miningminds.re.kr/icl/context/context-v3.owl#> " //    context-v3-0  context-v2-5  change icl2 icl3
+			+ "SELECT ?llc "   //?llc         (COUNT(DISTINCT ?llc) AS ?count)
 			+ "WHERE { "
 
 			+ "{?llc rdf:type ?c. "
 			+ "?c rdfs:subClassOf ?type . "                              
-			+ "?type rdfs:subClassOf icl2:LowLevelContext.} "
+			+ "?type rdfs:subClassOf icl3:LowLevelContext.} "            // change icl2 icl3
 
 
 			
 			+ "UNION {?llc rdf:type ?c. "
 			+ "?c rdfs:subClassOf ?type . "                              
 			+ "?type rdfs:subClassOf ?type1 . "                          			
-			+ "?type1 rdfs:subClassOf icl2:LowLevelContext.} "
+			+ "?type1 rdfs:subClassOf icl3:LowLevelContext.} "            // change icl2 icl3
 		+ "}";
 
 
@@ -69,7 +69,7 @@ public class TestRetrieveLLC {
 				
 				LowLevelContext inst = it.next();
 
-				inst.getCtxModel().write(System.out, "Turtle");
+			inst.getCtxModel().write(System.out, "Turtle");
 			
 		}
 			

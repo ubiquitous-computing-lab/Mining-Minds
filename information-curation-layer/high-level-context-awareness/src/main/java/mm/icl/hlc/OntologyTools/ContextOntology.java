@@ -104,13 +104,21 @@ public class ContextOntology extends AbstractOntology{
 
 		return ctxModel.getOntClass(HLCA.pacClassName);
 	}
-	/**
+	/** Asif
 	 * Method to get the Nutrition Context class in the Context Ontology.
 	 * 
 	 * @return OntClass representing Nutrition Context in the Context Ontology.
 	 */
 	public OntClass getNutHlcClass() {
 		return ctxModel.getOntClass(HLCA.nutrClassName); 
+	}
+	/** Asif
+	 * Method to get the Nutrition Context class in the Context Ontology.
+	 * 
+	 * @return OntClass representing Nutrition Context in the Context Ontology.
+	 */
+	public OntClass getClinicalHlcClass() {
+		return ctxModel.getOntClass(HLCA.clinicalClassName); 
 	}
 	/**
 	 * Method to get the Low Level Context class in the Context Ontology.
@@ -159,6 +167,37 @@ public class ContextOntology extends AbstractOntology{
 	 */
 	public ObjectProperty getFoodProp() {
 		return ctxModel.getObjectProperty(HLCA.hasFoodPropName);
+	}
+	/**   Asif
+	 * Method to get the property in the Context Ontology which links a 
+	 * PhysicalActivity and Nutrition Context to the Food which is part of it.
+	 * 
+	 * @return ObjectProperty linking a Nutrition Context to the Food which
+	 *         is part of it.
+	 */
+	public ObjectProperty getBloodGlucoseProp() {
+		return ctxModel.getObjectProperty(HLCA.hasBloodGlucosePropName);
+	}
+
+	/**   Asif
+	 * Method to get the property in the Context Ontology which links a 
+	 * PhysicalActivity and Nutrition Context to the Food which is part of it.
+	 * 
+	 * @return ObjectProperty linking a Nutrition Context to the Food which
+	 *         is part of it.
+	 */
+	public ObjectProperty getBloodPressureProp() {
+		return ctxModel.getObjectProperty(HLCA.hasBloodPressurePropName);
+	}
+	/**   Asif
+	 * Method to get the property in the Context Ontology which links a 
+	 * PhysicalActivity and Nutrition Context to the Food which is part of it.
+	 * 
+	 * @return ObjectProperty linking a Nutrition Context to the Food which
+	 *         is part of it.
+	 */
+	public ObjectProperty getWaterIntakeProp() {
+		return ctxModel.getObjectProperty(HLCA.hasWaterIntakePropName);
 	}
 	/**
 	 * Method to get the subclass of Low Level Context of a given type, e.g.

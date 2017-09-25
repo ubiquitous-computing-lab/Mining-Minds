@@ -20,6 +20,7 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
 import mm.icl.hlc.OntologyTools.HLCA;
 import mm.icl.hlc.OntologyTools.InferredContextOntology;
 import mm.icl.hlc.OntologyTools.NutritionContext;
+import mm.icl.hlc.OntologyTools.ClinicalContext;
 import mm.icl.hlc.OntologyTools.PhysicalActivityContext;
 /**
  * Context Classifier: Subcomponent of the HLC Reasoner which performs the
@@ -91,5 +92,28 @@ public class ContextClassifier {
 			((PelletInfGraph) hlcInst.getGraph()).close(false);
 		}
 		return classifiedNutHlc;
+	}
+	/**
+	 * Method to classify a Nutrition Context instance, i.e., to identify the
+	 * context type to which the unclassified Nutrition Context instance
+	 * belongs.
+	 * 
+	 * @param unclassifiedHlc
+	 *            Unclassified Nutrition Context instance.
+	 * @return Classified Nutrition Context instance.
+	 */
+	public ClinicalContext classify (ClinicalContext unclassifiedCliHlc) {
+		ClinicalContext classifiedCliHlc = new ClinicalContext (unclassifiedCliHlc.getCtxModel(), ont);
+		if (!classifiedCliHlc.isClassified()) {
+			OntModel hlcInst = ModelFactory.createOntologyModel(PelletReasonerFactory.THE_SPEC,
+					unclassifiedCliHlc.getCtxModel());
+			hlcInst.addSubModel(ont.getCtxModel());
+			((PelletInfGraph) hlcInst.getGraph()).classify();
+			OntClass c = hlcInst.getIndividual(unclassifiedCliHlc.getCtxInstanceName()).listOntClasses(true).next();
+			if (!c.getURI().equals(HLCA.clinicalClassName))     
+				classifiedCliHlc.setHlcClass(c);
+			((PelletInfGraph) hlcInst.getGraph()).close(false);
+		}
+		return classifiedCliHlc;
 	}
 }

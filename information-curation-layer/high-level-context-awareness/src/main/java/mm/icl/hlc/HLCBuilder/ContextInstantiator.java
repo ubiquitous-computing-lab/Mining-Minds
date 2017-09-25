@@ -30,6 +30,7 @@ import mm.icl.hlc.OntologyTools.ContextOntology;
 import mm.icl.hlc.OntologyTools.HLCA;
 import mm.icl.hlc.OntologyTools.LowLevelContext;
 import mm.icl.hlc.OntologyTools.NutritionContext;
+import mm.icl.hlc.OntologyTools.ClinicalContext;
 import mm.icl.hlc.OntologyTools.PhysicalActivityContext;
 /**
  * Context Instantiator. Subcomponent of the HLC Builder which generates
@@ -86,7 +87,10 @@ public class ContextInstantiator {
 		boolean act = false;
 		boolean loc = false;
 		boolean emo = false;
-		boolean foo = false;  
+		boolean foo = false;
+		boolean bg = false;
+		boolean bp = false;
+		boolean wi = false;
 		switch (llc.getLlcCategoryName()) {
 		case HLCA.activityClassName:
 			setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llc, ont.getActivityProp());
@@ -99,6 +103,18 @@ public class ContextInstantiator {
 		case HLCA.emotionClassName:
 			setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llc, ont.getEmotionProp());
 			emo = true;
+			break;
+		case HLCA.BloodGlucoseClassName:
+			setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llc, ont.getBloodGlucoseProp());
+			bg = true;
+			break;
+		case HLCA.BloodPressureClassName:
+			setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llc, ont.getBloodPressureProp());
+			bp= true;
+			break;
+		case HLCA.WaterIntakeClassName:
+			setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llc, ont.getWaterIntakeProp());
+			wi = true;
 			break;
 		case HLCA.eggClassName:      
 			setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llc, ont.getFoodProp());
@@ -157,6 +173,18 @@ public class ContextInstantiator {
 				setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llcConc, ont.getEmotionProp());
 				emo = true;
 				break;
+			case HLCA.BloodGlucoseClassName:
+				setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llcConc, ont.getBloodGlucoseProp());
+				bg = true;
+				break;
+			case HLCA.BloodPressureClassName:
+				setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llcConc, ont.getBloodPressureProp());
+				bp = true;
+				break;
+			case HLCA.WaterIntakeClassName:
+				setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llcConc, ont.getWaterIntakeProp());
+				wi = true;
+				break;
 			case HLCA.eggClassName:      
 				setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llcConc, ont.getFoodProp());
 				foo = true;
@@ -208,6 +236,15 @@ public class ContextInstantiator {
 		if (!emo)
 			setNoLlcBeingPartOfHlc(hlcModel, hlcIndiv, ont.getLlcCategoryClass(HLCA.emotionClassName),
 					ont.getEmotionProp());
+		if (!bg)
+			setNoLlcBeingPartOfHlc(hlcModel, hlcIndiv, ont.getLlcCategoryClass(HLCA.BloodGlucoseClassName),
+					ont.getBloodGlucoseProp());
+		if (!bp)
+			setNoLlcBeingPartOfHlc(hlcModel, hlcIndiv, ont.getLlcCategoryClass(HLCA.BloodPressureClassName),
+					ont.getBloodPressureProp());
+		if (!wi)
+			setNoLlcBeingPartOfHlc(hlcModel, hlcIndiv, ont.getLlcCategoryClass(HLCA.WaterIntakeClassName),
+					ont.getWaterIntakeProp());
 		if (!foo)   //Asif
 			setNoLlcBeingPartOfHlc(hlcModel, hlcIndiv, ont.getLlcCategoryClass(HLCA.foodClassName),
 					ont.getFoodProp());
@@ -234,7 +271,10 @@ public class ContextInstantiator {
 		boolean act = false;
 		boolean loc = false;
 		boolean emo = false;
-		boolean foo = false; 
+		boolean foo = false;
+		boolean bg = false;
+		boolean bp = false;
+		boolean wi  = false;
 		switch (llc.getLlcCategoryName()) {
 		case HLCA.activityClassName:
 			setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llc, ont.getActivityProp());
@@ -247,6 +287,18 @@ public class ContextInstantiator {
 		case HLCA.emotionClassName:
 			setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llc, ont.getEmotionProp());
 			emo = true;
+			break;
+		case HLCA.BloodGlucoseClassName:
+			setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llc, ont.getBloodGlucoseProp());
+			bg = true;
+			break;
+		case HLCA.BloodPressureClassName:
+			setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llc, ont.getBloodPressureProp());
+			bp= true;
+			break;
+		case HLCA.WaterIntakeClassName:
+			setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llc, ont.getWaterIntakeProp());
+			wi = true;
 			break;
 		case HLCA.eggClassName:      
 			setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llc, ont.getFoodProp());
@@ -305,6 +357,18 @@ public class ContextInstantiator {
 				setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llcConc, ont.getEmotionProp());
 				emo = true;
 				break;
+			case HLCA.BloodGlucoseClassName:
+				setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llcConc, ont.getBloodGlucoseProp());
+				bg = true;
+				break;
+			case HLCA.BloodPressureClassName:
+				setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llcConc, ont.getBloodPressureProp());
+				bp = true;
+				break;
+			case HLCA.WaterIntakeClassName:
+				setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llcConc, ont.getWaterIntakeProp());
+				wi = true;
+				break;
 			case HLCA.eggClassName:      
 				setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llcConc, ont.getFoodProp());
 				foo = true;
@@ -356,11 +420,204 @@ public class ContextInstantiator {
 		if (!emo)
 			setNoLlcBeingPartOfHlc(hlcModel, hlcIndiv, ont.getLlcCategoryClass(HLCA.emotionClassName),
 					ont.getEmotionProp());
+		if (!bg)
+			setNoLlcBeingPartOfHlc(hlcModel, hlcIndiv, ont.getLlcCategoryClass(HLCA.BloodGlucoseClassName),
+					ont.getBloodGlucoseProp());
+		if (!bp)
+			setNoLlcBeingPartOfHlc(hlcModel, hlcIndiv, ont.getLlcCategoryClass(HLCA.BloodPressureClassName),
+					ont.getBloodPressureProp());
+		if (!wi)
+			setNoLlcBeingPartOfHlc(hlcModel, hlcIndiv, ont.getLlcCategoryClass(HLCA.WaterIntakeClassName),
+					ont.getWaterIntakeProp());
 		if (!foo)   //Asif
 			setNoLlcBeingPartOfHlc(hlcModel, hlcIndiv, ont.getLlcCategoryClass(HLCA.foodClassName),
 					ont.getFoodProp());
 		this.hlcInstNum++;
 		return new NutritionContext(hlcModel);
+	}
+	/*
+	 * Method to generate a new HLC Instance due to the start of a LLC.
+	 * 
+	 * @param llc
+	 *            Low Level Context which start is the trigger for the
+	 *            generation of the new HLC.
+	 * @param listLlcConc
+	 *            List of Low Level Context Instances which are concurrent at
+	 *            the start time of llc.
+	 * @return PhysicalActivity and Nutrition Context composed of the llc and the listLlcConc, and
+	 *         which starts at the start of llc.
+	 */
+	public ClinicalContext instantiateNewCliHlcDueToLlcStart(LowLevelContext llc, List<LowLevelContext> listLlcConc) {
+		OntModel hlcModel = createHlcModel();
+		Individual hlcIndiv = createCliHlcIndiv(hlcModel);
+		setUserForHlc(hlcIndiv, llc);
+		setStartTimeForHlcDueToLlcStart(hlcIndiv, llc);
+		boolean act = false;
+		boolean loc = false;
+		boolean emo = false;
+		boolean foo = false;
+		boolean bg = false;
+		boolean bp = false;
+		boolean wi  = false;
+		switch (llc.getLlcCategoryName()) {
+		case HLCA.activityClassName:
+			setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llc, ont.getActivityProp());
+			act = true;
+			break;
+		case HLCA.locationClassName:
+			setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llc, ont.getLocationProp());
+			loc = true;
+			break;
+		case HLCA.emotionClassName:
+			setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llc, ont.getEmotionProp());
+			emo = true;
+			break;
+		case HLCA.BloodGlucoseClassName:
+			setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llc, ont.getBloodGlucoseProp());
+			bg = true;
+			break;
+		case HLCA.BloodPressureClassName:
+			setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llc, ont.getBloodPressureProp());
+			bp= true;
+			break;
+		case HLCA.WaterIntakeClassName:
+			setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llc, ont.getWaterIntakeProp());
+			wi = true;
+			break;
+		case HLCA.eggClassName:      
+			setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llc, ont.getFoodProp());
+			foo = true;
+			break;
+		case HLCA.fruitClassName :      
+			setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llc, ont.getFoodProp());
+			foo = true;
+			break;
+		case HLCA.grainClassName :      
+			setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llc, ont.getFoodProp());
+			foo = true;
+			break;
+		case HLCA.legumesClassName :      
+			setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llc, ont.getFoodProp());
+			foo = true;
+			break;
+		case HLCA.meatClassName :      
+			setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llc, ont.getFoodProp());
+			foo = true;
+			break;
+		case HLCA.milkdairyClassName :      
+			setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llc, ont.getFoodProp());
+			foo = true;
+			break;
+		case HLCA.nutsClassName :      
+			setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llc, ont.getFoodProp());
+			foo = true;
+			break;
+		case HLCA.seafoodClassName :      
+			setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llc, ont.getFoodProp());
+			foo = true;
+			break;
+		case HLCA.snacksClassName :      
+			setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llc, ont.getFoodProp());
+			foo = true;
+			break;
+		case HLCA.vegClassName :      
+			setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llc, ont.getFoodProp());
+			foo = true;
+			break;
+		}
+		Iterator<LowLevelContext> itConc = listLlcConc.iterator();
+		while (itConc.hasNext()) {
+			LowLevelContext llcConc = itConc.next();
+			switch (llcConc.getLlcCategoryName()) {
+			case HLCA.activityClassName:
+				setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llcConc, ont.getActivityProp());
+				act = true;
+				break;
+			case HLCA.locationClassName:
+				setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llcConc, ont.getLocationProp());
+				loc = true;
+				break;
+			case HLCA.emotionClassName:
+				setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llcConc, ont.getEmotionProp());
+				emo = true;
+				break;
+			case HLCA.BloodGlucoseClassName:
+				setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llcConc, ont.getBloodGlucoseProp());
+				bg = true;
+				break;
+			case HLCA.BloodPressureClassName:
+				setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llcConc, ont.getBloodPressureProp());
+				bp = true;
+				break;
+			case HLCA.WaterIntakeClassName:
+				setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llcConc, ont.getWaterIntakeProp());
+				wi = true;
+				break;
+			case HLCA.eggClassName:      
+				setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llcConc, ont.getFoodProp());
+				foo = true;
+				break;
+			case HLCA.fruitClassName :      
+				setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llcConc, ont.getFoodProp());
+				foo = true;
+				break;
+			case HLCA.grainClassName :      
+				setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llcConc, ont.getFoodProp());
+				foo = true;
+				break;
+			case HLCA.legumesClassName :      
+				setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llcConc, ont.getFoodProp());
+				foo = true;
+				break;
+			case HLCA.meatClassName :      
+				setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llcConc, ont.getFoodProp());
+				foo = true;
+				break;
+			case HLCA.milkdairyClassName :      
+				setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llcConc, ont.getFoodProp());
+				foo = true;
+				break;
+			case HLCA.nutsClassName :      
+				setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llcConc, ont.getFoodProp());
+				foo = true;
+				break;
+			case HLCA.seafoodClassName :      
+				setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llcConc, ont.getFoodProp());
+				foo = true;
+				break;
+			case HLCA.snacksClassName :      
+				setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llcConc, ont.getFoodProp());
+				foo = true;
+				break;
+			case HLCA.vegClassName :      
+				setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llcConc, ont.getFoodProp());
+				foo = true;
+				break;
+			}
+		}
+		if (!act)
+			setNoLlcBeingPartOfHlc(hlcModel, hlcIndiv, ont.getLlcCategoryClass(HLCA.activityClassName),
+					ont.getActivityProp());
+		if (!loc)
+			setNoLlcBeingPartOfHlc(hlcModel, hlcIndiv, ont.getLlcCategoryClass(HLCA.locationClassName),
+					ont.getLocationProp());
+		if (!emo)
+			setNoLlcBeingPartOfHlc(hlcModel, hlcIndiv, ont.getLlcCategoryClass(HLCA.emotionClassName),
+					ont.getEmotionProp());
+		if (!bg)
+			setNoLlcBeingPartOfHlc(hlcModel, hlcIndiv, ont.getLlcCategoryClass(HLCA.BloodGlucoseClassName),
+					ont.getBloodGlucoseProp());
+		if (!bp)
+			setNoLlcBeingPartOfHlc(hlcModel, hlcIndiv, ont.getLlcCategoryClass(HLCA.BloodPressureClassName),
+					ont.getBloodPressureProp());
+		if (!wi)
+			setNoLlcBeingPartOfHlc(hlcModel, hlcIndiv, ont.getLlcCategoryClass(HLCA.WaterIntakeClassName),
+					ont.getWaterIntakeProp());
+		if (!foo)   //Asif
+			setNoLlcBeingPartOfHlc(hlcModel, hlcIndiv, ont.getLlcCategoryClass(HLCA.foodClassName),
+					ont.getFoodProp());
+		this.hlcInstNum++;
+		return new ClinicalContext(hlcModel);
 	}
 	/**
 	 * Method to generate a new HLC Instance due to the end of a LLC.
@@ -382,7 +639,10 @@ public class ContextInstantiator {
 		boolean act = false;
 		boolean loc = false;
 		boolean emo = false;
-		boolean foo = false; 
+		boolean foo = false;
+		boolean bg = false; 
+		boolean bp = false; 
+		boolean wi = false; 
 		Iterator<LowLevelContext> itConc = listLlcConc.iterator();
 		while (itConc.hasNext()) {
 			LowLevelContext llcConc = itConc.next();
@@ -403,6 +663,19 @@ public class ContextInstantiator {
 				setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llcConc, ont.getFoodProp());
 				foo = true;
 				break;
+			case HLCA.BloodGlucoseClassName: 
+				setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llcConc, ont.getBloodGlucoseProp());
+				bg= true;
+				break;
+			case HLCA.BloodPressureClassName: 
+				setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llcConc, ont.getBloodPressureProp());
+				bp= true;
+				break;
+			case HLCA.WaterIntakeClassName: 
+				setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llcConc, ont.getWaterIntakeProp());
+				wi = true;
+				break;
+
 			}
 		}
 		if (!act)
@@ -417,6 +690,15 @@ public class ContextInstantiator {
 		if (!foo)
 			setNoLlcBeingPartOfHlc(hlcModel, hlcIndiv, ont.getLlcCategoryClass(HLCA.foodClassName),
 					ont.getFoodProp());
+		if (!bg)
+			setNoLlcBeingPartOfHlc(hlcModel, hlcIndiv, ont.getLlcCategoryClass(HLCA.BloodGlucoseClassName),
+					ont.getBloodGlucoseProp());
+		if (!bp)
+			setNoLlcBeingPartOfHlc(hlcModel, hlcIndiv, ont.getLlcCategoryClass(HLCA.BloodPressureClassName),
+					ont.getBloodPressureProp());
+		if (!wi)
+			setNoLlcBeingPartOfHlc(hlcModel, hlcIndiv, ont.getLlcCategoryClass(HLCA.WaterIntakeClassName),
+					ont.getWaterIntakeProp());
 		this.hlcInstNum++;
 		return new PhysicalActivityContext(hlcModel);
 	}
@@ -441,6 +723,9 @@ public class ContextInstantiator {
 		boolean loc = false;
 		boolean emo = false;
 		boolean foo = false; 
+		boolean bg = false; 
+		boolean bp = false; 
+		boolean wi = false; 
 		Iterator<LowLevelContext> itConc = listLlcConc.iterator();
 		while (itConc.hasNext()) {
 			LowLevelContext llcConc = itConc.next();
@@ -461,6 +746,18 @@ public class ContextInstantiator {
 				setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llcConc, ont.getFoodProp());
 				foo = true;
 				break;
+			case HLCA.BloodGlucoseClassName: 
+				setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llcConc, ont.getBloodGlucoseProp());
+				bg= true;
+				break;
+			case HLCA.BloodPressureClassName: 
+				setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llcConc, ont.getBloodPressureProp());
+				bp= true;
+				break;
+			case HLCA.WaterIntakeClassName: 
+				setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llcConc, ont.getWaterIntakeProp());
+				wi = true;
+				break;				
 			}
 		}
 		if (!act)
@@ -475,9 +772,101 @@ public class ContextInstantiator {
 		if (!foo)  //Asif
 			setNoLlcBeingPartOfHlc(hlcModel, hlcIndiv, ont.getLlcCategoryClass(HLCA.foodClassName),
 					ont.getFoodProp());
+		if (!bg)
+			setNoLlcBeingPartOfHlc(hlcModel, hlcIndiv, ont.getLlcCategoryClass(HLCA.BloodGlucoseClassName),
+					ont.getBloodGlucoseProp());
+		if (!bp)
+			setNoLlcBeingPartOfHlc(hlcModel, hlcIndiv, ont.getLlcCategoryClass(HLCA.BloodPressureClassName),
+					ont.getBloodPressureProp());
+		if (!wi)
+			setNoLlcBeingPartOfHlc(hlcModel, hlcIndiv, ont.getLlcCategoryClass(HLCA.WaterIntakeClassName),
+					ont.getWaterIntakeProp());
 		this.hlcInstNum++;
 		return new NutritionContext(hlcModel);
 	}
+	/**
+	 * Method to generate a new HLC Instance due to the end of a LLC.
+	 * 
+	 * @param llc
+	 *            Low Level Context which end is the trigger for the generation
+	 *            of the new HLC.
+	 * @param listLlcConc
+	 *            List of Low Level Context Instances which are concurrent at
+	 *            the end time of llc.
+	 * @return PhysicalActivity and Nutrition Context composed of the listLlcConc and which starts
+	 *         at the end of llc.
+	 */
+	public ClinicalContext instantiateNewCliHlcDueToLlcEnd(LowLevelContext llc, List<LowLevelContext> listLlcConc) {
+		OntModel hlcModel = createHlcModel();
+		Individual hlcIndiv = createNutHlcIndiv(hlcModel);
+		setUserForHlc(hlcIndiv, llc);
+		setStartTimeForHlcDueToLlcEnd(hlcIndiv, llc);
+		boolean act = false;
+		boolean loc = false;
+		boolean emo = false;
+		boolean foo = false; 
+		boolean bg = false; 
+		boolean bp = false; 
+		boolean wi = false; 
+		Iterator<LowLevelContext> itConc = listLlcConc.iterator();
+		while (itConc.hasNext()) {
+			LowLevelContext llcConc = itConc.next();
+			switch (llcConc.getLlcCategoryName()) {
+			case HLCA.activityClassName:
+				setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llcConc, ont.getActivityProp());
+				act = true;
+				break;
+			case HLCA.locationClassName:
+				setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llcConc, ont.getLocationProp());
+				loc = true;
+				break;
+			case HLCA.emotionClassName:
+				setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llcConc, ont.getEmotionProp());
+				emo = true;
+				break;
+			case HLCA.foodClassName: 
+				setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llcConc, ont.getFoodProp());
+				foo = true;
+				break;
+			case HLCA.BloodGlucoseClassName: 
+				setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llcConc, ont.getBloodGlucoseProp());
+				bg= true;
+				break;
+			case HLCA.BloodPressureClassName: 
+				setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llcConc, ont.getBloodPressureProp());
+				bp= true;
+				break;
+			case HLCA.WaterIntakeClassName: 
+				setLlcBeingPartOfHlc(hlcModel, hlcIndiv, llcConc, ont.getWaterIntakeProp());
+				wi = true;
+				break;				
+			}
+		}
+		if (!act)
+			setNoLlcBeingPartOfHlc(hlcModel, hlcIndiv, ont.getLlcCategoryClass(HLCA.activityClassName),
+					ont.getActivityProp());
+		if (!loc)
+			setNoLlcBeingPartOfHlc(hlcModel, hlcIndiv, ont.getLlcCategoryClass(HLCA.locationClassName),
+					ont.getLocationProp());
+		if (!emo)
+			setNoLlcBeingPartOfHlc(hlcModel, hlcIndiv, ont.getLlcCategoryClass(HLCA.emotionClassName),
+					ont.getEmotionProp());
+		if (!foo)  //Asif
+			setNoLlcBeingPartOfHlc(hlcModel, hlcIndiv, ont.getLlcCategoryClass(HLCA.foodClassName),
+					ont.getFoodProp());
+		if (!bg)
+			setNoLlcBeingPartOfHlc(hlcModel, hlcIndiv, ont.getLlcCategoryClass(HLCA.BloodGlucoseClassName),
+					ont.getBloodGlucoseProp());
+		if (!bp)
+			setNoLlcBeingPartOfHlc(hlcModel, hlcIndiv, ont.getLlcCategoryClass(HLCA.BloodPressureClassName),
+					ont.getBloodPressureProp());
+		if (!wi)
+			setNoLlcBeingPartOfHlc(hlcModel, hlcIndiv, ont.getLlcCategoryClass(HLCA.WaterIntakeClassName),
+					ont.getWaterIntakeProp());
+		this.hlcInstNum++;
+		return new ClinicalContext(hlcModel);
+	}
+	
 	/**
 	 * Method to create the OntModel associated to a new HLC.
 	 * 
@@ -513,6 +902,19 @@ public class ContextInstantiator {
 	private Individual createNutHlcIndiv(OntModel hlcModel) {
 		return hlcModel.createIndividual(HLCA.ns + "hlc_" + String.format("%010d", this.instantiatiorId) + "_"
 				+ String.format("%019d", this.hlcInstNum), ont.getNutHlcClass());
+	}
+	/**
+	 * Method to create an individual of the HLC class which represents the new
+	 * HLC instance.
+	 * 
+	 * @param hlcModel
+	 *            OntModel associated to the new HLC in which the individual
+	 *            will be created.
+	 * @return Individual representing the HLC instance.
+	 */
+	private Individual createCliHlcIndiv(OntModel hlcModel) {
+		return hlcModel.createIndividual(HLCA.ns + "hlc_" + String.format("%010d", this.instantiatiorId) + "_"
+				+ String.format("%019d", this.hlcInstNum), ont.getClinicalHlcClass());
 	}
 	/**
 	 * Method to set the User in the HLC instance, i.e., to assert the value of

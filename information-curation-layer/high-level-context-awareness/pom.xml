@@ -2,7 +2,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>mm</groupId>
-	<artifactId>ICL_2.5_OS</artifactId>
+	<artifactId>ICL_3.0</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 
@@ -502,9 +502,22 @@
 		</dependency>
 		
 		
+<!-- https://mvnrepository.com/artifact/net.sourceforge.javacsv/javacsv -->
+<dependency>
+    <groupId>net.sourceforge.javacsv</groupId>
+    <artifactId>javacsv</artifactId>
+    <version>2.0</version>
+</dependency>
 
 		
-		
+<!-- https://mvnrepository.com/artifact/com.opencsv/opencsv -->
+<dependency>
+    <groupId>com.opencsv</groupId>
+    <artifactId>opencsv</artifactId>
+    <version>3.3</version>
+</dependency>
+
+
 		
 	</dependencies>
 </project>
