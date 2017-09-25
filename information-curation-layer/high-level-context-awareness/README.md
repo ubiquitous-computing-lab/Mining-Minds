@@ -1,7 +1,7 @@
 # High Level Context Awareness: (HLCA)
 <!-- make your own badges from here: http://shields.io/ -->
-[![Version](https://img.shields.io/badge/MM__ICL__HLCA-V2.5-ff69b4.svg)](http://www.miningminds.re.kr/english/)
-[![Version](https://img.shields.io/badge/Mining%20Minds-Version%202.5-green.svg)](http://www.miningminds.re.kr/english/)
+[![Version](https://img.shields.io/badge/MM__ICL__HLCA-V3.0-ff69b4.svg)](http://www.miningminds.re.kr/english/)
+[![Version](https://img.shields.io/badge/Mining%20Minds-Version%203.0-green.svg)](http://www.miningminds.re.kr/english/)
 [![License](https://img.shields.io/badge/Apache%20License%20-Version%202.0-yellowgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 [![License](https://img.shields.io/badge/Pellet--core-2.3.2-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 [![License](https://img.shields.io/badge/owlapi--api-3.4.10-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
@@ -31,8 +31,8 @@
 
 # 1. Introduction
 
-In Mining Minds the sensory data is modelled ontologically in the form of RDF Triples which are fed to HLCA for reasoning purpose.  The underlying Mining Minds Context Ontology (MMCO) models context for human behavior identification in order to enable the provision of personalized health and wellness services in Mining Minds. In Mining Minds, human context is understood as any information characterizing the physical, mental and social situation of a person which enables the identification of human behavior.  Furthermore, human context is here categorized into two different levels of abstraction: low-level context (LLC) and high-level context (HLC).  HLC has further two main classes, Physical Activity high level context (PA-HLC) and nutrition high level context (N-HLC).  PA-HLC comprises of activities, locations and emotions include daily contexts like office work, commuting, house work, gardening, amusement, exercising, sleeping, and inactivity whereas N-HLC consists of carbohydrates, protein and fats determined as per rules from activity eating, location home or restaurant, with several emotions and having any of the food items from the list of 57 identified food under 10 broader categories.   
-	-	**Mining Mind Context Ontology v2.5** (MMCOv2.5):  You can have a look at [:link:MMCO V2.5](http://www.miningminds.re.kr/lifelog/context/context-v2.5.owl) how it is designed in [:link:Protégé ](http://protege.stanford.edu/) .  
+In Mining Minds the sensory data is modelled ontologically in the form of RDF Triples which are fed to HLCA for reasoning purpose.  The underlying Mining Minds Context Ontology (MMCO) models context for human behavior identification in order to enable the provision of personalized health and wellness services in Mining Minds. In Mining Minds, human context is understood as any information characterizing the physical, mental and social situation of a person which enables the identification of human behavior.  Furthermore, human context is here categorized into two different levels of abstraction: low-level context (LLC) and high-level context (HLC).  HLC has further three main classes, Physical Activity high level context (PA-HLC), nutrition high level context (N-HLC) and clinical high level context (C-HLC). PA-HLC comprises of activities, locations and emotions include daily contexts like office work, commuting, house work, gardening, amusement, exercising, sleeping, and inactivity. N-HLC consists of carbohydrates, protein and fats determined as per rules from activity eating, location home or restaurant, with several emotions and having any of the food items from the list of 57 identified food under 10 broader categories. C-HLC worsk on the basis of Blood Glucose, Blood Pressure and Water Intake LLC.
+	-	**Mining Mind Context Ontology v3.0** (MMCOv3.0):  You can have a look at [:link:MMCO V3.0](http://www.miningminds.re.kr/lifelog/context/context-v3.0.owl) how it is designed in [:link:Protégé ](http://protege.stanford.edu/) .  
 	-	Also It can be visualized in the Screenshot as under 
 		![](./MMCO2-5.PNG)
 
@@ -56,7 +56,7 @@ In the Bridge design pattern we decouple an abstraction from its implementation 
 * Both the abstractions and their implementations are extensible by subclassing. This implementation of Bridge pattern allows to  combine the different abstractions and implementations and extend them independently
 * changes in the implementation of an abstraction has no impact on clients
 * Shares an implementation among multiple objects and fact remains hidden from the client. 
-* We implemented Bridge design pattern for **Context** Class as an abstraction in the **mm.icl.hlc.OntologyTools** package.  **NutritionContext** and **PhysicalActivityContext** Classes work independently and are extended from **Context** Class.  
+* We implemented Bridge design pattern for **Context** Class as an abstraction in the **mm.icl.hlc.OntologyTools** package.  **NutritionContext**, **PhysicalActivityContext** and **ClinicalContext** Classes work independently and are extended from **Context** Class.  
 * Similarly **ContextHandler** class is extended from **AbstractHandler** class in the **mm.icl.hlc.ContextOntologyManager**, which can be extended for future use.  
 * The features of Bridge design patterns were also used in **ContextOntology** class which was extended from **AbstractOntology** implemented in  **mm.icl.hlc.OntologyTools** package.
 * Lastly High level context reasoner i.e. **HLCReasoner** class is extended from **AbstractReasoner** class in the **mm.icl.hlc.HLCReasoner** package.  
@@ -109,10 +109,10 @@ The requirements for executing HLCA are as under:
 	*	You can run mvn eclipse:eclipse to re-generate Eclipse .project and .classpath files automatically from your pom.xml file.
 	
 ## 2.3 Usage
-Once environment has been setup, MMCO v2.5 placed in the folder, the user can use HLCA.  **HLCAMapperTest** can be executed for adding new LLC of any form w.r.t. MMCO v2.5.  This will add User context to *Jena TDB* and for instance if **Sitting** LLC is added which will look like 
+Once environment has been setup, MMCO v3.0 placed in the folder, the user can use HLCA.  **HLCAMapperTest** can be executed for adding new LLC of any form w.r.t. MMCO v3.0.  This will add User context to *Jena TDB* and for instance if **Sitting** LLC is added which will look like 
 ![](./SittingLLC.PNG)
 
-After creating enough LLC, User can test **TestHLCA** in order to infer PA-HLC and N-HLC based on LLC like Activity, Location, Emotin and Food.  These inferred PA-HLC and N-HLC would be according to the Constraint based Rules defined in MMCO v2.5.
+After creating enough LLC, User can test **TestHLCA** in order to infer PA-HLC and N-HLC based on LLC like Activity, Location, Emotin and Food.  These inferred PA-HLC and N-HLC would be according to the Constraint based Rules defined in MMCO v3.0.
 
 # 3. Features
 
@@ -125,12 +125,12 @@ Finally reasoning was performed used pellet reasoner i.e. pellet-core-2.3.2 reas
 
 # 4. Contributions
 
--	This work has presented an ontology-based method for deriving PA-HLC and N-HLC out of the combination of cross-domain low-level context primitives, namely activities, locations, emotions and food. 
--	The modeling of the low-level, PA-HLC and N-HLC are defined through the so-called Mining Minds Context Ontology. 
+-	This work has presented an ontology-based method for deriving PA-HLC, N-HLC and C-HLC out of the combination of cross-domain low-level context primitives, namely activities, locations, emotions and food. 
+-	The modeling of the low-level, PA-HLC, N-HLC and C-HLC are defined through the so-called Mining Minds Context Ontology. 
 -	The processing and inference of contexts is performed by the Mining Minds High-Level Context Architecture implementation.
--	The unprecedented incorporation of emotions and food items in the context definition enables the representation of new PA-HLC and N-HLC that can only be identified whenever a specific emotion takes place and user take food in meals as LLC. 
--	The Mining Minds Context Ontology has also been designed to procure the identification PA-HLC and N-HLC even in the absence of emotion and Food information. 
--	This implementation of Mining Minds HLCA built on the MMCO enable the inference of PA-HLC and N-HLC from low-level context primitives in real time. 
+-	The unprecedented incorporation of emotions and food items in the context definition enables the representation of new PA-HLC, N-HLC and C-HLC that can only be identified whenever a specific emotion takes place and user take food in meals as LLC. 
+-	The Mining Minds Context Ontology has also been designed to procure the identification PA-HLC, N-HLC and C-HLC even in the absence of emotion and Food information. 
+-	This implementation of Mining Minds HLCA built on the MMCO enable the inference of PA-HLC, N-HLC and C-HLC from low-level context primitives in real time. 
 
 # 5. Authors
 <!--  Name : Claudia Villalonga and Muhammad Asif Razzaq-->
