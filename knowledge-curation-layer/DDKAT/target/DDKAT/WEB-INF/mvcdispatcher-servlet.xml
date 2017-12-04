@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:util="http://www.springframework.org/schema/util"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/mvc
+    http://www.springframework.org/schema/mvc/spring-mvc.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd
+    http://www.springframework.org/schema/util
+  	http://www.springframework.org/schema/util/spring-util-2.5.xsd">
+
+    <context:component-scan base-package="org.uclab.mm.kcl.ddkat.controllers" />
+
+    <mvc:annotation-driven />
+    <mvc:default-servlet-handler/>
+
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/views/" />
+        <property name="suffix" value=".jsp" />
+    </bean>
+    
+    <bean id="condition" class="org.uclab.mm.kcl.ddkat.productionmodel.Condition"></bean>
+    
+    <bean id="conclusion" class="org.uclab.mm.kcl.ddkat.productionmodel.Conclusion"></bean>
+    
+    <bean id="rule" class="org.uclab.mm.kcl.ddkat.productionmodel.Rule">
+       <!-- java.util.List -->
+		<property name="conditionList">
+			<util:list list-class="java.util.ArrayList" value-type="org.uclab.mm.kcl.ddkat.productionmodel.Condition">
+                    <ref bean="condition"/>
+            </util:list>
+		</property>
+		<property name="conclusionList">
+			<util:list list-class="java.util.ArrayList" value-type="org.uclab.mm.kcl.ddkat.productionmodel.Conclusion">
+                    <ref bean="conclusion"/>
+            </util:list>
+		</property>
+    </bean>           
+   
+   
+   <bean id="dtToRuleTranslator" class="org.uclab.mm.kcl.ddkat.modeltranslator.DTtoRuleTranslator"></bean>
+   
+   <bean id="iClassificationModelTranslator" class="org.uclab.mm.kcl.ddkat.services.ModeltoRuleTranslator">
+    	<property name="ruleTranslator" ref="dtToRuleTranslator"/>
+    </bean>
+
+</beans>

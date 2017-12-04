@@ -1,0 +1,128 @@
+IMG {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; BORDER-LEFT: 0px; BORDER-BOTTOM: 0px
+}
+TABLE {
+	MARGIN: 0px; WIDTH: 100%; BORDER-COLLAPSE: collapse
+}
+TABLE TD {
+	BORDER-TOP-WIDTH: 0px; PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; PADDING-BOTTOM: 0px; VERTICAL-ALIGN: top; PADDING-TOP: 0px; BORDER-RIGHT-WIDTH: 0px
+}
+DIV {
+	MARGIN-BOTTOM: 0px
+}
+BODY {
+	SCROLLBAR-FACE-COLOR: #004487; BACKGROUND-IMAGE: url(..); MARGIN: 0px; SCROLLBAR-HIGHLIGHT-COLOR: #d6d9dc; SCROLLBAR-SHADOW-COLOR: #d6d9dc; SCROLLBAR-ARROW-COLOR: #ffffff; SCROLLBAR-TRACK-COLOR: #ffcb7c; BACKGROUND-REPEAT: repeat-x; FONT-FAMILY: Times New Roman, Verdana, Arial, Helvetica, sans-serif; SCROLLBAR-BASE-COLOR: #d6d9dc; BACKGROUND-COLOR: #ffffff; scrollbar-dark-shadow-color: #FFFFFF; scrollbar-3d-light-color: #FFFFFF
+}
+#header {
+	BACKGROUND: #4c7cab; HEIGHT: 106px
+}
+#tran1 {
+	BACKGROUND-IMAGE: url(..); BACKGROUND-REPEAT: repeat-y; HEIGHT: 6px; BACKGROUND-COLOR: #ffffff
+}
+.headergfx {
+	BACKGROUND-IMAGE: url(../images/citypic_homepage_tile2.gif); WIDTH: 750px; HEIGHT: 209px; BACKGROUND-COLOR: #d5d5d2
+}
+#headergfx3 {
+	BACKGROUND-IMAGE: url(../images/citypic_homepage_tile2.gif); HEIGHT: 209px; BACKGROUND-COLOR: #d5d5d2
+}
+#headergfx2 {
+	BACKGROUND-IMAGE: url(../images/citypic_2.jpg); HEIGHT: 209px; BACKGROUND-COLOR: #d5d5d2
+}
+#tran2 {
+	BACKGROUND-IMAGE: url(..); BACKGROUND-REPEAT: repeat-y; HEIGHT: 6px; BACKGROUND-COLOR: #ff9900
+}
+#menubar {
+	HEIGHT: 21px; BACKGROUND-COLOR: #004487
+}
+#main {
+	WIDTH: 750px
+}
+#main2 {
+	WIDTH: 100%; TEXT-ALIGN: center
+}
+#leftMenu {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; FONT-SIZE: 0.7em; PADDING-BOTTOM: 0px; WIDTH: 190px; COLOR: #004488; PADDING-TOP: 10px; FONT-FAMILY: Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+#leftMenu A {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 20px; PADDING-BOTTOM: 0px; COLOR: #004488; PADDING-TOP: 10px; TEXT-DECORATION: none
+}
+#leftMenu A:visited {
+	COLOR: #004488
+}
+#leftMenu A:hover {
+	COLOR: #ff9900
+}
+#leftMenu A:active {
+	COLOR: #ff9900
+}
+#body {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; FONT-SIZE: 0.7em; PADDING-BOTTOM: 0px; WIDTH: 560px; PADDING-TOP: 10px; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+.body {
+	FONT-SIZE: 1em; VERTICAL-ALIGN: top; WIDTH: 580px
+}
+#bodyMain {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; FONT-SIZE: 0.7em; PADDING-BOTTOM: 0px; WIDTH: 590px; PADDING-TOP: 10px; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+#rightMenu {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 1px; FONT-SIZE: 0.7em; PADDING-BOTTOM: 0px; WIDTH: 0px; PADDING-TOP: 10px; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+.teritoryBox {
+	MARGIN: 0px 0px 10px 10px
+}
+#footer {
+	FONT-SIZE: 0.6em; MARGIN: 10px 10px 0px 0px; WIDTH: 740px; COLOR: #444444; TEXT-ALIGN: right
+}
+H1 {
+	BACKGROUND-POSITION: center top; FONT-WEIGHT: normal; FONT-SIZE: 2em; TEXT-TRANSFORM: uppercase; COLOR: #4586d3; LINE-HEIGHT: normal; FONT-STYLE: normal; FONT-FAMILY: Arial, Verdana, Helvetica, sans-serif; LETTER-SPACING: 30px
+}
+H2 {
+	FONT-WEIGHT: bold; FONT-SIZE: 1.5em; TEXT-TRANSFORM: uppercase; COLOR: #4586d3; LINE-HEIGHT: normal; FONT-STYLE: normal; FONT-FAMILY: Arial, Verdana, Helvetica, sans-serif; LETTER-SPACING: 5px
+}
+H3 {
+	FONT-WEIGHT: bold; FONT-SIZE: 1.2em; MARGIN-BOTTOM: 4px; COLOR: #03335c; LINE-HEIGHT: normal; BORDER-BOTTOM: #000000 1px solid; FONT-STYLE: normal; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+H4 {
+	FONT-WEIGHT: bold; FONT-SIZE: 1em; MARGIN-BOTTOM: 4px; MARGIN-RIGHT: 8px; BORDER-BOTTOM: #bbbbbb 1px solid; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+.name {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #004488; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.body A {
+	FONT-SIZE: 1.15em; COLOR: #004488; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.body A:hover {
+	FONT-SIZE: 1.15em; COLOR: #ff9900; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+#dropBox {
+	BORDER-RIGHT: #7f9db9 1px solid; BORDER-TOP: #7f9db9 1px solid; FONT-SIZE: 10px; BORDER-LEFT: #7f9db9 1px solid; WIDTH: 145px; MARGIN-RIGHT: 30px; BORDER-BOTTOM: #7f9db9 1px solid; FONT-FAMILY: Arial, Helvetica, sans-serif; HEIGHT: 20px; BACKGROUND-COLOR: #ffffff
+}
+.inputBox {
+	BORDER-RIGHT: #7f9db9 1px solid; BORDER-TOP: #7f9db9 1px solid; FONT-SIZE: 10px; BORDER-LEFT: #7f9db9 1px solid; WIDTH: 145px; BORDER-BOTTOM: #7f9db9 1px solid; FONT-FAMILY: Arial, Helvetica, sans-serif; HEIGHT: 20px; BACKGROUND-COLOR: #ffffff
+}
+.form {
+	FONT-SIZE: 1em; WIDTH: 330px
+}
+
+
+ul.radio  { 
+  margin: 0; 
+  padding: 0; 
+  margin-left: 20px; 
+  list-style: none; 
+} 
+
+ul.radio li { 
+  border: 1px transparent solid; 
+} 
+
+ul.radio li:hover, 
+ul.radio li.focus  { 
+  background-color: lightyellow; 
+  border: 1px gray solid; 
+  width: 10em; 
+} 
+
+
+
+
