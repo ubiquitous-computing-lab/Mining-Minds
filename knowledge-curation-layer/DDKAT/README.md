@@ -16,6 +16,8 @@ DDKAT is a web-based application that curates the knowledge using data-driven ap
 
 DDKAT acquires the data, preprocesses it, selects an appropriate decision trees algorithm, generates the classification model, and finally, produces the production rules. The main features include Data Selection, Basic Preprocessing, Appropriate Algorithm Selection, Generation of Classification Model, and Creation of Shareable Production Rules.
 
+![alt tag](https://github.com/ubiquitous-computing-lab/mining-minds/blob/gh-pages/figures/kcl/DDKAT-Architecture.png)
+
 # 2. Core Implementation
 The DDKAT core implementation is mainly include five core modules; The *Data Selector*, *Data Preprocessor*, *Algorithm Selector*, *Model Learner*, and the *Model Translator*. It is developed according to Spring MVC pattern as a maven project.
 
