@@ -13,8 +13,8 @@
 
 - [1. Introduction](#1-introduction)
     - [1.1 Core Implementation](#11-core-implementation)
-    	- [1.1.1 I-KAT Core Compnents](#111-I-KAT-Core-Compnents)
-	- [1.1.2 Situation Reasoner](#112-Situation-Reasoner)
+    	 - [1.1.1 I-KAT Core Compnents](#111-I-KAT-Core-Compnents)
+	 - [1.1.2 Situation Reasoner](#112-Situation-Reasoner)
 - [2. Getting started](#2-getting-Started)
     - [2.1 Requirements](#21-requirements)
     - [2.2 Installation](#22-installation)
