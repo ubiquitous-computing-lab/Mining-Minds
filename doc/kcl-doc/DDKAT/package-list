@@ -1,0 +1,8 @@
+org.uclab.mm.kcl.ddkat.algoselector
+org.uclab.mm.kcl.ddkat.controllers
+org.uclab.mm.kcl.ddkat.datapreprocessor
+org.uclab.mm.kcl.ddkat.dataselector
+org.uclab.mm.kcl.ddkat.modellearner
+org.uclab.mm.kcl.ddkat.modeltranslator
+org.uclab.mm.kcl.ddkat.productionmodel
+org.uclab.mm.kcl.ddkat.services
