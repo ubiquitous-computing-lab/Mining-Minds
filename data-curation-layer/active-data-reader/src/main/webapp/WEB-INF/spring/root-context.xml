@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+
+
+<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<!-- Configuration -->
+		<property name="driverClassName" value="org.apache.hive.jdbc.HiveDriver" />
+		<property name="url" value="jdbc:hive2://163.180.116.94:10000/test1" />
+		<property name="username" value="hive" />
+		<property name="password" value="hive" />
+
+	</bean>	
+	
+</beans>

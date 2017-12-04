@@ -1,0 +1,91 @@
+/* mailbox */
+
+    .mailbox_menu {
+        margin-top: 40px;
+        @media (max-width:991px) {
+            margin-top: 0;
+        }
+        > a {
+            font-size: 14px;
+        }
+        .badge {
+            font-weight: normal;
+            padding: 3px 6px;
+            font-size: 11px;
+            .border-radius(6px);
+        }
+        a.list-group-item.active > .badge {
+            color: @text-primary;
+        }
+        .menu_icon {
+            margin-right: 10px;
+            width: 22px;
+            text-align: center;
+            font-size: 16px;
+        }
+    }
+
+    #mailbox_table {
+        font-size: 13px;
+        tbody {
+            tr {
+                &.selected {
+                    td,
+                    & + .footable-row-detail > td {
+                        background: #ffc;
+                    }
+                }
+                td {
+                    a {
+                        color: @text-primary;
+                    }
+                    input {
+                        margin-top: 3px;
+                    }
+                }
+            }
+        }
+        .mbox_star {
+            color: #ccc;
+            &.marked {
+                color: #f1c40f;
+            }
+            span {
+                cursor: pointer;
+            }
+        }
+        tr.unreaded td {
+            background: #fff;
+            font-weight: 700;
+        }
+    }
+
+    .mail_details_top {
+        border-bottom: 1px solid #eee;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+        .mail_user_image img {
+            display: inline-block;
+            margin-right: 16px;
+            margin-top: 4px;
+            float: left;
+        }
+        .mail_user_info {
+            h2 {
+                .custom_font(400,22px,28px);
+                margin: 0;
+            }
+            span {
+                .custom_font(400,13px,18px);
+            }
+        }
+        .mail_date {
+            float: right;
+            font-size: 12px;
+            color: #999;
+            padding-top: 4px;
+        }
+    }
+    .mail_details_content {
+        margin-bottom: 50px;
+    }

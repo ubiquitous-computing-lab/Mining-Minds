@@ -1,0 +1,42 @@
+/* gridforms */
+
+.gf {
+    fieldset + fieldset {
+        margin-top: 40px;
+    }
+    fieldset {
+        legend {
+            margin-bottom: 0;
+            .custom_font(400, 15px, 22px);
+            border-bottom-width: 3px;
+            text-transform: uppercase;
+        }
+        .gf-error {
+            &[class^="gf-col-"],
+            &[class*=" gf-col-"] {
+                background: lighten(@brand-danger, 30%);
+                &:hover {
+                    background: lighten(@brand-danger, 40%);
+                }
+            }
+        }
+        .gf-success {
+            &[class^="gf-col-"],
+            &[class*=" gf-col-"] {
+                background: lighten(@brand-success, 30%);
+                &:hover {
+                    background: lighten(@brand-success, 40%);
+                }
+            }
+        }
+        [class^="gf-col-"],
+        [class*=" gf-col-"],
+        [class^="gf-row-"],
+        [class*=" gf-row-"] {
+            border-color: #aaa !important;
+        }
+        fieldset {
+            margin-top: 20px;
+        }
+    }
+}

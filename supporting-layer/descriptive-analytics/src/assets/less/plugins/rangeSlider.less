@@ -1,0 +1,36 @@
+/* rangeSlider */
+
+.irs-line {
+	background: #e4e4e4;
+	.border-radius(4px);
+}
+.irs-line-left,
+.irs-line-mid,
+.irs-line-right {
+	background: none;
+}
+
+.irs-min,
+.irs-max {
+	color: #777;	
+}
+
+.irs-diapason {
+	background: @theme-color;
+}
+
+.irs-slider {
+	background: darken(@theme-color,10%);
+	width: 4px;
+	height: 18px;
+}
+
+.irs-from,
+.irs-to,
+.irs-single {
+	background: @theme-secondary-color;
+	&:after {
+		border-top-color: @theme-secondary-color;
+	}
+}
+

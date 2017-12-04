@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<head>
+
+
+	<link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+	<link rel="stylesheet" type="text/css" href="reset.css" />
+	<link rel="stylesheet" type="text/css" href="../jquery.ganttView.css" />
+	<style type="text/css">
+		body {
+			font-family: tahoma, verdana, helvetica;
+			font-size: 0.8em;
+			padding: 10px;
+		}
+	</style>
+	<title>jQuery Gantt</title>
+</head>
+<body>
+
+	<div id="ganttChart"></div>
+	<br/><br/>
+	<div id="eventMessage"></div>
+
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/datejs/1.0/date.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+	<script type="text/javascript" src="../jquery.ganttView.js"></script>
+	<script type="text/javascript">
+		var ganttData = [
+			{
+				id: 1, name: "Concept", series: [
+					{ name: "Brainstorm", start: new Date(2010,00,01), end: new Date(2010,00,03) },
+					{ name: "Wireframes", start: new Date(2010,00,02), end: new Date(2010,00,05), color: "#f0f0f0" },
+					{ name: "Concept description", start: new Date(2010,00,02), end: new Date(2010,00,05), color: "#f0f0f0" }
+				]
+			},
+			{
+				id: 2, name: "Design", series: [
+					{ name: "Sketching", start: new Date(2010,00,05), end: new Date(2010,00,20) },
+					{ name: "Photography", start: new Date(2010,00,06), end: new Date(2010,00,17), color: "#f0f0f0" },
+					{ name: "Feedback", start: new Date(2010,00,06), end: new Date(2010,00,17), color: "#e0e0e0" },
+					{ name: "Final Design", start: new Date(2010,00,06), end: new Date(2010,00,17), color: "#e0e0e0" }
+				]
+			},
+			{
+				id: 3, name: "Implementation", series: [
+					{ name: "Specifications", start: new Date(2010,00,11), end: new Date(2010,01,03) },
+					{ name: "Templates", start: new Date(2010,00,15), end: new Date(2010,01,03), color: "#f0f0f0" },
+					{ name: "Database", start: new Date(2010,00,15), end: new Date(2010,01,03), color: "#f0f0f0" },
+					{ name: "Integration", start: new Date(2010,00,15), end: new Date(2010,01,03), color: "#f0f0f0" }
+				]
+			},
+			{
+				id: 4, name: "Testing & Delivery", series: [
+					{ name: "Focus Group", start: new Date(2010,01,01), end: new Date(2010,01,03) },
+					{ name: "Stress Test", start: new Date(2010,01,01), end: new Date(2010,01,05), color: "#f0f0f0" },
+					{ name: "Delivery", start: new Date(2010,01,01), end: new Date(2010,01,05), color: "#f0f0f0" }
+				]
+			}
+			
+		];
+
+		$(function () {
+			$("#ganttChart").ganttView({
+				data: ganttData,
+				slideWidth: 900,
+				behavior: {
+					onClick: function (data) {
+						var msg = "You clicked on an event: { start: " + data.start.toString("M/d/yyyy") + ", end: " + data.end.toString("M/d/yyyy") + " }";
+						$("#eventMessage").text(msg);
+					},
+					onResize: function (data) {
+						var msg = "You resized an event: { start: " + data.start.toString("M/d/yyyy") + ", end: " + data.end.toString("M/d/yyyy") + " }";
+						$("#eventMessage").text(msg);
+					},
+					onDrag: function (data) {
+						var msg = "You dragged an event: { start: " + data.start.toString("M/d/yyyy") + ", end: " + data.end.toString("M/d/yyyy") + " }";
+						$("#eventMessage").text(msg);
+					}
+				}
+			});
+
+			// $("#ganttChart").ganttView("setSlideWidth", 600);
+		});
+	</script>
+
+</body>
+</html>

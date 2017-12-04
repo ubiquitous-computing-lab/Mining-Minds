@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:background="@drawable/login_img"
+        android:id="@+id/linearLayout">
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView2"
+        android:src="@drawable/logo_circle"
+
+        android:layout_margin="50dp"
+
+        android:layout_above="@+id/textView4"
+        android:layout_toRightOf="@+id/textView4"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:layout_margin="5dp"
+        android:padding="10dp"
+        android:layout_above="@+id/password"
+        android:layout_alignRight="@+id/btnLinkToRegisterScreen"
+        android:hint="Email Address" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:padding="10dp"
+        android:layout_margin="5dp"
+        android:layout_marginBottom="76dp"
+        android:layout_above="@+id/btnLogin"
+        android:layout_alignRight="@+id/btnLinkToRegisterScreen"
+        android:layout_alignEnd="@+id/btnLinkToRegisterScreen"
+        android:hint="Password" />
+
+
+    <!-- Link to Login Screen -->
+
+    <Button
+        android:id="@+id/btnLinkToRegisterScreen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="I am New!"
+        android:textAllCaps="false"
+        android:textSize="15dp"
+        android:onClick="registerUser"
+        android:layout_marginRight="19dp"
+        android:layout_marginEnd="19dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:onClick="checkLogin"
+        android:layout_alignBaseline="@+id/btnLinkToRegisterScreen"
+        android:layout_alignBottom="@+id/btnLinkToRegisterScreen"
+        android:layout_alignLeft="@+id/password"
+        android:layout_alignStart="@+id/password" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Login"
+        android:id="@+id/textView4"
+        android:layout_above="@+id/email"
+        android:layout_alignLeft="@+id/email"
+        android:layout_alignStart="@+id/email" />
+
+
+</RelativeLayout>

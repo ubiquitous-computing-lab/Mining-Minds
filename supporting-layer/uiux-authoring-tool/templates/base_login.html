@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>UX Engine</title>
+    <!-- Bootstrap -->
+    <link href="/static/plugins/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="/static/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="/static/plugins/nprogress/nprogress.css" rel="stylesheet">
+       <!-- bootstrap-progressbar -->
+    <link href="/static/plugins/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+
+    <!-- bootstrap-daterangepicker -->
+    <link href="/static/plugins/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+        <!-- JQVMap -->
+    <link href="/static/plugins/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
+
+    <!-- Custom Theme Style -->
+    <link href="/static/css/custom.min.css" rel="stylesheet">
+
+  </head>
+
+ <body class="login">
+    <div>
+      <a class="hiddenanchor" id="signup"></a>
+      <a class="hiddenanchor" id="signin"></a>
+
+      <div class="login_wrapper">
+        <div class="animate form login_form">
+
+
+          <!-- page content -->
+          {% block content %}
+
+          {% endblock content %}
+
+
+
+        </div>
+
+
+      </div>
+    </div>
+  </body>
+
+
+</html>

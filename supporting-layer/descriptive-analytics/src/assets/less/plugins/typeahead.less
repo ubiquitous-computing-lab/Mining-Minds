@@ -1,0 +1,46 @@
+/* typeahead */
+.search_section .twitter-typeahead {
+    display: block !important;
+}
+.tt-input,
+.tt-query,
+.tt-hint {
+    border: none;
+    height: 26px;
+    background: #fff;
+    .transition(background 400ms ease);
+    width: 100%;
+    &:focus {
+    }
+}
+.tt-hint {
+    color: #777;
+    background: rgba(255,255,255,.7) !important;
+}
+.tt-dropdown-menu {
+    margin-top: 4px;
+    width: 100%;
+    background: #fff;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0,0,0,0.2);
+    .box-shadow(0 2px 10px rgba(0, 0, 0, 0.2));
+    padding: 0;
+    .tt-suggestion {
+        padding: 4px 8px;
+        font-size: 12px;
+        cursor: pointer;
+        margin: 2px;
+        p {
+            margin: 0;
+        }
+        &.tt-cursor {
+            background-color: #eee;
+        }
+    }
+    .tt-highlight {
+        color: @brand-success;
+    }
+    max-height: 150px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}

@@ -1,0 +1,5 @@
+Walking,https://www.youtube.com/watch?v=55flVWE0wkA
+Stretching,https://www.youtube.com/watch?v=o5644MMEZkg,https://www.youtube.com/watch?v=jDYH07Igfb0,https://www.youtube.com/watch?v=hoPCnQTNEWQ,https://www.youtube.com/watch?v=_0h7hpA7p4k,https://www.youtube.com/watch?v=SiK6-SJlrrE
+Cycling,https://www.youtube.com/watch?v=XoZoUMVbfMk
+Running,https://www.youtube.com/watch?v=WOwZNfBMWYU
+Sitting,https://www.youtube.com/watch?v=dnWu73d5Zy4

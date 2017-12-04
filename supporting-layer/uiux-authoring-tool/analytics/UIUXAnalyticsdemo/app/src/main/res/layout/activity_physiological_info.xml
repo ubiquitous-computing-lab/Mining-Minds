@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_physiological_info"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".PhysiologicalInfoActivity">
+
+    <TextView
+        android:id="@+id/tvphysioinfoid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Physiological Information"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/tvvisionstatid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Vision Status"
+        android:layout_below="@id/tvphysioinfoid"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="16dp"/>
+
+    <RadioGroup
+        android:id="@+id/grpvisionid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@id/tvvisionstatid"
+        android:layout_marginLeft="25dp">
+
+        <RadioButton
+            android:id="@+id/rbvsnormalid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Normal"/>
+        <RadioButton
+            android:id="@+id/rbvsmediumid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Medium"/>
+        <RadioButton
+            android:id="@+id/rbvslowid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Low"/>
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/tvhearingid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hearing Status"
+        android:layout_below="@id/grpvisionid"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="16dp"/>
+
+    <RadioGroup
+        android:id="@+id/grphearingid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvhearingid"
+        android:layout_marginLeft="25dp">
+
+        <RadioButton
+            android:id="@+id/rbhsnormalid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Normal"/>
+
+        <RadioButton
+            android:id="@+id/rbhsmediumid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Medium"/>
+
+        <RadioButton
+            android:id="@+id/rbhslowid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Low"/>
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/tvtouchid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sense of Touch"
+        android:layout_below="@id/grphearingid"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="16dp"/>
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvtouchid"
+        android:layout_marginLeft="25dp">
+
+        <RadioButton
+            android:id="@+id/rbtsnormalid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Normal"/>
+
+        <RadioButton
+            android:id="@+id/rbtsmediumid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Medium"/>
+
+        <RadioButton
+            android:id="@+id/rbtslowid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Low"/>
+
+    </RadioGroup>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:text="Register"
+        android:gravity="center|center_vertical"
+        android:id="@+id/button"
+        android:background="#0288D1"
+        android:textColor="#FFF"
+        android:onClick="register"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+</RelativeLayout>

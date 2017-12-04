@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_new_user"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NewUserActivity">
+
+    <TextView
+        android:id="@+id/tvbasicinformationid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Basic Information"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        />
+
+    <EditText
+        android:id="@+id/edtnameid"
+        android:layout_width="340dp"
+        android:layout_height="35dp"
+        android:background="#EEEEEE"
+        android:hint="Enter your name"
+        android:layout_below="@+id/tvbasicinformationid"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:inputType="textCapWords"
+        android:singleLine="true"
+        android:selectAllOnFocus="true"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" />
+
+    <EditText
+        android:id="@+id/edtdateid"
+        android:layout_width="340dp"
+        android:layout_height="35dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/edtnameid"
+        android:background="#EEEEEE"
+        android:layout_marginTop="10dp"
+        android:hint="Date of Birth"
+        android:inputType="date"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" />
+
+
+    <RadioGroup
+        android:id="@+id/groupid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edtdateid"
+        android:orientation="horizontal"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="5dp">
+
+        <RadioButton
+            android:id="@+id/rbtmaleid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Male"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/rbtfemaleid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Female"
+            android:layout_marginLeft="10dp"
+            android:textSize="18sp" />
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/tvheightid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Height: "
+        android:layout_below="@id/groupid"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/edtheightid"
+        android:layout_width="60dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/groupid"
+        android:layout_toRightOf="@+id/tvheightid"
+        android:layout_marginTop="5dp"
+        android:background="#EEEEEE"
+        android:inputType="number"/>
+
+    <TextView
+        android:id="@+id/tvftid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/groupid"
+        android:text="ft"
+        android:layout_toRightOf="@id/edtheightid"
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="5dp"/>
+
+    <EditText
+        android:id="@+id/edtinchid"
+        android:layout_width="60dp"
+        android:layout_height="30dp"
+        android:layout_below="@id/groupid"
+        android:layout_toRightOf="@id/tvftid"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:background="#EEEEEE"
+        android:inputType="number"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="in"
+        android:layout_below="@id/groupid"
+        android:layout_toRightOf="@id/edtinchid"
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="5dp"/>
+
+    <TextView
+        android:id="@+id/tvweightid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Weight: "
+        android:layout_below="@id/tvheightid"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="20dp"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/edtweightid"
+        android:layout_width="290dp"
+        android:layout_height="35dp"
+        android:layout_below="@id/tvheightid"
+        android:layout_toRightOf="@id/tvweightid"
+        android:layout_marginTop="20dp"
+        android:background="#EEEEEE"
+        android:inputType="number"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" />
+
+   <TextView
+       android:id="@+id/tvaccinfoid"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="Account Information"
+       android:layout_below="@id/tvweightid"
+       android:layout_marginTop="20dp"
+       android:textStyle="bold"
+       android:textSize="20sp"
+       android:layout_marginLeft="20dp"/>
+
+    <EditText
+        android:id="@+id/edtemailid"
+        android:layout_width="340dp"
+        android:layout_height="35dp"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:background="#EEEEEE"
+        android:layout_below="@id/tvaccinfoid"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" />
+
+
+    <EditText
+        android:id="@+id/edtconfirmemailid"
+        android:layout_width="340dp"
+        android:layout_height="35dp"
+        android:hint="Confirm Email"
+        android:inputType="textEmailAddress"
+        android:background="#EEEEEE"
+        android:layout_below="@id/edtemailid"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" />
+
+
+    <EditText
+        android:id="@+id/edtpassid"
+        android:layout_width="340dp"
+        android:layout_height="35dp"
+        android:hint="Enter Your Password"
+        android:inputType="textPassword"
+        android:layout_below="@id/edtconfirmemailid"
+        android:background="#EEEEEE"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" />
+
+    <EditText
+        android:id="@+id/edtconpassid"
+        android:layout_width="340dp"
+        android:layout_height="35dp"
+        android:hint="Confirm Password"
+        android:inputType="textPassword"
+        android:layout_below="@id/edtpassid"
+        android:layout_centerHorizontal="true"
+        android:background="#EEEEEE"
+        android:layout_marginTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:text="Next"
+        android:gravity="right|center_vertical"
+        android:id="@+id/button"
+        android:background="#0288D1"
+        android:textColor="#FFF"
+        android:onClick="newUserForm"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:paddingRight="20dp" />
+
+
+</RelativeLayout>

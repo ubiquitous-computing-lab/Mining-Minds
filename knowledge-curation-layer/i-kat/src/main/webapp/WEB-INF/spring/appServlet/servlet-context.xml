@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:beans="http://www.springframework.org/schema/beans"
+    xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+    xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+ 
+    <!-- DispatcherServlet Context: defines this servlet's request-processing 
+        infrastructure -->
+ 
+    <!-- Enables the Spring MVC @Controller programming model -->
+    <annotation-driven />
+ 
+    <!-- Handles HTTP GET requests for /resources/** by efficiently serving 
+        up static resources in the ${webappRoot}/resources directory -->
+    <resources mapping="/resources/**" location="/resources/" />
+ 
+    <!-- Resolves views selected for rendering by @Controllers to .jsp resources 
+        in the /WEB-INF/views directory -->
+    <beans:bean
+        class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <beans:property name="prefix" value="/WEB-INF/views/" />
+        <beans:property name="suffix" value=".jsp" />
+    </beans:bean>
+    
+    <!-- MY Setting -->
+    
+    <beans:bean id="dataSource1" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <beans:property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
+        
+        <!--  Maqbool PC -->
+        <!--   <beans:property name="url" value="jdbc:sqlserver://163.180.116.140:50251;instance=MAQBOOLUCLAB;databaseName=HibernateTutorialDB" /> -->
+        
+        <!-- Taqdir PC -->
+        <beans:property name="url" value="jdbc:sqlserver://163.180.116.194:1433;instance=SQLEXPRESS;databaseName=MMIKATDB_V2_GCH" />
+        <beans:property name="username" value="sa" />
+        <!-- Maqbool PC -->
+        <!--  <beans:property name="password" value="123" />  -->
+        
+        <!-- Taqdir PC -->
+        <beans:property name="password" value="adminsa" />
+       
+        
+    </beans:bean>
+ 
+ 
+	<!-- Hibernate 4 SessionFactory Bean definition -->
+	<beans:bean id="hibernate4AnnotatedSessionFactory"
+	        class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+	        <beans:property name="dataSource" ref="dataSource1" />
+	        <beans:property name="annotatedClasses">	           
+	            <beans:list>
+	            	 <!--<beans:value type="rule" />-->
+	               <beans:value>org.uclab.mm.kcl.edkat.datamodel.SituationRuleWrapper</beans:value>
+	               <beans:value>org.uclab.mm.kcl.edkat.datamodel.Situations</beans:value>
+	               <beans:value>org.uclab.mm.kcl.edkat.datamodel.Rule</beans:value>
+	               <beans:value>org.uclab.mm.kcl.edkat.datamodel.WellnessConceptsModel</beans:value>
+	               <beans:value>org.uclab.mm.kcl.edkat.datamodel.Conclusion</beans:value>
+	               <beans:value>org.uclab.mm.kcl.edkat.datamodel.Condition</beans:value>
+	               <beans:value>org.uclab.mm.kcl.edkat.datamodel.User</beans:value>
+	               <beans:value>org.uclab.mm.kcl.edkat.datamodel.WellnessConceptsRelationships</beans:value>
+	            </beans:list>
+	           
+	        </beans:property>
+	        <beans:property name="hibernateProperties">
+	            <beans:props>
+	                <beans:prop key="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</beans:prop>
+	                <beans:prop key="hibernate.current_session_context_class">thread</beans:prop>
+	                <beans:prop key="hibernate.show_sql">false</beans:prop>
+	                <beans:prop key="use_jdbc_metadata_defaults">false</beans:prop>
+	                <beans:prop key="maxwait">10000</beans:prop>
+		            <beans:prop key="maxidle">25</beans:prop>
+		            <beans:prop key="minidle">5</beans:prop>
+	            </beans:props>
+	        </beans:property>
+	  </beans:bean>
+    
+    <!-- Wrapper Class -->
+    
+     <beans:bean id="situationRuleWrapper" class="org.uclab.mm.kcl.edkat.datamodel.SituationRuleWrapper">
+	    <beans:property name="rule" ref="rule"/>
+	    <beans:property name="situations" ref="situations"/>
+	    <beans:property name="user" ref="user"/>
+	 </beans:bean>
+    
+    <!-- MY Setting -->
+ 	 <beans:bean id="rule" class="org.uclab.mm.kcl.edkat.datamodel.Rule">
+	    <beans:property name="conclusionList" ref="conclusion"/>
+	    <beans:property name="conditionList" ref="condition"/>
+	 </beans:bean>	 
+	 
+	 <beans:bean id="situations" class="org.uclab.mm.kcl.edkat.datamodel.Situations">
+	    <beans:property name="rulesList" ref="rule"/>
+	    <beans:property name="situationConditionList" ref="condition"/>
+	 </beans:bean>
+	            
+	 <beans:bean id="conclusion" class="org.uclab.mm.kcl.edkat.datamodel.Conclusion">
+	 	
+	  </beans:bean>
+	  <beans:bean id="user" class="org.uclab.mm.kcl.edkat.datamodel.User">
+	 	
+	  </beans:bean>
+	  <beans:bean id="condition" class="org.uclab.mm.kcl.edkat.datamodel.Condition">
+	 	<beans:property name="ruleList" ref="rule"/>
+	 	<beans:property name="situationList" ref="situations"/>
+	  </beans:bean>
+	 
+ 	 <beans:bean id="ruleDAO" class="org.uclab.mm.kcl.edkat.dao.RuleDAOImpl">
+        <beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+    </beans:bean>
+    <beans:bean id="objRuleService" class="org.uclab.mm.kcl.edkat.service.RuleServiceImpl">
+        <beans:property name="ruleDAO" ref="ruleDAO"></beans:property>
+    </beans:bean>
+    
+    <beans:bean id="situationDAO" class="org.uclab.mm.kcl.edkat.dao.SituationDAOImpl">
+        <beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+    </beans:bean>
+    <beans:bean id="objSituationService" class="org.uclab.mm.kcl.edkat.service.SituationServiceImpl">
+        <beans:property name="situationDAO" ref="situationDAO"></beans:property>
+    </beans:bean>
+    
+    <beans:bean id="conditionDAO" class="org.uclab.mm.kcl.edkat.dao.ConditionDAOImpl">
+        <beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+    </beans:bean>
+    <beans:bean id="objConditionService" class="org.uclab.mm.kcl.edkat.service.ConditionServiceImpl">
+        <beans:property name="conditionDAO" ref="conditionDAO"></beans:property>
+    </beans:bean>
+    
+    <beans:bean id="userDAO" class="org.uclab.mm.kcl.edkat.dao.UserDAOImpl">
+        <beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+    </beans:bean>
+    <beans:bean id="objUserService" class="org.uclab.mm.kcl.edkat.service.UserServiceImpl">
+        <beans:property name="userDAO" ref="userDAO"></beans:property>
+    </beans:bean>
+    
+    <!-- <beans:bean id="ruleDAO" class="org.uclab.mm.kcl.edkat.dao.RuleDAOImpl">
+        <beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+    </beans:bean> -->
+     
+    <beans:bean id="wellnessConceptsModelDAO" class="org.uclab.mm.kcl.edkat.dao.WellnessConceptsModelDAOImpl">
+        <beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+    </beans:bean>
+    <beans:bean id="objWellnessConceptsModelService" class="org.uclab.mm.kcl.edkat.service.WellnessConceptsModelServiceImpl">
+        <beans:property name="wellnessConceptsModelDAO" ref="wellnessConceptsModelDAO"></beans:property>
+    </beans:bean>
+    
+    <beans:bean id="conclusionDAO" class="org.uclab.mm.kcl.edkat.dao.ConclusionDAOImpl">
+        <beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+    </beans:bean>
+    <beans:bean id="objConclusionService" class="org.uclab.mm.kcl.edkat.service.ConclusionServiceImpl">
+        <beans:property name="conclusionDAO" ref="conclusionDAO"></beans:property>
+    </beans:bean>
+    
+    <context:component-scan base-package="org.uclab.mm.kcl.edkat.controller" />
+     
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+     
+    <beans:bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+    </beans:bean>
+ 
+</beans:beans>

@@ -1,0 +1,5 @@
+
+django>=1.10.4 
+djangorestframework
+markdown
+django-filter

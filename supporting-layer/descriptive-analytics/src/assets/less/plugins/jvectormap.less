@@ -1,0 +1,35 @@
+/* jvectormap */
+
+.jvectormap-label {
+	position: absolute;
+	display: none;
+	background: #292929;
+	background: rgba(0,0,0,.8);
+	color: @white;
+	font-size: 11px;
+	padding: 2px 6px;
+	z-index: 1000;
+}
+.jvectormap-zoomin,
+.jvectormap-zoomout {
+	position: absolute;
+	left: 10px;
+	background: url(../lib/jvectormap/nav_controls.png) no-repeat 0 0;
+	width: 16px;
+	height: 16px;
+	cursor: pointer;
+	text-indent: 9999px
+}
+.jvectormap-zoomin {
+	bottom: 30px;
+	background-position: 0 -16px;
+}
+.jvectormap-zoomout {bottom: 10px;}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 144dppx)  {
+    .jvectormap-zoomin,
+	.jvectormap-zoomout {
+		background-image: url('../lib/jvectormap/nav_controls@2x.png') !important;
+		background-size: 16px !important;
+	}
+}

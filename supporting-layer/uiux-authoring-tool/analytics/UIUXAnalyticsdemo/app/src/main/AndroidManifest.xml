@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.uclab.mm.sl.uiux.uiuxanalyticsdemo">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <application
+        android:name=".MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".SplashActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".LoginActivity"
+            android:label="@string/title_activity_login"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+
+        <activity
+            android:name=".TermsAndConditionActivity"
+            android:label="Registation - Terms and Conditions" >
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".LoginActivity" />
+
+
+        </activity>
+        <activity
+            android:name=".NewUserActivity"
+            android:label="Registation - Basic Information" >
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".TermsAndConditionActivity" />
+
+
+        </activity>
+        <activity
+            android:name=".PhysiologicalInfoActivity"
+            android:label="Registation - Physioical Information">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".NewUserActivity" />
+        </activity>
+
+    </application>
+
+</manifest>

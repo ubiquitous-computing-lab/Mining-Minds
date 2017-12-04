@@ -1,0 +1,4 @@
+Carbohydrate,Vegetables
+Protein,Fish
+Fiber,Fruits
+Fat,Snacks,Meat,Nuts,MilkAndDairyProducts

@@ -1,0 +1,20 @@
+/* parsley validation */
+
+.parsley-error {
+    &,
+    &:focus {
+        border-color: @brand-danger;
+    }
+}
+
+.parsley-errors-list {
+    &.filled {
+        padding: 5px;
+    }
+    > span {
+        display: block;
+        font-size: 12px;
+        font-weight: 700;
+        color: @brand-danger;
+    }
+}

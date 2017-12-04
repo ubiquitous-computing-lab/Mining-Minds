@@ -1,0 +1,182 @@
+/* -- 5. Header -- */
+
+	#main_header {
+		height: @header-height;
+		background: @header-bg;
+		position: fixed;
+		top:0;
+		left: 0;
+		width: 100%;
+		z-index: 1020;
+		.transition(200ms ease);
+		.brand_section {
+			line-height: 46px;
+			color: @white;
+			float: left;
+			text-align: center;
+		}
+		.header_notifications {
+			list-style: none;
+			margin: 8px 40px 0 20px;
+			padding: 0;
+			float: left;
+			> li {
+				float: left;
+				position: relative;
+				padding: 2px 0 0;
+				> a {
+					font-size: 18px;
+					line-height: 22px;
+					color: @white;
+					padding: 3px 12px 2px;
+					background: rgba(255,255,255,.08);
+					.transition(all 400ms ease);
+					display: block;
+					&:hover,
+					&:focus {
+						text-decoration: none;
+                        background: rgba(255,255,255,.18);
+					}
+				}
+				> .label {
+					position: absolute;
+					top: -4px;
+					right: -6px;
+					.border-radius(2px);
+				}
+				& + li {
+					margin-left: 14px;
+				}
+			}
+            .dropdown {
+                &.open {
+                    .dropdown-menu {
+                        .animated();
+                        .fadeInUp();
+                    }
+                }
+            }
+			.dropdown-menu {
+				padding: 10px;
+				margin-top: 8px;
+				width: 260px;
+                z-index: 110;
+				&:before,
+				&:after {
+					position: absolute;
+					content: '';
+					width: 0;
+					height: 0;
+					display: block;
+					border: 5px solid transparent;
+				}
+				&:before {
+					border-bottom-color: rgba(0,0,0,0.3);
+					top: -11px;
+					left: 15px;
+				}
+				&:after {
+					border-bottom-color: @white;
+					top: -10px;
+					left: 15px;
+				}
+				ul {
+					margin: 0;
+					padding: 0;
+					li {
+						list-style: none;
+						overflow: hidden;
+						padding: 6px 0;
+						> img {
+							float: left;
+							.border-radius(20px);
+							margin-right: 10px;
+						}
+						small,
+						p {
+							overflow: hidden;
+						}
+						small {
+							font-size: 11px;
+						}
+						p {
+							font-size: 13px;
+							line-height: 16px;
+							margin: 0;
+							padding-top: 2px;
+						}
+						& + li {
+							border-top: 1px solid #eee;
+						}
+						.label {
+							margin-top: 3px;
+						}
+						.btn {
+							margin-top: 4px;
+						}
+					}
+				}
+			}
+		}
+        .search_section {
+            float: right;
+            width: 200px;
+            margin-right: 20px;
+            margin-top: 10px;
+            position: relative;
+            > input {
+                border: none;
+                height: 26px;
+                background: rgba(255,255,255,0.4);
+                .transition(background 400ms ease);
+                &:focus {
+                    background: #fff;
+                }
+            }
+            .btn {
+                position: absolute;
+                right: 0;
+                top: 0;
+                color: @text-primary;
+                padding: 4px 8px 2px;
+            }
+        }
+		.header_user_actions {
+			float: right;
+			.user_dropdown {
+                cursor: pointer;
+                overflow: hidden;
+                padding: 4px 5px;
+                .transition(background 400ms ease);
+                &:hover {
+                    background: rgba(255,255,255,.1);
+                }
+                .caret {
+                    color: #fff;
+                    margin-top: 18px;
+                }
+            }
+            .user_avatar {
+				float: left;
+				margin-right: 5px;
+				img {
+					border: 1px solid #eee;
+				}
+			}
+			.user_body {
+				float: left;
+                color: @white;
+			}
+			.user_subinfo {
+				display: block;
+			}
+			.dropdown-menu {
+				margin-top: 1px;
+			}
+		}
+		#main_search {
+			width: 200px;
+			margin: 4px 0 0 40px;
+			float: left;
+		}
+	}

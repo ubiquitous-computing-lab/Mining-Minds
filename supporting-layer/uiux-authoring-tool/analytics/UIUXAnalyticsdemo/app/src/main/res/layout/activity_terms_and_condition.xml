@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_terms_and_condition"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".TermsAndConditionActivity">
+
+    <TextView
+        android:id="@+id/tvthirdpartyid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Third-Party Brand Features"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="20dp" />
+
+    <TextView
+        android:id="@+id/tvtermsid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvthirdpartyid"
+        android:textSize="18sp"
+        android:text="These terms do not grant you any right, title, interest in or to another party's trade
+names, trademarks, service marks, logos, domain names, and other distinctive
+brand features of any third party (Third Party Brand Features). If you would like
+to use any Third Party Brand Features, you are responsible for obtaining the necessary
+rights, licenses, or permissions.
+Shareable Data Types"
+        android:background="#EEEEEE"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="20dp"
+        android:padding="20dp" />
+
+    <CheckBox
+        android:id="@+id/chkboxagreeid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvtermsid"
+        android:text="I agree"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:text="Next"
+        android:gravity="right|center_vertical"
+        android:id="@+id/button"
+        android:background="#0288D1"
+        android:textColor="#FFF"
+        android:onClick="newUserForm"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:paddingRight="20dp" />
+
+</RelativeLayout>

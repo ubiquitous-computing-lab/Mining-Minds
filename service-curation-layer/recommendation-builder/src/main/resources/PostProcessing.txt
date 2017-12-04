@@ -1,0 +1,4 @@
+Rainy,and it's rainy today so don't forget to take umbrella with you
+Sunny,and it's sunny today so a bottle of water is a good idea
+Anger,and just relax
+Sadness,and just relax

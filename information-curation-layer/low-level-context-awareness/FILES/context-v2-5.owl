@@ -1,0 +1,2155 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY icl2-5 "http://www.miningminds.re.kr/icl/context/context-v2-5.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.miningminds.re.kr/icl/context/context-v2-5.owl#"
+     xml:base="http://www.miningminds.re.kr/icl/context/context-v2-5.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:icl2-5="http://www.miningminds.re.kr/icl/context/context-v2-5.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://www.miningminds.re.kr/icl/context/context-v2-5.owl">
+        <rdfs:comment>Mining Minds Context Ontology V 2.5
+</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#hasActivity -->
+
+    <owl:ObjectProperty rdf:about="&icl2-5;hasActivity">
+        <rdfs:comment>Property used to relate a high-level context to the activity</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#hasEmotion -->
+
+    <owl:ObjectProperty rdf:about="&icl2-5;hasEmotion">
+        <rdfs:comment>Property used to relate a high-level context to the emotion</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#hasFood -->
+
+    <owl:ObjectProperty rdf:about="&icl2-5;hasFood">
+        <rdfs:comment>Property used to relate a high-level context to the food</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#hasLocation -->
+
+    <owl:ObjectProperty rdf:about="&icl2-5;hasLocation">
+        <rdfs:comment>Property used to relate a high-level context to the location</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#isContextOf -->
+
+    <owl:ObjectProperty rdf:about="&icl2-5;isContextOf">
+        <rdfs:comment>Property used to relate a context to the user it belongs.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#hasEndTime -->
+
+    <owl:DatatypeProperty rdf:about="&icl2-5;hasEndTime">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment>Property used to relate a context to the time in which it ends to be valid.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#hasStartTime -->
+
+    <owl:DatatypeProperty rdf:about="&icl2-5;hasStartTime">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment>Property used to relate a context to the time in which it starts to be valid.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Activity -->
+
+    <owl:Class rdf:about="&icl2-5;Activity">
+        <rdfs:subClassOf rdf:resource="&icl2-5;LowLevelContext"/>
+        <rdfs:comment>Class to describe the activities</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Amusement -->
+
+    <owl:Class rdf:about="&icl2-5;Amusement">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&icl2-5;PhysicalActivityContext"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&icl2-5;hasActivity"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&icl2-5;Dancing"/>
+                                    <rdf:Description rdf:about="&icl2-5;Sitting"/>
+                                    <rdf:Description rdf:about="&icl2-5;Standing"/>
+                                    <rdf:Description rdf:about="&icl2-5;Walking"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&icl2-5;hasEmotion"/>
+                        <owl:someValuesFrom rdf:resource="&icl2-5;Happiness"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&icl2-5;hasLocation"/>
+                        <owl:someValuesFrom rdf:resource="&icl2-5;Mall"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&icl2-5;hasActivity"/>
+                        <owl:allValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&icl2-5;Dancing"/>
+                                    <rdf:Description rdf:about="&icl2-5;Sitting"/>
+                                    <rdf:Description rdf:about="&icl2-5;Standing"/>
+                                    <rdf:Description rdf:about="&icl2-5;Walking"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&icl2-5;hasEmotion"/>
+                        <owl:allValuesFrom rdf:resource="&icl2-5;Happiness"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&icl2-5;hasLocation"/>
+                        <owl:allValuesFrom rdf:resource="&icl2-5;Mall"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Anger -->
+
+    <owl:Class rdf:about="&icl2-5;Anger">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Emotion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Apple -->
+
+    <owl:Class rdf:about="&icl2-5;Apple">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Fruits"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Apricot -->
+
+    <owl:Class rdf:about="&icl2-5;Apricot">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Fruits"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Avocado -->
+
+    <owl:Class rdf:about="&icl2-5;Avocado">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Fruits"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Banana -->
+
+    <owl:Class rdf:about="&icl2-5;Banana">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Fruits"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Barley -->
+
+    <owl:Class rdf:about="&icl2-5;Barley">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Grain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Beans -->
+
+    <owl:Class rdf:about="&icl2-5;Beans">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Legumes"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Beef -->
+
+    <owl:Class rdf:about="&icl2-5;Beef">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Meat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Boredom -->
+
+    <owl:Class rdf:about="&icl2-5;Boredom">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Emotion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Bread -->
+
+    <owl:Class rdf:about="&icl2-5;Bread">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Grain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Brown -->
+
+    <owl:Class rdf:about="&icl2-5;Brown">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Grain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Carbohydrate -->
+
+    <owl:Class rdf:about="&icl2-5;Carbohydrate">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&icl2-5;NutritionContext"/>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&icl2-5;hasActivity"/>
+                                <owl:someValuesFrom rdf:resource="&icl2-5;Eating"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&icl2-5;hasLocation"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:unionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="&icl2-5;Home"/>
+                                            <rdf:Description rdf:about="&icl2-5;Office"/>
+                                            <rdf:Description rdf:about="&icl2-5;Restaurant"/>
+                                        </owl:unionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&icl2-5;hasActivity"/>
+                                <owl:allValuesFrom rdf:resource="&icl2-5;Eating"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&icl2-5;hasLocation"/>
+                                <owl:allValuesFrom>
+                                    <owl:Class>
+                                        <owl:unionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="&icl2-5;Home"/>
+                                            <rdf:Description rdf:about="&icl2-5;Office"/>
+                                            <rdf:Description rdf:about="&icl2-5;Restaurant"/>
+                                        </owl:unionOf>
+                                    </owl:Class>
+                                </owl:allValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&icl2-5;hasEmotion"/>
+                        <owl:allValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&icl2-5;Boredom"/>
+                                    <rdf:Description rdf:about="&icl2-5;Disgust"/>
+                                    <rdf:Description rdf:about="&icl2-5;Fear"/>
+                                    <rdf:Description rdf:about="&icl2-5;Happiness"/>
+                                    <rdf:Description rdf:about="&icl2-5;Neutral"/>
+                                    <rdf:Description rdf:about="&icl2-5;Sadness"/>
+                                    <rdf:Description rdf:about="&icl2-5;Surprise"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&icl2-5;hasFood"/>
+                        <owl:allValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&icl2-5;Apple"/>
+                                    <rdf:Description rdf:about="&icl2-5;Apricot"/>
+                                    <rdf:Description rdf:about="&icl2-5;Avocado"/>
+                                    <rdf:Description rdf:about="&icl2-5;Banana"/>
+                                    <rdf:Description rdf:about="&icl2-5;Barley"/>
+                                    <rdf:Description rdf:about="&icl2-5;Beans"/>
+                                    <rdf:Description rdf:about="&icl2-5;Bread"/>
+                                    <rdf:Description rdf:about="&icl2-5;Brown"/>
+                                    <rdf:Description rdf:about="&icl2-5;CarbonatedDrink"/>
+                                    <rdf:Description rdf:about="&icl2-5;Carrot"/>
+                                    <rdf:Description rdf:about="&icl2-5;Cucumber"/>
+                                    <rdf:Description rdf:about="&icl2-5;Grape"/>
+                                    <rdf:Description rdf:about="&icl2-5;GrapeFruit"/>
+                                    <rdf:Description rdf:about="&icl2-5;Kiwi"/>
+                                    <rdf:Description rdf:about="&icl2-5;Lemon"/>
+                                    <rdf:Description rdf:about="&icl2-5;LowFatMilk"/>
+                                    <rdf:Description rdf:about="&icl2-5;Melon"/>
+                                    <rdf:Description rdf:about="&icl2-5;Noodle"/>
+                                    <rdf:Description rdf:about="&icl2-5;Oats"/>
+                                    <rdf:Description rdf:about="&icl2-5;Orange"/>
+                                    <rdf:Description rdf:about="&icl2-5;Peach"/>
+                                    <rdf:Description rdf:about="&icl2-5;Pizza"/>
+                                    <rdf:Description rdf:about="&icl2-5;Pumpkin"/>
+                                    <rdf:Description rdf:about="&icl2-5;Quinoa"/>
+                                    <rdf:Description rdf:about="&icl2-5;Ramen"/>
+                                    <rdf:Description rdf:about="&icl2-5;Rice"/>
+                                    <rdf:Description rdf:about="&icl2-5;Rye"/>
+                                    <rdf:Description rdf:about="&icl2-5;Snack"/>
+                                    <rdf:Description rdf:about="&icl2-5;SoyMilk"/>
+                                    <rdf:Description rdf:about="&icl2-5;Spinach"/>
+                                    <rdf:Description rdf:about="&icl2-5;Tofu"/>
+                                    <rdf:Description rdf:about="&icl2-5;WaterMelon"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#CarbonatedDrink -->
+
+    <owl:Class rdf:about="&icl2-5;CarbonatedDrink">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Snacks"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Carrot -->
+
+    <owl:Class rdf:about="&icl2-5;Carrot">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Vegetable"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Chicken -->
+
+    <owl:Class rdf:about="&icl2-5;Chicken">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Meat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#ChickenSnack -->
+
+    <owl:Class rdf:about="&icl2-5;ChickenSnack">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Snacks"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#ClimbingStairs -->
+
+    <owl:Class rdf:about="&icl2-5;ClimbingStairs">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Activity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Commuting -->
+
+    <owl:Class rdf:about="&icl2-5;Commuting">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&icl2-5;PhysicalActivityContext"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&icl2-5;hasActivity"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&icl2-5;Sitting"/>
+                                    <rdf:Description rdf:about="&icl2-5;Standing"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&icl2-5;hasLocation"/>
+                        <owl:someValuesFrom rdf:resource="&icl2-5;Transport"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&icl2-5;hasActivity"/>
+                        <owl:allValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&icl2-5;Sitting"/>
+                                    <rdf:Description rdf:about="&icl2-5;Standing"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&icl2-5;hasLocation"/>
+                        <owl:allValuesFrom rdf:resource="&icl2-5;Transport"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Context -->
+
+    <owl:Class rdf:about="&icl2-5;Context">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&icl2-5;isContextOf"/>
+                <owl:someValuesFrom rdf:resource="&icl2-5;User"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&icl2-5;hasStartTime"/>
+                <owl:allValuesFrom rdf:resource="&xsd;dateTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&icl2-5;isContextOf"/>
+                <owl:allValuesFrom rdf:resource="&icl2-5;User"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&icl2-5;hasEndTime"/>
+                <owl:allValuesFrom rdf:resource="&xsd;dateTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="&icl2-5;User"/>
+        <rdfs:comment>Class to describe context</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Cucumber -->
+
+    <owl:Class rdf:about="&icl2-5;Cucumber">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Vegetable"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Cycling -->
+
+    <owl:Class rdf:about="&icl2-5;Cycling">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Activity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Daegu -->
+
+    <owl:Class rdf:about="&icl2-5;Daegu">
+        <rdfs:subClassOf rdf:resource="&icl2-5;SeaFood"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Dancing -->
+
+    <owl:Class rdf:about="&icl2-5;Dancing">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Activity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#DescendingStairs -->
+
+    <owl:Class rdf:about="&icl2-5;DescendingStairs">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Activity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Disgust -->
+
+    <owl:Class rdf:about="&icl2-5;Disgust">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Emotion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Early -->
+
+    <owl:Class rdf:about="&icl2-5;Early">
+        <rdfs:subClassOf rdf:resource="&icl2-5;SeaFood"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Eating -->
+
+    <owl:Class rdf:about="&icl2-5;Eating">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Activity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Egg -->
+
+    <owl:Class rdf:about="&icl2-5;Egg">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Eggs"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Eggs -->
+
+    <owl:Class rdf:about="&icl2-5;Eggs">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Food"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Emotion -->
+
+    <owl:Class rdf:about="&icl2-5;Emotion">
+        <rdfs:subClassOf rdf:resource="&icl2-5;LowLevelContext"/>
+        <rdfs:comment>Class to describe the emotions</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Exercising -->
+
+    <owl:Class rdf:about="&icl2-5;Exercising">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&icl2-5;PhysicalActivityContext"/>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&icl2-5;hasActivity"/>
+                                        <owl:someValuesFrom rdf:resource="&icl2-5;Hiking"/>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&icl2-5;hasLocation"/>
+                                        <owl:someValuesFrom rdf:resource="&icl2-5;Outdoors"/>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&icl2-5;hasActivity"/>
+                                        <owl:allValuesFrom rdf:resource="&icl2-5;Hiking"/>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&icl2-5;hasLocation"/>
+                                        <owl:allValuesFrom rdf:resource="&icl2-5;Outdoors"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&icl2-5;hasActivity"/>
+                                        <owl:someValuesFrom rdf:resource="&icl2-5;Stretching"/>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&icl2-5;hasLocation"/>
+                                        <owl:someValuesFrom>
+                                            <owl:Class>
+                                                <owl:unionOf rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="&icl2-5;Gym"/>
+                                                    <rdf:Description rdf:about="&icl2-5;Home"/>
+                                                    <rdf:Description rdf:about="&icl2-5;Office"/>
+                                                    <rdf:Description rdf:about="&icl2-5;Outdoors"/>
+                                                </owl:unionOf>
+                                            </owl:Class>
+                                        </owl:someValuesFrom>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&icl2-5;hasActivity"/>
+                                        <owl:allValuesFrom rdf:resource="&icl2-5;Stretching"/>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&icl2-5;hasLocation"/>
+                                        <owl:allValuesFrom>
+                                            <owl:Class>
+                                                <owl:unionOf rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="&icl2-5;Gym"/>
+                                                    <rdf:Description rdf:about="&icl2-5;Home"/>
+                                                    <rdf:Description rdf:about="&icl2-5;Office"/>
+                                                    <rdf:Description rdf:about="&icl2-5;Outdoors"/>
+                                                </owl:unionOf>
+                                            </owl:Class>
+                                        </owl:allValuesFrom>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&icl2-5;hasActivity"/>
+                                        <owl:someValuesFrom>
+                                            <owl:Class>
+                                                <owl:unionOf rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="&icl2-5;ClimbingStairs"/>
+                                                    <rdf:Description rdf:about="&icl2-5;DescendingStairs"/>
+                                                </owl:unionOf>
+                                            </owl:Class>
+                                        </owl:someValuesFrom>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&icl2-5;hasLocation"/>
+                                        <owl:someValuesFrom>
+                                            <owl:Class>
+                                                <owl:unionOf rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="&icl2-5;Gym"/>
+                                                    <rdf:Description rdf:about="&icl2-5;Home"/>
+                                                    <rdf:Description rdf:about="&icl2-5;Office"/>
+                                                </owl:unionOf>
+                                            </owl:Class>
+                                        </owl:someValuesFrom>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&icl2-5;hasActivity"/>
+                                        <owl:allValuesFrom>
+                                            <owl:Class>
+                                                <owl:unionOf rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="&icl2-5;ClimbingStairs"/>
+                                                    <rdf:Description rdf:about="&icl2-5;DescendingStairs"/>
+                                                </owl:unionOf>
+                                            </owl:Class>
+                                        </owl:allValuesFrom>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&icl2-5;hasLocation"/>
+                                        <owl:allValuesFrom>
+                                            <owl:Class>
+                                                <owl:unionOf rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="&icl2-5;Gym"/>
+                                                    <rdf:Description rdf:about="&icl2-5;Home"/>
+                                                    <rdf:Description rdf:about="&icl2-5;Office"/>
+                                                </owl:unionOf>
+                                            </owl:Class>
+                                        </owl:allValuesFrom>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&icl2-5;hasActivity"/>
+                                        <owl:someValuesFrom>
+                                            <owl:Class>
+                                                <owl:unionOf rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="&icl2-5;Cycling"/>
+                                                    <rdf:Description rdf:about="&icl2-5;Jumping"/>
+                                                    <rdf:Description rdf:about="&icl2-5;Running"/>
+                                                </owl:unionOf>
+                                            </owl:Class>
+                                        </owl:someValuesFrom>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&icl2-5;hasLocation"/>
+                                        <owl:someValuesFrom>
+                                            <owl:Class>
+                                                <owl:unionOf rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="&icl2-5;Gym"/>
+                                                    <rdf:Description rdf:about="&icl2-5;Outdoors"/>
+                                                </owl:unionOf>
+                                            </owl:Class>
+                                        </owl:someValuesFrom>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&icl2-5;hasActivity"/>
+                                        <owl:allValuesFrom>
+                                            <owl:Class>
+                                                <owl:unionOf rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="&icl2-5;Cycling"/>
+                                                    <rdf:Description rdf:about="&icl2-5;Jumping"/>
+                                                    <rdf:Description rdf:about="&icl2-5;Running"/>
+                                                </owl:unionOf>
+                                            </owl:Class>
+                                        </owl:allValuesFrom>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&icl2-5;hasLocation"/>
+                                        <owl:allValuesFrom>
+                                            <owl:Class>
+                                                <owl:unionOf rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="&icl2-5;Gym"/>
+                                                    <rdf:Description rdf:about="&icl2-5;Outdoors"/>
+                                                </owl:unionOf>
+                                            </owl:Class>
+                                        </owl:allValuesFrom>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:unionOf>
+                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&icl2-5;hasEmotion"/>
+                        <owl:allValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&icl2-5;Happiness"/>
+                                    <rdf:Description rdf:about="&icl2-5;Neutral"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Fats -->
+
+    <owl:Class rdf:about="&icl2-5;Fats">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&icl2-5;NutritionContext"/>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&icl2-5;hasActivity"/>
+                                <owl:someValuesFrom rdf:resource="&icl2-5;Eating"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&icl2-5;hasLocation"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:unionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="&icl2-5;Home"/>
+                                            <rdf:Description rdf:about="&icl2-5;Office"/>
+                                            <rdf:Description rdf:about="&icl2-5;Restaurant"/>
+                                        </owl:unionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&icl2-5;hasActivity"/>
+                                <owl:allValuesFrom rdf:resource="&icl2-5;Eating"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&icl2-5;hasLocation"/>
+                                <owl:allValuesFrom>
+                                    <owl:Class>
+                                        <owl:unionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="&icl2-5;Home"/>
+                                            <rdf:Description rdf:about="&icl2-5;Office"/>
+                                            <rdf:Description rdf:about="&icl2-5;Restaurant"/>
+                                        </owl:unionOf>
+                                    </owl:Class>
+                                </owl:allValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&icl2-5;hasEmotion"/>
+                        <owl:allValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&icl2-5;Boredom"/>
+                                    <rdf:Description rdf:about="&icl2-5;Disgust"/>
+                                    <rdf:Description rdf:about="&icl2-5;Fear"/>
+                                    <rdf:Description rdf:about="&icl2-5;Happiness"/>
+                                    <rdf:Description rdf:about="&icl2-5;Neutral"/>
+                                    <rdf:Description rdf:about="&icl2-5;Sadness"/>
+                                    <rdf:Description rdf:about="&icl2-5;Surprise"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&icl2-5;hasFood"/>
+                        <owl:allValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&icl2-5;Beef"/>
+                                    <rdf:Description rdf:about="&icl2-5;ChickenSnack"/>
+                                    <rdf:Description rdf:about="&icl2-5;FriedFood"/>
+                                    <rdf:Description rdf:about="&icl2-5;Ham"/>
+                                    <rdf:Description rdf:about="&icl2-5;Hamburger"/>
+                                    <rdf:Description rdf:about="&icl2-5;IceCream"/>
+                                    <rdf:Description rdf:about="&icl2-5;Mackerel"/>
+                                    <rdf:Description rdf:about="&icl2-5;Milk"/>
+                                    <rdf:Description rdf:about="&icl2-5;Peanut"/>
+                                    <rdf:Description rdf:about="&icl2-5;Pork"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Fear -->
+
+    <owl:Class rdf:about="&icl2-5;Fear">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Emotion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#FishEggs -->
+
+    <owl:Class rdf:about="&icl2-5;FishEggs">
+        <rdfs:subClassOf rdf:resource="&icl2-5;SeaFood"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Flounder -->
+
+    <owl:Class rdf:about="&icl2-5;Flounder">
+        <rdfs:subClassOf rdf:resource="&icl2-5;SeaFood"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Food -->
+
+    <owl:Class rdf:about="&icl2-5;Food">
+        <rdfs:subClassOf rdf:resource="&icl2-5;LowLevelContext"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#FriedFood -->
+
+    <owl:Class rdf:about="&icl2-5;FriedFood">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Snacks"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Fruits -->
+
+    <owl:Class rdf:about="&icl2-5;Fruits">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Food"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Gardening -->
+
+    <owl:Class rdf:about="&icl2-5;Gardening">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&icl2-5;PhysicalActivityContext"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&icl2-5;hasActivity"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&icl2-5;Standing"/>
+                                    <rdf:Description rdf:about="&icl2-5;Sweeping"/>
+                                    <rdf:Description rdf:about="&icl2-5;Walking"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&icl2-5;hasLocation"/>
+                        <owl:someValuesFrom rdf:resource="&icl2-5;Yard"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&icl2-5;hasActivity"/>
+                        <owl:allValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&icl2-5;Standing"/>
+                                    <rdf:Description rdf:about="&icl2-5;Sweeping"/>
+                                    <rdf:Description rdf:about="&icl2-5;Walking"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&icl2-5;hasEmotion"/>
+                        <owl:allValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&icl2-5;Happiness"/>
+                                    <rdf:Description rdf:about="&icl2-5;Neutral"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&icl2-5;hasLocation"/>
+                        <owl:allValuesFrom rdf:resource="&icl2-5;Yard"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Grain -->
+
+    <owl:Class rdf:about="&icl2-5;Grain">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Food"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Grape -->
+
+    <owl:Class rdf:about="&icl2-5;Grape">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Fruits"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#GrapeFruit -->
+
+    <owl:Class rdf:about="&icl2-5;GrapeFruit">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Fruits"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Gym -->
+
+    <owl:Class rdf:about="&icl2-5;Gym">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Location"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Ham -->
+
+    <owl:Class rdf:about="&icl2-5;Ham">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Snacks"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Hamburger -->
+
+    <owl:Class rdf:about="&icl2-5;Hamburger">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Snacks"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Happiness -->
+
+    <owl:Class rdf:about="&icl2-5;Happiness">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Emotion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Head -->
+
+    <owl:Class rdf:about="&icl2-5;Head">
+        <rdfs:subClassOf rdf:resource="&icl2-5;SeaFood"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#HighLevelContext -->
+
+    <owl:Class rdf:about="&icl2-5;HighLevelContext">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Context"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&icl2-5;hasFood"/>
+                <owl:allValuesFrom rdf:resource="&icl2-5;Food"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&icl2-5;hasActivity"/>
+                <owl:allValuesFrom rdf:resource="&icl2-5;Activity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&icl2-5;hasLocation"/>
+                <owl:allValuesFrom rdf:resource="&icl2-5;Location"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&icl2-5;hasEmotion"/>
+                <owl:allValuesFrom rdf:resource="&icl2-5;Emotion"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="&icl2-5;LowLevelContext"/>
+        <rdfs:comment>Class to describe the high level contexts</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Hiking -->
+
+    <owl:Class rdf:about="&icl2-5;Hiking">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Activity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Home -->
+
+    <owl:Class rdf:about="&icl2-5;Home">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Location"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#HouseWork -->
+
+    <owl:Class rdf:about="&icl2-5;HouseWork">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&icl2-5;PhysicalActivityContext"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&icl2-5;hasActivity"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&icl2-5;Standing"/>
+                                    <rdf:Description rdf:about="&icl2-5;Sweeping"/>
+                                    <rdf:Description rdf:about="&icl2-5;Walking"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&icl2-5;hasLocation"/>
+                        <owl:someValuesFrom rdf:resource="&icl2-5;Home"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&icl2-5;hasActivity"/>
+                        <owl:allValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&icl2-5;Standing"/>
+                                    <rdf:Description rdf:about="&icl2-5;Sweeping"/>
+                                    <rdf:Description rdf:about="&icl2-5;Walking"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&icl2-5;hasEmotion"/>
+                        <owl:allValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&icl2-5;Anger"/>
+                                    <rdf:Description rdf:about="&icl2-5;Boredom"/>
+                                    <rdf:Description rdf:about="&icl2-5;Disgust"/>
+                                    <rdf:Description rdf:about="&icl2-5;Happiness"/>
+                                    <rdf:Description rdf:about="&icl2-5;Neutral"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&icl2-5;hasLocation"/>
+                        <owl:allValuesFrom rdf:resource="&icl2-5;Home"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#IceCream -->
+
+    <owl:Class rdf:about="&icl2-5;IceCream">
+        <rdfs:subClassOf rdf:resource="&icl2-5;MilkAndDairyProducts"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Inactivity -->
+
+    <owl:Class rdf:about="&icl2-5;Inactivity">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&icl2-5;PhysicalActivityContext"/>
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&icl2-5;Amusement"/>
+                                    <rdf:Description rdf:about="&icl2-5;Commuting"/>
+                                    <rdf:Description rdf:about="&icl2-5;Exercising"/>
+                                    <rdf:Description rdf:about="&icl2-5;Gardening"/>
+                                    <rdf:Description rdf:about="&icl2-5;HouseWork"/>
+                                    <rdf:Description rdf:about="&icl2-5;OfficeWork"/>
+                                    <rdf:Description rdf:about="&icl2-5;Sleeping"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:complementOf>
+                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&icl2-5;hasActivity"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&icl2-5;LyingDown"/>
+                                    <rdf:Description rdf:about="&icl2-5;RidingElevator"/>
+                                    <rdf:Description rdf:about="&icl2-5;RidingEscalator"/>
+                                    <rdf:Description rdf:about="&icl2-5;Sitting"/>
+                                    <rdf:Description rdf:about="&icl2-5;Standing"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&icl2-5;hasActivity"/>
+                        <owl:allValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&icl2-5;LyingDown"/>
+                                    <rdf:Description rdf:about="&icl2-5;RidingElevator"/>
+                                    <rdf:Description rdf:about="&icl2-5;RidingEscalator"/>
+                                    <rdf:Description rdf:about="&icl2-5;Sitting"/>
+                                    <rdf:Description rdf:about="&icl2-5;Standing"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Jumping -->
+
+    <owl:Class rdf:about="&icl2-5;Jumping">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Activity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Kiwi -->
+
+    <owl:Class rdf:about="&icl2-5;Kiwi">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Fruits"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Legumes -->
+
+    <owl:Class rdf:about="&icl2-5;Legumes">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Food"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Lemon -->
+
+    <owl:Class rdf:about="&icl2-5;Lemon">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Fruits"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Location -->
+
+    <owl:Class rdf:about="&icl2-5;Location">
+        <rdfs:subClassOf rdf:resource="&icl2-5;LowLevelContext"/>
+        <rdfs:comment>Class to describe the locations</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#LowFatCheese -->
+
+    <owl:Class rdf:about="&icl2-5;LowFatCheese">
+        <rdfs:subClassOf rdf:resource="&icl2-5;MilkAndDairyProducts"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#LowFatMilk -->
+
+    <owl:Class rdf:about="&icl2-5;LowFatMilk">
+        <rdfs:subClassOf rdf:resource="&icl2-5;MilkAndDairyProducts"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#LowLevelContext -->
+
+    <owl:Class rdf:about="&icl2-5;LowLevelContext">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Context"/>
+        <rdfs:comment>Class to describe the low level contexts</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#LyingDown -->
+
+    <owl:Class rdf:about="&icl2-5;LyingDown">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Activity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Mackerel -->
+
+    <owl:Class rdf:about="&icl2-5;Mackerel">
+        <rdfs:subClassOf rdf:resource="&icl2-5;SeaFood"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Mall -->
+
+    <owl:Class rdf:about="&icl2-5;Mall">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Location"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Meat -->
+
+    <owl:Class rdf:about="&icl2-5;Meat">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Food"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Melon -->
+
+    <owl:Class rdf:about="&icl2-5;Melon">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Fruits"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Milk -->
+
+    <owl:Class rdf:about="&icl2-5;Milk">
+        <rdfs:subClassOf rdf:resource="&icl2-5;MilkAndDairyProducts"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#MilkAndDairyProducts -->
+
+    <owl:Class rdf:about="&icl2-5;MilkAndDairyProducts">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Food"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Neutral -->
+
+    <owl:Class rdf:about="&icl2-5;Neutral">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Emotion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#NoNutritionContext -->
+
+    <owl:Class rdf:about="&icl2-5;NoNutritionContext">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&icl2-5;NutritionContext"/>
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&icl2-5;hasActivity"/>
+                                <owl:someValuesFrom rdf:resource="&icl2-5;Activity"/>
+                            </owl:Restriction>
+                        </owl:complementOf>
+                    </owl:Class>
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&icl2-5;hasEmotion"/>
+                                <owl:someValuesFrom rdf:resource="&icl2-5;Emotion"/>
+                            </owl:Restriction>
+                        </owl:complementOf>
+                    </owl:Class>
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&icl2-5;hasFood"/>
+                                <owl:someValuesFrom rdf:resource="&icl2-5;Food"/>
+                            </owl:Restriction>
+                        </owl:complementOf>
+                    </owl:Class>
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&icl2-5;hasLocation"/>
+                                <owl:someValuesFrom rdf:resource="&icl2-5;Location"/>
+                            </owl:Restriction>
+                        </owl:complementOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#NoPhysicalActivityContext -->
+
+    <owl:Class rdf:about="&icl2-5;NoPhysicalActivityContext">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&icl2-5;PhysicalActivityContext"/>
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&icl2-5;hasActivity"/>
+                                <owl:someValuesFrom rdf:resource="&icl2-5;Activity"/>
+                            </owl:Restriction>
+                        </owl:complementOf>
+                    </owl:Class>
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&icl2-5;hasEmotion"/>
+                                <owl:someValuesFrom rdf:resource="&icl2-5;Emotion"/>
+                            </owl:Restriction>
+                        </owl:complementOf>
+                    </owl:Class>
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&icl2-5;hasLocation"/>
+                                <owl:someValuesFrom rdf:resource="&icl2-5;Location"/>
+                            </owl:Restriction>
+                        </owl:complementOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Noodle -->
+
+    <owl:Class rdf:about="&icl2-5;Noodle">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Grain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#NutritionContext -->
+
+    <owl:Class rdf:about="&icl2-5;NutritionContext">
+        <rdfs:subClassOf rdf:resource="&icl2-5;HighLevelContext"/>
+        <owl:disjointWith rdf:resource="&icl2-5;PhysicalActivityContext"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Nuts -->
+
+    <owl:Class rdf:about="&icl2-5;Nuts">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Food"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Oats -->
+
+    <owl:Class rdf:about="&icl2-5;Oats">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Grain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Office -->
+
+    <owl:Class rdf:about="&icl2-5;Office">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Location"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#OfficeWork -->
+
+    <owl:Class rdf:about="&icl2-5;OfficeWork">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&icl2-5;PhysicalActivityContext"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&icl2-5;hasActivity"/>
+                        <owl:someValuesFrom rdf:resource="&icl2-5;Sitting"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&icl2-5;hasLocation"/>
+                        <owl:someValuesFrom rdf:resource="&icl2-5;Office"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&icl2-5;hasActivity"/>
+                        <owl:allValuesFrom rdf:resource="&icl2-5;Sitting"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&icl2-5;hasEmotion"/>
+                        <owl:allValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&icl2-5;Anger"/>
+                                    <rdf:Description rdf:about="&icl2-5;Boredom"/>
+                                    <rdf:Description rdf:about="&icl2-5;Disgust"/>
+                                    <rdf:Description rdf:about="&icl2-5;Happiness"/>
+                                    <rdf:Description rdf:about="&icl2-5;Neutral"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&icl2-5;hasLocation"/>
+                        <owl:allValuesFrom rdf:resource="&icl2-5;Office"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Orange -->
+
+    <owl:Class rdf:about="&icl2-5;Orange">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Fruits"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Outdoors -->
+
+    <owl:Class rdf:about="&icl2-5;Outdoors">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Location"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#PacificSaury -->
+
+    <owl:Class rdf:about="&icl2-5;PacificSaury">
+        <rdfs:subClassOf rdf:resource="&icl2-5;SeaFood"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Peach -->
+
+    <owl:Class rdf:about="&icl2-5;Peach">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Fruits"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Peanut -->
+
+    <owl:Class rdf:about="&icl2-5;Peanut">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Nuts"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#PhysicalActivityContext -->
+
+    <owl:Class rdf:about="&icl2-5;PhysicalActivityContext">
+        <rdfs:subClassOf rdf:resource="&icl2-5;HighLevelContext"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Pizza -->
+
+    <owl:Class rdf:about="&icl2-5;Pizza">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Snacks"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Pork -->
+
+    <owl:Class rdf:about="&icl2-5;Pork">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Meat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Protein -->
+
+    <owl:Class rdf:about="&icl2-5;Protein">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&icl2-5;NutritionContext"/>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&icl2-5;hasActivity"/>
+                                <owl:someValuesFrom rdf:resource="&icl2-5;Eating"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&icl2-5;hasLocation"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:unionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="&icl2-5;Home"/>
+                                            <rdf:Description rdf:about="&icl2-5;Office"/>
+                                            <rdf:Description rdf:about="&icl2-5;Restaurant"/>
+                                        </owl:unionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&icl2-5;hasActivity"/>
+                                <owl:allValuesFrom rdf:resource="&icl2-5;Eating"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&icl2-5;hasLocation"/>
+                                <owl:allValuesFrom>
+                                    <owl:Class>
+                                        <owl:unionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="&icl2-5;Home"/>
+                                            <rdf:Description rdf:about="&icl2-5;Office"/>
+                                            <rdf:Description rdf:about="&icl2-5;Restaurant"/>
+                                        </owl:unionOf>
+                                    </owl:Class>
+                                </owl:allValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&icl2-5;hasEmotion"/>
+                        <owl:allValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&icl2-5;Boredom"/>
+                                    <rdf:Description rdf:about="&icl2-5;Disgust"/>
+                                    <rdf:Description rdf:about="&icl2-5;Fear"/>
+                                    <rdf:Description rdf:about="&icl2-5;Happiness"/>
+                                    <rdf:Description rdf:about="&icl2-5;Neutral"/>
+                                    <rdf:Description rdf:about="&icl2-5;Sadness"/>
+                                    <rdf:Description rdf:about="&icl2-5;Surprise"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&icl2-5;hasFood"/>
+                        <owl:allValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&icl2-5;Chicken"/>
+                                    <rdf:Description rdf:about="&icl2-5;Daegu"/>
+                                    <rdf:Description rdf:about="&icl2-5;Early"/>
+                                    <rdf:Description rdf:about="&icl2-5;Egg"/>
+                                    <rdf:Description rdf:about="&icl2-5;FishEggs"/>
+                                    <rdf:Description rdf:about="&icl2-5;Flounder"/>
+                                    <rdf:Description rdf:about="&icl2-5;Head"/>
+                                    <rdf:Description rdf:about="&icl2-5;LowFatCheese"/>
+                                    <rdf:Description rdf:about="&icl2-5;PacificSaury"/>
+                                    <rdf:Description rdf:about="&icl2-5;QuailEggs"/>
+                                    <rdf:Description rdf:about="&icl2-5;Salmon"/>
+                                    <rdf:Description rdf:about="&icl2-5;SeaWeed"/>
+                                    <rdf:Description rdf:about="&icl2-5;Shrimp"/>
+                                    <rdf:Description rdf:about="&icl2-5;Tuna"/>
+                                    <rdf:Description rdf:about="&icl2-5;Yogurt"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Pumpkin -->
+
+    <owl:Class rdf:about="&icl2-5;Pumpkin">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Vegetable"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#QuailEggs -->
+
+    <owl:Class rdf:about="&icl2-5;QuailEggs">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Eggs"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Quinoa -->
+
+    <owl:Class rdf:about="&icl2-5;Quinoa">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Grain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Ramen -->
+
+    <owl:Class rdf:about="&icl2-5;Ramen">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Snacks"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Restaurant -->
+
+    <owl:Class rdf:about="&icl2-5;Restaurant">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Location"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Rice -->
+
+    <owl:Class rdf:about="&icl2-5;Rice">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Grain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#RidingElevator -->
+
+    <owl:Class rdf:about="&icl2-5;RidingElevator">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Activity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#RidingEscalator -->
+
+    <owl:Class rdf:about="&icl2-5;RidingEscalator">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Activity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Running -->
+
+    <owl:Class rdf:about="&icl2-5;Running">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Activity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Rye -->
+
+    <owl:Class rdf:about="&icl2-5;Rye">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Grain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Sadness -->
+
+    <owl:Class rdf:about="&icl2-5;Sadness">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Emotion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Salmon -->
+
+    <owl:Class rdf:about="&icl2-5;Salmon">
+        <rdfs:subClassOf rdf:resource="&icl2-5;SeaFood"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#SeaFood -->
+
+    <owl:Class rdf:about="&icl2-5;SeaFood">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Food"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#SeaWeed -->
+
+    <owl:Class rdf:about="&icl2-5;SeaWeed">
+        <rdfs:subClassOf rdf:resource="&icl2-5;SeaFood"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Shrimp -->
+
+    <owl:Class rdf:about="&icl2-5;Shrimp">
+        <rdfs:subClassOf rdf:resource="&icl2-5;SeaFood"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Sitting -->
+
+    <owl:Class rdf:about="&icl2-5;Sitting">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Activity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Sleeping -->
+
+    <owl:Class rdf:about="&icl2-5;Sleeping">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&icl2-5;PhysicalActivityContext"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&icl2-5;hasActivity"/>
+                        <owl:someValuesFrom rdf:resource="&icl2-5;LyingDown"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&icl2-5;hasLocation"/>
+                        <owl:someValuesFrom rdf:resource="&icl2-5;Home"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&icl2-5;hasActivity"/>
+                        <owl:allValuesFrom rdf:resource="&icl2-5;LyingDown"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&icl2-5;hasEmotion"/>
+                        <owl:allValuesFrom rdf:resource="&icl2-5;Neutral"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&icl2-5;hasLocation"/>
+                        <owl:allValuesFrom rdf:resource="&icl2-5;Home"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Snack -->
+
+    <owl:Class rdf:about="&icl2-5;Snack">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Snacks"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Snacks -->
+
+    <owl:Class rdf:about="&icl2-5;Snacks">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Food"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#SoyMilk -->
+
+    <owl:Class rdf:about="&icl2-5;SoyMilk">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Legumes"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Spinach -->
+
+    <owl:Class rdf:about="&icl2-5;Spinach">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Vegetable"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Standing -->
+
+    <owl:Class rdf:about="&icl2-5;Standing">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Activity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Stretching -->
+
+    <owl:Class rdf:about="&icl2-5;Stretching">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Activity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Surprise -->
+
+    <owl:Class rdf:about="&icl2-5;Surprise">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Emotion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Sweeping -->
+
+    <owl:Class rdf:about="&icl2-5;Sweeping">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Activity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Tofu -->
+
+    <owl:Class rdf:about="&icl2-5;Tofu">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Legumes"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Transport -->
+
+    <owl:Class rdf:about="&icl2-5;Transport">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Location"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Tuna -->
+
+    <owl:Class rdf:about="&icl2-5;Tuna">
+        <rdfs:subClassOf rdf:resource="&icl2-5;SeaFood"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#UnidentifiedActivity -->
+
+    <owl:Class rdf:about="&icl2-5;UnidentifiedActivity">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Activity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#UnidentifiedEmotion -->
+
+    <owl:Class rdf:about="&icl2-5;UnidentifiedEmotion">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Emotion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#UnidentifiedFood -->
+
+    <owl:Class rdf:about="&icl2-5;UnidentifiedFood">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Food"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#UnidentifiedLocation -->
+
+    <owl:Class rdf:about="&icl2-5;UnidentifiedLocation">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Location"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#User -->
+
+    <owl:Class rdf:about="&icl2-5;User">
+        <rdfs:comment>Class to describe the user</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Vegetable -->
+
+    <owl:Class rdf:about="&icl2-5;Vegetable">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Food"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Walking -->
+
+    <owl:Class rdf:about="&icl2-5;Walking">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Activity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#WaterMelon -->
+
+    <owl:Class rdf:about="&icl2-5;WaterMelon">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Fruits"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Yard -->
+
+    <owl:Class rdf:about="&icl2-5;Yard">
+        <rdfs:subClassOf rdf:resource="&icl2-5;Location"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.miningminds.re.kr/icl/context/context-v2-5.owl#Yogurt -->
+
+    <owl:Class rdf:about="&icl2-5;Yogurt">
+        <rdfs:subClassOf rdf:resource="&icl2-5;MilkAndDairyProducts"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&icl2-5;Anger"/>
+            <rdf:Description rdf:about="&icl2-5;Boredom"/>
+            <rdf:Description rdf:about="&icl2-5;Disgust"/>
+            <rdf:Description rdf:about="&icl2-5;Fear"/>
+            <rdf:Description rdf:about="&icl2-5;Happiness"/>
+            <rdf:Description rdf:about="&icl2-5;Neutral"/>
+            <rdf:Description rdf:about="&icl2-5;Sadness"/>
+            <rdf:Description rdf:about="&icl2-5;Surprise"/>
+            <rdf:Description rdf:about="&icl2-5;UnidentifiedEmotion"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&icl2-5;Eggs"/>
+            <rdf:Description rdf:about="&icl2-5;Fruits"/>
+            <rdf:Description rdf:about="&icl2-5;Grain"/>
+            <rdf:Description rdf:about="&icl2-5;Legumes"/>
+            <rdf:Description rdf:about="&icl2-5;Meat"/>
+            <rdf:Description rdf:about="&icl2-5;MilkAndDairyProducts"/>
+            <rdf:Description rdf:about="&icl2-5;Nuts"/>
+            <rdf:Description rdf:about="&icl2-5;SeaFood"/>
+            <rdf:Description rdf:about="&icl2-5;Snacks"/>
+            <rdf:Description rdf:about="&icl2-5;Vegetable"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&icl2-5;Amusement"/>
+            <rdf:Description rdf:about="&icl2-5;Commuting"/>
+            <rdf:Description rdf:about="&icl2-5;Exercising"/>
+            <rdf:Description rdf:about="&icl2-5;Gardening"/>
+            <rdf:Description rdf:about="&icl2-5;HouseWork"/>
+            <rdf:Description rdf:about="&icl2-5;Inactivity"/>
+            <rdf:Description rdf:about="&icl2-5;NoPhysicalActivityContext"/>
+            <rdf:Description rdf:about="&icl2-5;OfficeWork"/>
+            <rdf:Description rdf:about="&icl2-5;Sleeping"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&icl2-5;Gym"/>
+            <rdf:Description rdf:about="&icl2-5;Home"/>
+            <rdf:Description rdf:about="&icl2-5;Mall"/>
+            <rdf:Description rdf:about="&icl2-5;Office"/>
+            <rdf:Description rdf:about="&icl2-5;Outdoors"/>
+            <rdf:Description rdf:about="&icl2-5;Restaurant"/>
+            <rdf:Description rdf:about="&icl2-5;Transport"/>
+            <rdf:Description rdf:about="&icl2-5;UnidentifiedLocation"/>
+            <rdf:Description rdf:about="&icl2-5;Yard"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&icl2-5;Carbohydrate"/>
+            <rdf:Description rdf:about="&icl2-5;Fats"/>
+            <rdf:Description rdf:about="&icl2-5;NoNutritionContext"/>
+            <rdf:Description rdf:about="&icl2-5;Protein"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&icl2-5;Apple"/>
+            <rdf:Description rdf:about="&icl2-5;Apricot"/>
+            <rdf:Description rdf:about="&icl2-5;Avocado"/>
+            <rdf:Description rdf:about="&icl2-5;Banana"/>
+            <rdf:Description rdf:about="&icl2-5;Barley"/>
+            <rdf:Description rdf:about="&icl2-5;Beans"/>
+            <rdf:Description rdf:about="&icl2-5;Beef"/>
+            <rdf:Description rdf:about="&icl2-5;Bread"/>
+            <rdf:Description rdf:about="&icl2-5;Brown"/>
+            <rdf:Description rdf:about="&icl2-5;CarbonatedDrink"/>
+            <rdf:Description rdf:about="&icl2-5;Carrot"/>
+            <rdf:Description rdf:about="&icl2-5;Chicken"/>
+            <rdf:Description rdf:about="&icl2-5;ChickenSnack"/>
+            <rdf:Description rdf:about="&icl2-5;Cucumber"/>
+            <rdf:Description rdf:about="&icl2-5;Daegu"/>
+            <rdf:Description rdf:about="&icl2-5;Early"/>
+            <rdf:Description rdf:about="&icl2-5;Egg"/>
+            <rdf:Description rdf:about="&icl2-5;FishEggs"/>
+            <rdf:Description rdf:about="&icl2-5;Flounder"/>
+            <rdf:Description rdf:about="&icl2-5;FriedFood"/>
+            <rdf:Description rdf:about="&icl2-5;Grape"/>
+            <rdf:Description rdf:about="&icl2-5;GrapeFruit"/>
+            <rdf:Description rdf:about="&icl2-5;Ham"/>
+            <rdf:Description rdf:about="&icl2-5;Hamburger"/>
+            <rdf:Description rdf:about="&icl2-5;Head"/>
+            <rdf:Description rdf:about="&icl2-5;IceCream"/>
+            <rdf:Description rdf:about="&icl2-5;Kiwi"/>
+            <rdf:Description rdf:about="&icl2-5;Lemon"/>
+            <rdf:Description rdf:about="&icl2-5;LowFatCheese"/>
+            <rdf:Description rdf:about="&icl2-5;LowFatMilk"/>
+            <rdf:Description rdf:about="&icl2-5;Mackerel"/>
+            <rdf:Description rdf:about="&icl2-5;Melon"/>
+            <rdf:Description rdf:about="&icl2-5;Milk"/>
+            <rdf:Description rdf:about="&icl2-5;Noodle"/>
+            <rdf:Description rdf:about="&icl2-5;Oats"/>
+            <rdf:Description rdf:about="&icl2-5;Orange"/>
+            <rdf:Description rdf:about="&icl2-5;PacificSaury"/>
+            <rdf:Description rdf:about="&icl2-5;Peach"/>
+            <rdf:Description rdf:about="&icl2-5;Peanut"/>
+            <rdf:Description rdf:about="&icl2-5;Pizza"/>
+            <rdf:Description rdf:about="&icl2-5;Pork"/>
+            <rdf:Description rdf:about="&icl2-5;Pumpkin"/>
+            <rdf:Description rdf:about="&icl2-5;QuailEggs"/>
+            <rdf:Description rdf:about="&icl2-5;Quinoa"/>
+            <rdf:Description rdf:about="&icl2-5;Ramen"/>
+            <rdf:Description rdf:about="&icl2-5;Rice"/>
+            <rdf:Description rdf:about="&icl2-5;Rye"/>
+            <rdf:Description rdf:about="&icl2-5;Salmon"/>
+            <rdf:Description rdf:about="&icl2-5;SeaWeed"/>
+            <rdf:Description rdf:about="&icl2-5;Shrimp"/>
+            <rdf:Description rdf:about="&icl2-5;Snack"/>
+            <rdf:Description rdf:about="&icl2-5;SoyMilk"/>
+            <rdf:Description rdf:about="&icl2-5;Spinach"/>
+            <rdf:Description rdf:about="&icl2-5;Tofu"/>
+            <rdf:Description rdf:about="&icl2-5;Tuna"/>
+            <rdf:Description rdf:about="&icl2-5;WaterMelon"/>
+            <rdf:Description rdf:about="&icl2-5;Yogurt"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&icl2-5;ClimbingStairs"/>
+            <rdf:Description rdf:about="&icl2-5;Cycling"/>
+            <rdf:Description rdf:about="&icl2-5;Dancing"/>
+            <rdf:Description rdf:about="&icl2-5;DescendingStairs"/>
+            <rdf:Description rdf:about="&icl2-5;Eating"/>
+            <rdf:Description rdf:about="&icl2-5;Hiking"/>
+            <rdf:Description rdf:about="&icl2-5;Jumping"/>
+            <rdf:Description rdf:about="&icl2-5;LyingDown"/>
+            <rdf:Description rdf:about="&icl2-5;RidingElevator"/>
+            <rdf:Description rdf:about="&icl2-5;RidingEscalator"/>
+            <rdf:Description rdf:about="&icl2-5;Running"/>
+            <rdf:Description rdf:about="&icl2-5;Sitting"/>
+            <rdf:Description rdf:about="&icl2-5;Standing"/>
+            <rdf:Description rdf:about="&icl2-5;Stretching"/>
+            <rdf:Description rdf:about="&icl2-5;Sweeping"/>
+            <rdf:Description rdf:about="&icl2-5;UnidentifiedActivity"/>
+            <rdf:Description rdf:about="&icl2-5;Walking"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&icl2-5;Activity"/>
+            <rdf:Description rdf:about="&icl2-5;Emotion"/>
+            <rdf:Description rdf:about="&icl2-5;Food"/>
+            <rdf:Description rdf:about="&icl2-5;Location"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+
